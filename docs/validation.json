@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-17",
+  "scope": "English portable modular platform publication",
+  "checks": {
+    "python_unittest": {
+      "status": "PASS",
+      "tests": 59,
+      "failures": 0
+    },
+    "browser_worker_synthetic": {
+      "status": "PASS",
+      "tests": 17,
+      "failures": 0
+    },
+    "rendered_html": {
+      "status": "PASS",
+      "tests": 2,
+      "failures": 0
+    },
+    "typescript_no_emit": {
+      "status": "PASS"
+    },
+    "production_build": {
+      "status": "PASS",
+      "warnings": [
+        "Large client chunk warning",
+        "Some route classifications unknown in vinext static analysis"
+      ]
+    },
+    "original_source_hashes": {
+      "status": "PASS",
+      "unchanged_files": 80
+    },
+    "portable_paths_and_english_text": {
+      "status": "PASS",
+      "scope": "Published UTF-8 files; dependency caches and generated build directories excluded"
+    },
+    "tableau_xml_credentials": {
+      "status": "PASS",
+      "live_database_connection_tested": false
+    },
+    "working_directory_independence": {
+      "status": "PASS",
+      "included_in_python_test_count": true
+    },
+    "missing_archive_environment_fails_closed": {
+      "status": "PASS",
+      "included_in_python_test_count": true
+    }
+  },
+  "not_executed": [
+    "Locked research algorithms or real-data backtests",
+    "Database import or write",
+    "Live proprietary archive health check",
+    "Tableau Desktop rendering or live database connection",
+    "Private discovery-engine execution",
+    "Live optional AI providers",
+    "npm ci (pnpm frozen-lockfile install was used)",
+    "Hosted Sites redeployment"
+  ],
+  "replicated_paper_count": null,
+  "replication_accuracy": null,
+  "interpretation": "Passing software checks are not empirical replication accuracy."
+}

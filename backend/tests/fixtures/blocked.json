@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-08-07T21:05:14+08:00",
+  "overall_status": "BLOCKED",
+  "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
+  "run_id": "v312_final_walkforward_v3_yCFdQy",
+  "checks": [
+    {
+      "check_id": "fixture.database_connection",
+      "status": "BLOCKED",
+      "category": "database",
+      "message": "Read-only database dependency is unavailable.",
+      "expected": "readable view",
+      "actual": "unavailable",
+      "evidence": {"source": "synthetic_fixture"}
+    }
+  ],
+  "canonical_result_identity": {
+    "rows": 23,
+    "columns": 72,
+    "windows": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "status_counts": {"deploy_high_confidence": 13, "deploy_moderate_confidence": 1, "no_trade_calibration_gate": 9},
+    "formal_oos_non_null": 14,
+    "shadow_oos_non_null": 9,
+    "overlap": 0,
+    "neither": 0
+  },
+  "governance": {
+    "formal_shadow_must_be_mutually_exclusive": true,
+    "null_must_not_be_coerced_to_zero": true,
+    "health_results_must_not_be_used_for_tuning": true,
+    "information_set_33_columns_are_diagnostic_only": true,
+    "new_gate_created": false
+  },
+  "database_modified": false,
+  "research_algorithm_executed": false,
+  "walk_forward_executed": false,
+  "main_executed": false,
+  "pyc_created": false,
+  "credentials_recorded": false,
+  "oos_used_for_tuning": false,
+  "new_research_gate_created": false,
+  "v3_cache_modified": false,
+  "writes_outside_health_check": false,
+  "official_assets_unchanged_during_run": true
+}
+

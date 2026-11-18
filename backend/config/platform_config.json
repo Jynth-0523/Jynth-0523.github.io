@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "command": {
+    "command_id": "v312_read_only_health_check",
+    "script_path": "../health_check/run_health_check.sh",
+    "script_sha256": "084070a535cc4f947aa28e8d14fee7f098f7690aac6107c8147553e9865b2196",
+    "health_status_path": "../health_check/latest_health_status.json"
+  },
+  "identity": {
+    "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
+    "run_id": "v312_final_walkforward_v3_yCFdQy",
+    "canonical_rows": 23,
+    "canonical_columns": 72,
+    "windows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "status_counts": {
+      "deploy_high_confidence": 13,
+      "deploy_moderate_confidence": 1,
+      "no_trade_calibration_gate": 9
+    },
+    "formal_oos_non_null": 14,
+    "shadow_oos_non_null": 9,
+    "formal_shadow_overlap": 0,
+    "neither_oos_non_null": 0
+  },
+  "runtime": {
+    "root": "runtime",
+    "timeout_seconds": 900,
+    "blocked_retries": 2,
+    "retry_backoff_seconds": 0.25,
+    "idempotency_bucket_seconds": 3600,
+    "claim_lease_seconds": 1800,
+    "maximum_health_json_bytes": 10485760,
+    "maximum_subprocess_output_bytes": 1048576
+  },
+  "environment_allowlist": [
+    "HOME",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "TMPDIR",
+    "PLATFORM_PYTHON",
+    "RESEARCH_ASSETS_ROOT",
+    "LOCKED_RESEARCH_ROOT",
+    "PGHOST",
+    "PGPORT",
+    "PGDATABASE",
+    "PGUSER"
+  ],
+  "governance": {
+    "database_writes_allowed": false,
+    "research_execution_allowed": false,
+    "formal_shadow_pooling_allowed": false,
+    "null_to_zero_allowed": false,
+    "ai_tools_allowed": false,
+    "ai_cross_run_memory_allowed": false
+  }
+}

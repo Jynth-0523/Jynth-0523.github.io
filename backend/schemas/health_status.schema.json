@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "v312-health-status-1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "checked_at",
+    "overall_status",
+    "research_spec_id",
+    "run_id",
+    "checks",
+    "canonical_result_identity",
+    "governance",
+    "database_modified",
+    "research_algorithm_executed",
+    "walk_forward_executed",
+    "main_executed",
+    "pyc_created",
+    "credentials_recorded",
+    "oos_used_for_tuning",
+    "new_research_gate_created",
+    "v3_cache_modified",
+    "writes_outside_health_check",
+    "official_assets_unchanged_during_run"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "checked_at": {"type": "string", "format": "date-time"},
+    "overall_status": {"enum": ["PASS", "FAIL", "BLOCKED"]},
+    "research_spec_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["check_id", "status", "category", "message", "expected", "actual", "evidence"],
+        "properties": {
+          "check_id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["PASS", "FAIL", "BLOCKED"]},
+          "category": {"type": "string"},
+          "message": {"type": "string"}
+        }
+      }
+    },
+    "database_modified": {"const": false},
+    "research_algorithm_executed": {"const": false},
+    "walk_forward_executed": {"const": false},
+    "main_executed": {"const": false},
+    "pyc_created": {"const": false},
+    "credentials_recorded": {"const": false},
+    "oos_used_for_tuning": {"const": false},
+    "new_research_gate_created": {"const": false},
+    "v3_cache_modified": {"const": false},
+    "writes_outside_health_check": {"const": false},
+    "official_assets_unchanged_during_run": {"const": true}
+  }
+}
+

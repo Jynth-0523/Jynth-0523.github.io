@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+PROJECT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="$PROJECT_DIR/src"
+umask 077
+
+exec python3 -B -m research_platform "$@"
+

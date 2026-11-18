@@ -1,0 +1,115 @@
+{
+  "config_version": "1.0",
+  "health_check_directory": ".",
+  "identity": {
+    "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
+    "run_id": "v312_final_walkforward_v3_yCFdQy",
+    "canonical_rows": 23,
+    "canonical_columns": 72,
+    "windows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "status_counts": {
+      "deploy_high_confidence": 13,
+      "deploy_moderate_confidence": 1,
+      "no_trade_calibration_gate": 9
+    },
+    "formal_oos_non_null": 14,
+    "shadow_oos_non_null": 9,
+    "formal_shadow_overlap": 0,
+    "neither_oos_non_null": 0,
+    "information_set_diagnostic_columns": 33
+  },
+  "paths": {
+    "handoff": "${RESEARCH_ASSETS_ROOT}/handoff.md",
+    "archive_manifest": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/archive_manifest.json",
+    "archive_sha256sums": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/SHA256SUMS.txt",
+    "archive_directory": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/v312_final_walkforward_v3_yCFdQy",
+    "report_manifest": "${RESEARCH_ASSETS_ROOT}/final_report/report_manifest.json",
+    "report_directory": "${RESEARCH_ASSETS_ROOT}/final_report",
+    "database_dump": "${RESEARCH_ASSETS_ROOT}/database/backups/v312_research_final.dump",
+    "tableau_directory": "${RESEARCH_ASSETS_ROOT}/tableau",
+    "tableau_validation_report": "${RESEARCH_ASSETS_ROOT}/tableau/validation_report.json",
+    "tableau_verification_directory": "${RESEARCH_ASSETS_ROOT}/tableau/verification",
+    "tableau_twb": "${RESEARCH_ASSETS_ROOT}/tableau/V312_Final_Research_Dashboard.twb",
+    "tableau_twbx": "${RESEARCH_ASSETS_ROOT}/tableau/V312_Final_Research_Dashboard.twbx"
+  },
+  "root_sha256": {
+    "report_manifest": "c281c1e248e4390c84c1b309a1c3a285bd6fad0ae1834c6b41008776edd9889f",
+    "archive_manifest": "44363e94a07cadc56a5658afec7630fbb4a7cd6ec812f1fce82701de537ef78b",
+    "archive_sha256sums": "fd5d4d3f7f0e0e7ae4d070d14323bd0e61959390e22c530659a09c1918ddcd7c",
+    "archive_file_set": "bf3166b2ca814d8a7c09f965dd11a3f16a4e350acf41fe700a0a5a918daad7c6",
+    "database_dump": "734d9c10a1061dad277b99bc3ec43d5ecb8cf7865ab3c8f36904e0a0f7b7de29",
+    "tableau_twb": "1c91c68a3b310ef131dc062b96160ac86d0f812936db2488234d725b72d39269",
+    "tableau_twbx": "b1666c460978ac1100859b37ea1a4dbd20f443e8bec5ac90d0d11bc23b23e631"
+  },
+  "protected_files": [
+    {
+      "path": "${LOCKED_RESEARCH_ROOT}/v312_research.py",
+      "sha256": "fb0f80d1b37514ba65b89fee379402653f5574ccec49759056fd8f19ea30a97a"
+    },
+    {
+      "path": "${LOCKED_RESEARCH_ROOT}/test_v312.py",
+      "sha256": "e781a06490b099e899fe602b07e887a824d8f083b8fd2025e2093ec3a0297891"
+    },
+    {
+      "path": "${LOCKED_RESEARCH_ROOT}/v312_research_before_fix.py",
+      "sha256": "892cde6913457fd53143897ff48f43dade403521969288b2c9b58600f9061d65"
+    }
+  ],
+  "database": {
+    "host": "${PGHOST}",
+    "port": "${PGPORT}",
+    "database": "${PGDATABASE}",
+    "schema": "v312",
+    "user": "${PGUSER}",
+    "psql_candidates": [
+      "psql"
+    ],
+    "views": [
+      "v312.tableau_walk_forward",
+      "v312.tableau_window_weights",
+      "v312.tableau_validation_candidates",
+      "v312.tableau_factor_screening"
+    ],
+    "expected_view_rows": {
+      "v312.tableau_walk_forward": 23,
+      "v312.tableau_window_weights": 415,
+      "v312.tableau_validation_candidates": 253,
+      "v312.tableau_factor_screening": 2300
+    },
+    "weight_sum_tolerance": 1e-06,
+    "credential_policy": "Use an existing local PostgreSQL authentication mechanism; never persist credentials in this tool."
+  },
+  "governance": {
+    "formal_oos": "Only deployment windows; reporting only.",
+    "shadow_oos": "Only calibration no-trade windows; ex-post diagnostic only.",
+    "formal_shadow_must_be_mutually_exclusive": true,
+    "null_must_not_be_coerced_to_zero": true,
+    "health_results_must_not_be_used_for_tuning": true,
+    "information_set_33_columns_are_diagnostic_only": true,
+    "new_gate_created": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "v312-automation-run-envelope-1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "automation_run_id",
+    "scheduled_at",
+    "started_at",
+    "finished_at",
+    "idempotency_key",
+    "command_id",
+    "script_sha256",
+    "config_sha256",
+    "platform_code_sha256",
+    "validated_status",
+    "health_json_sha256",
+    "previous_envelope_sha256",
+    "tool_trace",
+    "observation_provenance",
+    "envelope_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "validated_status": {"enum": ["PASS", "FAIL", "BLOCKED", "DISABLED"]},
+    "previous_envelope_sha256": {"type": ["string", "null"]},
+    "health_json_sha256": {"type": ["string", "null"]},
+    "envelope_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ai_explanation_sha256": {"type": "null"}
+  }
+}

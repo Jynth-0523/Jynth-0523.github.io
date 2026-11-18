@@ -1,0 +1,3516 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workbook xmlns:user="http://www.tableausoftware.com/xml/user" original-version="18.1" source-build="2026.2.1 (20262.26.0708.1337)" source-platform="mac" version="18.1">
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name="ui.encoding.shelf.height" value="24" />
+    <preference name="ui.shelf.height" value="26" />
+  </preferences>
+  <datasources>
+    <datasource hasconnection="false" inline="true" name="Parameters" version="18.1">
+      <aliases enabled="yes" />
+      <column caption="RankIC Zero Reference" datatype="real" name="[Parameter Zero]" param-domain-type="any" role="measure" type="quantitative" value="0.0">
+        <calculation class="tableau" formula="0.0" />
+      </column>
+    </datasource>
+    <datasource caption="V3.1.2 Walk Forward" inline="true" name="federated.v312_walk_forward" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="127.0.0.1" name="postgres.v312_walk_forward">
+            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="postgres.v312_walk_forward" name="tableau_walk_forward" table="[v312].[tableau_walk_forward]" type="table" />
+        <metadata-records>
+          <metadata-record class="column">
+            <remote-name>run_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>research_spec_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[research_spec_id]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>research_spec_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>window</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[window]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>window</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>is_complete_oos</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_complete_oos]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>is_complete_oos</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[train_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_start</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[train_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_end</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_start</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_end</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_validation_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[selection_validation_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_validation_start</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_validation_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[selection_validation_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_validation_end</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_validation_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[calibration_validation_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_validation_start</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_validation_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[calibration_validation_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_validation_end</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_actual_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[selection_actual_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_actual_start</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_actual_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[selection_actual_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_actual_end</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_actual_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[calibration_actual_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_actual_start</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_actual_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[calibration_actual_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_actual_end</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>test_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[test_start]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>test_start</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>test_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[test_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>test_end</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>planned_test_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[planned_test_end]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>planned_test_end</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_multiple_testing_method</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[validation_multiple_testing_method]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_multiple_testing_method</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[status]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>status</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>num_screened_factors</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_screened_factors]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>num_screened_factors</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>num_selected_factors</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_selected_factors]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>num_selected_factors</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>num_validation_candidates</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_validation_candidates]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>num_validation_candidates</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>num_validation_absolute_gate_passed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_validation_absolute_gate_passed]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>num_validation_absolute_gate_passed</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>num_validation_confidence_deployable</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[num_validation_confidence_deployable]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>num_validation_confidence_deployable</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>frozen_candidate_index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[frozen_candidate_index]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>frozen_candidate_index</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_candidate_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[selection_candidate_count]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_candidate_count</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_multiple_testing_family_size</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[selection_multiple_testing_family_size]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_multiple_testing_family_size</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selection_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_validation_confidence</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selection_raw_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selection_raw_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selection_raw_validation_confidence</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_candidate_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[calibration_candidate_count]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_candidate_count</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_multiple_testing_family_size</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[calibration_multiple_testing_family_size]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_multiple_testing_family_size</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>calibration_passed</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[calibration_passed]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>calibration_passed</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_stability_fitness</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[train_stability_fitness]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_stability_fitness</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[train_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_rankic</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[train_icir]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_icir</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[train_positive_ratio]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_positive_ratio</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[train_subperiod_stability]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>train_subperiod_stability</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_stability_fitness</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_stability_fitness]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_stability_fitness</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_rankic</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_icir]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_icir</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_positive_ratio]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_positive_ratio</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_subperiod_stability]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>validation_subperiod_stability</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_validation_confidence</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_confidence_level</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[selected_confidence_level]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_confidence_level</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_raw_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_raw_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_raw_validation_confidence</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_raw_mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_raw_mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_raw_mean_rankic_confidence</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_raw_directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_raw_directional_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_raw_directional_confidence</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_multiple_testing_family_size</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[selected_multiple_testing_family_size]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_multiple_testing_family_size</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_mean_rankic_confidence</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_directional_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_directional_confidence</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[selected_subperiod_stability]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_subperiod_stability</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>oos_test_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[oos_test_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>oos_test_rankic</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_factors</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[selected_factors]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_factors</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>selected_weights</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[selected_weights]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>selected_weights</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directions</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[directions]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>directions</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_oos_test_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_oos_test_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_oos_test_rankic</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_validation_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_validation_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_validation_rankic</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_validation_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_validation_icir]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_validation_icir</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_validation_positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_validation_positive_ratio]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_validation_positive_ratio</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_validation_stability_fitness</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_validation_stability_fitness]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_validation_stability_fitness</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_validation_confidence</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_confidence_level</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[shadow_confidence_level]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_confidence_level</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_raw_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_raw_validation_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_raw_validation_confidence</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_raw_mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_raw_mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_raw_mean_rankic_confidence</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_raw_directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_raw_directional_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_raw_directional_confidence</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_multiple_testing_family_size</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_multiple_testing_family_size]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_multiple_testing_family_size</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_mean_rankic_confidence</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_directional_confidence]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_directional_confidence</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_subperiod_stability]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_subperiod_stability</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_best_validation_index</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_best_validation_index]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_best_validation_index</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_selected_weights</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[shadow_selected_weights]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_selected_weights</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>oos_branch</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[oos_branch]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>oos_branch</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>formal_oos_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[formal_oos_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>formal_oos_rankic</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>shadow_diagnostic_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[shadow_diagnostic_rankic]</local-name>
+            <parent-name>[tableau_walk_forward]</parent-name>
+            <remote-alias>shadow_diagnostic_rankic</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Research Spec Id" datatype="string" name="[research_spec_id]" role="dimension" type="nominal" />
+      <column caption="Window" datatype="integer" name="[window]" role="dimension" type="ordinal" aggregation="Sum" />
+      <column caption="Is Complete Oos" datatype="boolean" name="[is_complete_oos]" role="dimension" type="nominal" />
+      <column caption="Train Start" datatype="date" name="[train_start]" role="dimension" type="ordinal" />
+      <column caption="Train End" datatype="date" name="[train_end]" role="dimension" type="ordinal" />
+      <column caption="Validation Start" datatype="date" name="[validation_start]" role="dimension" type="ordinal" />
+      <column caption="Validation End" datatype="date" name="[validation_end]" role="dimension" type="ordinal" />
+      <column caption="Selection Validation Start" datatype="date" name="[selection_validation_start]" role="dimension" type="ordinal" />
+      <column caption="Selection Validation End" datatype="date" name="[selection_validation_end]" role="dimension" type="ordinal" />
+      <column caption="Calibration Validation Start" datatype="date" name="[calibration_validation_start]" role="dimension" type="ordinal" />
+      <column caption="Calibration Validation End" datatype="date" name="[calibration_validation_end]" role="dimension" type="ordinal" />
+      <column caption="Selection Actual Start" datatype="date" name="[selection_actual_start]" role="dimension" type="ordinal" />
+      <column caption="Selection Actual End" datatype="date" name="[selection_actual_end]" role="dimension" type="ordinal" />
+      <column caption="Calibration Actual Start" datatype="date" name="[calibration_actual_start]" role="dimension" type="ordinal" />
+      <column caption="Calibration Actual End" datatype="date" name="[calibration_actual_end]" role="dimension" type="ordinal" />
+      <column caption="Test Start" datatype="date" name="[test_start]" role="dimension" type="ordinal" />
+      <column caption="Test End" datatype="date" name="[test_end]" role="dimension" type="ordinal" />
+      <column caption="Planned Test End" datatype="date" name="[planned_test_end]" role="dimension" type="ordinal" />
+      <column caption="Validation Multiple Testing Method" datatype="string" name="[validation_multiple_testing_method]" role="dimension" type="nominal" />
+      <column caption="Status" datatype="string" name="[status]" role="dimension" type="nominal" />
+      <column caption="Num Screened Factors" datatype="integer" name="[num_screened_factors]" role="measure" type="quantitative" />
+      <column caption="Num Selected Factors" datatype="integer" name="[num_selected_factors]" role="measure" type="quantitative" />
+      <column caption="Num Validation Candidates" datatype="integer" name="[num_validation_candidates]" role="measure" type="quantitative" />
+      <column caption="Num Validation Absolute Gate Passed" datatype="integer" name="[num_validation_absolute_gate_passed]" role="measure" type="quantitative" />
+      <column caption="Num Validation Confidence Deployable" datatype="integer" name="[num_validation_confidence_deployable]" role="measure" type="quantitative" />
+      <column caption="Frozen Candidate Index" datatype="integer" name="[frozen_candidate_index]" role="measure" type="quantitative" />
+      <column caption="Selection Candidate Count" datatype="integer" name="[selection_candidate_count]" role="measure" type="quantitative" />
+      <column caption="Selection Multiple Testing Family Size" datatype="integer" name="[selection_multiple_testing_family_size]" role="measure" type="quantitative" />
+      <column caption="Selection Validation Confidence" datatype="real" name="[selection_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Selection Raw Validation Confidence" datatype="real" name="[selection_raw_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Calibration Candidate Count" datatype="integer" name="[calibration_candidate_count]" role="measure" type="quantitative" />
+      <column caption="Calibration Multiple Testing Family Size" datatype="integer" name="[calibration_multiple_testing_family_size]" role="measure" type="quantitative" />
+      <column caption="Calibration Passed" datatype="boolean" name="[calibration_passed]" role="dimension" type="nominal" />
+      <column caption="Train Stability Fitness" datatype="real" name="[train_stability_fitness]" role="measure" type="quantitative" />
+      <column caption="Train Rankic" datatype="real" name="[train_rankic]" role="measure" type="quantitative" />
+      <column caption="Train Icir" datatype="real" name="[train_icir]" role="measure" type="quantitative" />
+      <column caption="Train Positive Ratio" datatype="real" name="[train_positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Train Subperiod Stability" datatype="real" name="[train_subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Validation Stability Fitness" datatype="real" name="[validation_stability_fitness]" role="measure" type="quantitative" />
+      <column caption="Validation Rankic" datatype="real" name="[validation_rankic]" role="measure" type="quantitative" />
+      <column caption="Validation Icir" datatype="real" name="[validation_icir]" role="measure" type="quantitative" />
+      <column caption="Validation Positive Ratio" datatype="real" name="[validation_positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Validation Subperiod Stability" datatype="real" name="[validation_subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Selected Validation Confidence" datatype="real" name="[selected_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Confidence Level" datatype="string" name="[selected_confidence_level]" role="dimension" type="nominal" />
+      <column caption="Selected Raw Validation Confidence" datatype="real" name="[selected_raw_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Raw Mean Rankic Confidence" datatype="real" name="[selected_raw_mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Raw Directional Confidence" datatype="real" name="[selected_raw_directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Multiple Testing Family Size" datatype="integer" name="[selected_multiple_testing_family_size]" role="measure" type="quantitative" />
+      <column caption="Selected Mean Rankic Confidence" datatype="real" name="[selected_mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Directional Confidence" datatype="real" name="[selected_directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Selected Subperiod Stability" datatype="real" name="[selected_subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Oos Test Rankic" datatype="real" name="[oos_test_rankic]" role="measure" type="quantitative" />
+      <column caption="Selected Factors" datatype="string" name="[selected_factors]" role="dimension" type="nominal" />
+      <column caption="Selected Weights" datatype="string" name="[selected_weights]" role="dimension" type="nominal" />
+      <column caption="Directions" datatype="string" name="[directions]" role="dimension" type="nominal" />
+      <column caption="Shadow Oos Test Rankic" datatype="real" name="[shadow_oos_test_rankic]" role="measure" type="quantitative" />
+      <column caption="Shadow Validation Rankic" datatype="real" name="[shadow_validation_rankic]" role="measure" type="quantitative" />
+      <column caption="Shadow Validation Icir" datatype="real" name="[shadow_validation_icir]" role="measure" type="quantitative" />
+      <column caption="Shadow Validation Positive Ratio" datatype="real" name="[shadow_validation_positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Shadow Validation Stability Fitness" datatype="real" name="[shadow_validation_stability_fitness]" role="measure" type="quantitative" />
+      <column caption="Shadow Validation Confidence" datatype="real" name="[shadow_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Confidence Level" datatype="string" name="[shadow_confidence_level]" role="dimension" type="nominal" />
+      <column caption="Shadow Raw Validation Confidence" datatype="real" name="[shadow_raw_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Raw Mean Rankic Confidence" datatype="real" name="[shadow_raw_mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Raw Directional Confidence" datatype="real" name="[shadow_raw_directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Multiple Testing Family Size" datatype="real" name="[shadow_multiple_testing_family_size]" role="measure" type="quantitative" />
+      <column caption="Shadow Mean Rankic Confidence" datatype="real" name="[shadow_mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Directional Confidence" datatype="real" name="[shadow_directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Shadow Subperiod Stability" datatype="real" name="[shadow_subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Shadow Best Validation Index" datatype="real" name="[shadow_best_validation_index]" role="measure" type="quantitative" />
+      <column caption="Shadow Selected Weights" datatype="string" name="[shadow_selected_weights]" role="dimension" type="nominal" />
+      <column caption="Oos Branch" datatype="string" name="[oos_branch]" role="dimension" type="nominal" />
+      <column caption="Formal Oos Rankic" datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
+      <column caption="Shadow Diagnostic Rankic" datatype="real" name="[shadow_diagnostic_rankic]" role="measure" type="quantitative" />
+      <column caption="Status Window Count And Share" datatype="string" name="[Status Label]" role="measure" type="nominal">
+        <calculation class="tableau" formula="STR(COUNTD([window])) + ' (' + STR(ROUND(COUNTD([window]) / 23.0 * 100, 1)) + '%)'" />
+      </column>
+      <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+      <layout dim-ordering="alphabetic" measure-ordering="alphabetic" show-structure="true" />
+      <style>
+        <style-rule element="mark">
+          <encoding attr="color" field="[none:status:nk]" type="palette">
+            <map to="#4E79A7">
+              <bucket>"deploy_high_confidence"</bucket>
+            </map>
+            <map to="#F28E2B">
+              <bucket>"deploy_moderate_confidence"</bucket>
+            </map>
+            <map to="#BAB0AC">
+              <bucket>"no_trade_calibration_gate"</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <object-graph>
+        <objects>
+          <object caption="tableau_walk_forward" id="tableau_walk_forward_V312_FINAL">
+            <properties context="">
+              <relation connection="postgres.v312_walk_forward" name="tableau_walk_forward" table="[v312].[tableau_walk_forward]" type="table" />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption="V3.1.2 Frozen Weights" inline="true" name="federated.v312_window_weights" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="127.0.0.1" name="postgres.v312_window_weights">
+            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="postgres.v312_window_weights" name="tableau_window_weights" table="[v312].[tableau_window_weights]" type="table" />
+        <metadata-records>
+          <metadata-record class="column">
+            <remote-name>run_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>window</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[window]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>window</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>factor_position</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[factor_position]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>factor_position</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>factor_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[factor_name]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>factor_name</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>direction</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[direction]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>direction</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>weight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[weight]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>weight</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>oos_role</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[oos_role]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>oos_role</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>weight_sha256</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[weight_sha256]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>weight_sha256</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>weight_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[weight_count]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>weight_count</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>nonzero_weight_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[nonzero_weight_count]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>nonzero_weight_count</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>weight_sum</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[weight_sum]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>weight_sum</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>max_weight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_weight]</local-name>
+            <parent-name>[tableau_window_weights]</parent-name>
+            <remote-alias>max_weight</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Window" datatype="integer" name="[window]" role="dimension" type="ordinal" aggregation="Sum" />
+      <column caption="Factor Position" datatype="integer" name="[factor_position]" role="dimension" type="nominal" />
+      <column caption="Factor Name" datatype="string" name="[factor_name]" role="dimension" type="nominal" />
+      <column caption="Direction" datatype="integer" name="[direction]" role="measure" type="quantitative" />
+      <column caption="Weight" datatype="real" name="[weight]" role="measure" type="quantitative" />
+      <column caption="Oos Role" datatype="string" name="[oos_role]" role="dimension" type="nominal" />
+      <column caption="Weight Sha256" datatype="string" name="[weight_sha256]" role="dimension" type="nominal" />
+      <column caption="Weight Count" datatype="integer" name="[weight_count]" role="measure" type="quantitative" />
+      <column caption="Nonzero Weight Count" datatype="integer" name="[nonzero_weight_count]" role="measure" type="quantitative" />
+      <column caption="Weight Sum" datatype="real" name="[weight_sum]" role="measure" type="quantitative" />
+      <column caption="Max Weight" datatype="real" name="[max_weight]" role="measure" type="quantitative" />
+      <column-instance column="[oos_role]" derivation="None" name="[none:oos_role:nk]" pivot="key" type="nominal" />
+      <layout dim-ordering="alphabetic" measure-ordering="alphabetic" show-structure="true" />
+      <style>
+        <style-rule element="mark">
+          <encoding attr="color" field="[none:oos_role:nk]" type="palette">
+            <map to="#4E79A7">
+              <bucket>"formal"</bucket>
+            </map>
+            <map to="#9C9C9C">
+              <bucket>"shadow"</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <object-graph>
+        <objects>
+          <object caption="tableau_window_weights" id="tableau_window_weights_V312_FINAL">
+            <properties context="">
+              <relation connection="postgres.v312_window_weights" name="tableau_window_weights" table="[v312].[tableau_window_weights]" type="table" />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption="V3.1.2 Validation Candidates" inline="true" name="federated.v312_validation_candidates" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="127.0.0.1" name="postgres.v312_validation_candidates">
+            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="postgres.v312_validation_candidates" name="tableau_validation_candidates" table="[v312].[tableau_validation_candidates]" type="table" />
+        <metadata-records>
+          <metadata-record class="column">
+            <remote-name>run_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>candidate_index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[candidate_index]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>candidate_index</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>rankic_std</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rankic_std]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>rankic_std</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[icir]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>icir</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[positive_ratio]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>positive_ratio</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>valid_days</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[valid_days]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>valid_days</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>valid_subperiod_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[valid_subperiod_ratio]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>valid_subperiod_ratio</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>positive_subperiod_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[positive_subperiod_ratio]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>positive_subperiod_ratio</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_stability]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>subperiod_stability</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>fitness_mean_rankic_component</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[fitness_mean_rankic_component]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>fitness_mean_rankic_component</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>fitness_icir_component</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[fitness_icir_component]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>fitness_icir_component</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>fitness_directional_component</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[fitness_directional_component]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>fitness_directional_component</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>fitness_subperiod_component</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[fitness_subperiod_component]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>fitness_subperiod_component</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>stability_fitness</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[stability_fitness]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>stability_fitness</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic_iid_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic_iid_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic_iid_se</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic_hac_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic_hac_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic_hac_se</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic_confidence_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic_confidence_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic_confidence_se</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_iid_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_iid_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>directional_iid_se</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_hac_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_hac_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>directional_hac_se</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_confidence_se</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_confidence_se]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>directional_confidence_se</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>confidence_hac_lags</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[confidence_hac_lags]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>confidence_hac_lags</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>passes_absolute_quality_gate</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[passes_absolute_quality_gate]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>passes_absolute_quality_gate</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>raw_mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[raw_mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>raw_mean_rankic_confidence</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>raw_directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[raw_directional_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>raw_directional_confidence</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic_pvalue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic_pvalue]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic_pvalue</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_pvalue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_pvalue]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>directional_pvalue</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>adjusted_mean_rankic_pvalue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[adjusted_mean_rankic_pvalue]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>adjusted_mean_rankic_pvalue</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>adjusted_directional_pvalue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[adjusted_directional_pvalue]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>adjusted_directional_pvalue</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_rankic_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_rankic_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>mean_rankic_confidence</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>directional_confidence</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>raw_validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[raw_validation_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>raw_validation_confidence</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_confidence]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_confidence</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>multiple_testing_method</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[multiple_testing_method]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>multiple_testing_method</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>multiple_testing_family_size</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[multiple_testing_family_size]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>multiple_testing_family_size</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>confidence_level</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[confidence_level]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>confidence_level</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>passes_confidence_soft_gate</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[passes_confidence_soft_gate]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>passes_confidence_soft_gate</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>eligible_for_candidate_selection</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[eligible_for_candidate_selection]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>eligible_for_candidate_selection</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_stage</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[validation_stage]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_stage</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>original_candidate_index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[original_candidate_index]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>original_candidate_index</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>original_selection_candidate_index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[original_selection_candidate_index]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>original_selection_candidate_index</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>window</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[window]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>window</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>is_complete_oos</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_complete_oos]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>is_complete_oos</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>research_spec_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[research_spec_id]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>research_spec_id</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_stage_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_stage_start]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_stage_start</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_stage_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_stage_end]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_stage_end</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_actual_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_actual_start]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_actual_start</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_actual_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[validation_actual_end]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_actual_end</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_min_mean_rankic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_min_mean_rankic]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_min_mean_rankic</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_min_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_min_icir]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_min_icir</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_min_positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_min_positive_ratio]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_min_positive_ratio</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_deploy_confidence_threshold</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_deploy_confidence_threshold]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_deploy_confidence_threshold</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>validation_high_confidence_threshold</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[validation_high_confidence_threshold]</local-name>
+            <parent-name>[tableau_validation_candidates]</parent-name>
+            <remote-alias>validation_high_confidence_threshold</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Candidate Index" datatype="integer" name="[candidate_index]" role="dimension" type="nominal" />
+      <column caption="Mean Rankic" datatype="real" name="[mean_rankic]" role="measure" type="quantitative" />
+      <column caption="Rankic Std" datatype="real" name="[rankic_std]" role="measure" type="quantitative" />
+      <column caption="Icir" datatype="real" name="[icir]" role="measure" type="quantitative" />
+      <column caption="Positive Ratio" datatype="real" name="[positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Valid Days" datatype="integer" name="[valid_days]" role="measure" type="quantitative" />
+      <column caption="Valid Subperiod Ratio" datatype="real" name="[valid_subperiod_ratio]" role="measure" type="quantitative" />
+      <column caption="Positive Subperiod Ratio" datatype="real" name="[positive_subperiod_ratio]" role="measure" type="quantitative" />
+      <column caption="Subperiod Stability" datatype="real" name="[subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Fitness Mean Rankic Component" datatype="real" name="[fitness_mean_rankic_component]" role="measure" type="quantitative" />
+      <column caption="Fitness Icir Component" datatype="real" name="[fitness_icir_component]" role="measure" type="quantitative" />
+      <column caption="Fitness Directional Component" datatype="real" name="[fitness_directional_component]" role="measure" type="quantitative" />
+      <column caption="Fitness Subperiod Component" datatype="real" name="[fitness_subperiod_component]" role="measure" type="quantitative" />
+      <column caption="Stability Fitness" datatype="real" name="[stability_fitness]" role="measure" type="quantitative" />
+      <column caption="Mean Rankic Iid Se" datatype="real" name="[mean_rankic_iid_se]" role="measure" type="quantitative" />
+      <column caption="Mean Rankic Hac Se" datatype="real" name="[mean_rankic_hac_se]" role="measure" type="quantitative" />
+      <column caption="Mean Rankic Confidence Se" datatype="real" name="[mean_rankic_confidence_se]" role="measure" type="quantitative" />
+      <column caption="Directional Iid Se" datatype="real" name="[directional_iid_se]" role="measure" type="quantitative" />
+      <column caption="Directional Hac Se" datatype="real" name="[directional_hac_se]" role="measure" type="quantitative" />
+      <column caption="Directional Confidence Se" datatype="real" name="[directional_confidence_se]" role="measure" type="quantitative" />
+      <column caption="Confidence Hac Lags" datatype="integer" name="[confidence_hac_lags]" role="measure" type="quantitative" />
+      <column caption="Passes Absolute Quality Gate" datatype="boolean" name="[passes_absolute_quality_gate]" role="dimension" type="nominal" />
+      <column caption="Raw Mean Rankic Confidence" datatype="real" name="[raw_mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Raw Directional Confidence" datatype="real" name="[raw_directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Mean Rankic Pvalue" datatype="real" name="[mean_rankic_pvalue]" role="measure" type="quantitative" />
+      <column caption="Directional Pvalue" datatype="real" name="[directional_pvalue]" role="measure" type="quantitative" />
+      <column caption="Adjusted Mean Rankic Pvalue" datatype="real" name="[adjusted_mean_rankic_pvalue]" role="measure" type="quantitative" />
+      <column caption="Adjusted Directional Pvalue" datatype="real" name="[adjusted_directional_pvalue]" role="measure" type="quantitative" />
+      <column caption="Mean Rankic Confidence" datatype="real" name="[mean_rankic_confidence]" role="measure" type="quantitative" />
+      <column caption="Directional Confidence" datatype="real" name="[directional_confidence]" role="measure" type="quantitative" />
+      <column caption="Raw Validation Confidence" datatype="real" name="[raw_validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Validation Confidence" datatype="real" name="[validation_confidence]" role="measure" type="quantitative" />
+      <column caption="Multiple Testing Method" datatype="string" name="[multiple_testing_method]" role="dimension" type="nominal" />
+      <column caption="Multiple Testing Family Size" datatype="integer" name="[multiple_testing_family_size]" role="measure" type="quantitative" />
+      <column caption="Confidence Level" datatype="string" name="[confidence_level]" role="dimension" type="nominal" />
+      <column caption="Passes Confidence Soft Gate" datatype="boolean" name="[passes_confidence_soft_gate]" role="dimension" type="nominal" />
+      <column caption="Eligible For Candidate Selection" datatype="boolean" name="[eligible_for_candidate_selection]" role="dimension" type="nominal" />
+      <column caption="Validation Stage" datatype="string" name="[validation_stage]" role="dimension" type="nominal" />
+      <column caption="Original Candidate Index" datatype="integer" name="[original_candidate_index]" role="dimension" type="nominal" />
+      <column caption="Original Selection Candidate Index" datatype="integer" name="[original_selection_candidate_index]" role="dimension" type="nominal" />
+      <column caption="Window" datatype="integer" name="[window]" role="dimension" type="ordinal" aggregation="Sum" />
+      <column caption="Is Complete Oos" datatype="boolean" name="[is_complete_oos]" role="dimension" type="nominal" />
+      <column caption="Research Spec Id" datatype="string" name="[research_spec_id]" role="dimension" type="nominal" />
+      <column caption="Validation Stage Start" datatype="date" name="[validation_stage_start]" role="dimension" type="ordinal" />
+      <column caption="Validation Stage End" datatype="date" name="[validation_stage_end]" role="dimension" type="ordinal" />
+      <column caption="Validation Actual Start" datatype="date" name="[validation_actual_start]" role="dimension" type="ordinal" />
+      <column caption="Validation Actual End" datatype="date" name="[validation_actual_end]" role="dimension" type="ordinal" />
+      <column caption="Validation Min Mean Rankic" datatype="real" name="[validation_min_mean_rankic]" role="measure" type="quantitative" />
+      <column caption="Validation Min Icir" datatype="real" name="[validation_min_icir]" role="measure" type="quantitative" />
+      <column caption="Validation Min Positive Ratio" datatype="real" name="[validation_min_positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Validation Deploy Confidence Threshold" datatype="real" name="[validation_deploy_confidence_threshold]" role="measure" type="quantitative" />
+      <column caption="Validation High Confidence Threshold" datatype="real" name="[validation_high_confidence_threshold]" role="measure" type="quantitative" />
+      <layout dim-ordering="alphabetic" measure-ordering="alphabetic" show-structure="true" />
+      <style>
+        <style-rule element="mark" />
+      </style>
+      <object-graph>
+        <objects>
+          <object caption="tableau_validation_candidates" id="tableau_validation_candidates_V312_FINAL">
+            <properties context="">
+              <relation connection="postgres.v312_validation_candidates" name="tableau_validation_candidates" table="[v312].[tableau_validation_candidates]" type="table" />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption="V3.1.2 Factor Screening" inline="true" name="federated.v312_factor_screening" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="127.0.0.1" name="postgres.v312_factor_screening">
+            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="postgres.v312_factor_screening" name="tableau_factor_screening" table="[v312].[tableau_factor_screening]" type="table" />
+        <metadata-records>
+          <metadata-record class="column">
+            <remote-name>run_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>factor</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[factor]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>factor</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>mean_ic</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>abs_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[abs_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>abs_mean_ic</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>std_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[std_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>std_ic</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[icir]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>icir</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>abs_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[abs_icir]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>abs_icir</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>positive_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[positive_ratio]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>positive_ratio</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>direction</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[direction]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>direction</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>directional_consistency</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[directional_consistency]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>directional_consistency</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>valid_days</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[valid_days]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>valid_days</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>valid_subperiod_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[valid_subperiod_count]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>valid_subperiod_count</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>valid_subperiod_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[valid_subperiod_ratio]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>valid_subperiod_ratio</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_direction_consistency</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_direction_consistency]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_direction_consistency</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_ic_dispersion</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_ic_dispersion]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_ic_dispersion</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>normalized_subperiod_dispersion</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[normalized_subperiod_dispersion]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>normalized_subperiod_dispersion</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_stability]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_stability</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_1_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_1_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_1_mean_ic</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_2_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_2_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_2_mean_ic</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_3_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_3_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_3_mean_ic</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>subperiod_4_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[subperiod_4_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>subperiod_4_mean_ic</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>coverage</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[coverage]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>coverage</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>rank_mean_ic</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_mean_ic]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>rank_mean_ic</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>rank_icir</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_icir]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>rank_icir</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>rank_directional_consistency</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_directional_consistency]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>rank_directional_consistency</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>rank_subperiod_stability</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rank_subperiod_stability]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>rank_subperiod_stability</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>factor_stability_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[factor_stability_score]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>factor_stability_score</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>window</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[window]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>window</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_start</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[train_start]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>train_start</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>train_end</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[train_end]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>train_end</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>is_complete_oos</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_complete_oos]</local-name>
+            <parent-name>[tableau_factor_screening]</parent-name>
+            <remote-alias>is_complete_oos</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Factor" datatype="string" name="[factor]" role="dimension" type="nominal" />
+      <column caption="Mean Ic" datatype="real" name="[mean_ic]" role="measure" type="quantitative" />
+      <column caption="Abs Mean Ic" datatype="real" name="[abs_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Std Ic" datatype="real" name="[std_ic]" role="measure" type="quantitative" />
+      <column caption="Icir" datatype="real" name="[icir]" role="measure" type="quantitative" />
+      <column caption="Abs Icir" datatype="real" name="[abs_icir]" role="measure" type="quantitative" />
+      <column caption="Positive Ratio" datatype="real" name="[positive_ratio]" role="measure" type="quantitative" />
+      <column caption="Direction" datatype="integer" name="[direction]" role="measure" type="quantitative" />
+      <column caption="Directional Consistency" datatype="real" name="[directional_consistency]" role="measure" type="quantitative" />
+      <column caption="Valid Days" datatype="integer" name="[valid_days]" role="measure" type="quantitative" />
+      <column caption="Valid Subperiod Count" datatype="integer" name="[valid_subperiod_count]" role="measure" type="quantitative" />
+      <column caption="Valid Subperiod Ratio" datatype="real" name="[valid_subperiod_ratio]" role="measure" type="quantitative" />
+      <column caption="Subperiod Direction Consistency" datatype="real" name="[subperiod_direction_consistency]" role="measure" type="quantitative" />
+      <column caption="Subperiod Ic Dispersion" datatype="real" name="[subperiod_ic_dispersion]" role="measure" type="quantitative" />
+      <column caption="Normalized Subperiod Dispersion" datatype="real" name="[normalized_subperiod_dispersion]" role="measure" type="quantitative" />
+      <column caption="Subperiod Stability" datatype="real" name="[subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Subperiod 1 Mean Ic" datatype="real" name="[subperiod_1_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Subperiod 2 Mean Ic" datatype="real" name="[subperiod_2_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Subperiod 3 Mean Ic" datatype="real" name="[subperiod_3_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Subperiod 4 Mean Ic" datatype="real" name="[subperiod_4_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Coverage" datatype="real" name="[coverage]" role="measure" type="quantitative" />
+      <column caption="Rank Mean Ic" datatype="real" name="[rank_mean_ic]" role="measure" type="quantitative" />
+      <column caption="Rank Icir" datatype="real" name="[rank_icir]" role="measure" type="quantitative" />
+      <column caption="Rank Directional Consistency" datatype="real" name="[rank_directional_consistency]" role="measure" type="quantitative" />
+      <column caption="Rank Subperiod Stability" datatype="real" name="[rank_subperiod_stability]" role="measure" type="quantitative" />
+      <column caption="Factor Stability Score" datatype="real" name="[factor_stability_score]" role="measure" type="quantitative" />
+      <column caption="Window" datatype="integer" name="[window]" role="dimension" type="ordinal" aggregation="Sum" />
+      <column caption="Train Start" datatype="date" name="[train_start]" role="dimension" type="ordinal" />
+      <column caption="Train End" datatype="date" name="[train_end]" role="dimension" type="ordinal" />
+      <column caption="Is Complete Oos" datatype="boolean" name="[is_complete_oos]" role="dimension" type="nominal" />
+      <layout dim-ordering="alphabetic" measure-ordering="alphabetic" show-structure="true" />
+      <style>
+        <style-rule element="mark" />
+      </style>
+      <object-graph>
+        <objects>
+          <object caption="tableau_factor_screening" id="tableau_factor_screening_V312_FINAL">
+            <properties context="">
+              <relation connection="postgres.v312_factor_screening" name="tableau_factor_screening" table="[v312].[tableau_factor_screening]" type="table" />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="01 Formal OOS RankIC">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">01 Formal OOS RankIC</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="RankIC Zero Reference" datatype="real" name="[Parameter Zero]" param-domain-type="any" role="measure" type="quantitative" value="0.0">
+              <calculation class="tableau" formula="0.0" />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[selected_validation_confidence]" role="measure" type="quantitative" />
+            <column datatype="string" name="[status]" role="dimension" type="nominal" />
+            <column datatype="date" name="[test_end]" role="dimension" type="ordinal" />
+            <column datatype="date" name="[test_start]" role="dimension" type="ordinal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[formal_oos_rankic]" derivation="Sum" name="[sum:formal_oos_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+            <column-instance column="[test_start]" derivation="Attribute" name="[attr:test_start:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[test_end]" derivation="Attribute" name="[attr:test_end:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[selected_validation_confidence]" derivation="Sum" name="[sum:selected_validation_confidence:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:window:ok]">
+            <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:status:nk]">
+            <groupfilter function="level-members" level="[none:status:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.v312_walk_forward].[none:window:ok]</column>
+            <column>[federated.v312_walk_forward].[none:status:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <color column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
+              <lod column="[federated.v312_walk_forward].[attr:test_start:ok]" />
+              <lod column="[federated.v312_walk_forward].[attr:test_end:ok]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" />
+            </encodings>
+            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Test Start: &lt;[federated.v312_walk_forward].[attr:test_start:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Test End: &lt;[federated.v312_walk_forward].[attr:test_end:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]</rows>
+        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{D856FE7F-1FA3-4E7A-AE46-129FA5EDA98C}" />
+    </worksheet>
+    <worksheet name="02 Deployment Status">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">02 Deployment Status</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+          </datasources>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="string" name="[status]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column caption="Status Window Count And Share" datatype="string" name="[Status Label]" role="measure" type="nominal">
+              <calculation class="tableau" formula="STR(COUNTD([window])) + ' (' + STR(ROUND(COUNTD([window]) / 23.0 * 100, 1)) + '%)'" />
+            </column>
+            <column-instance column="[window]" derivation="CountD" name="[ctd:window:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.v312_walk_forward].[none:status:nk]" />
+              <text column="[federated.v312_walk_forward].[Status Label]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.v312_walk_forward].[ctd:window:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Window Count: &lt;[federated.v312_walk_forward].[ctd:window:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>[federated.v312_walk_forward].[none:status:nk]</rows>
+        <cols>[federated.v312_walk_forward].[ctd:window:qk]</cols>
+      </table>
+      <simple-id uuid="{830CE4AD-0649-40C2-A46C-6FBE27796F16}" />
+    </worksheet>
+    <worksheet name="03 Validation Confidence">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">03 Validation Confidence</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+          </datasources>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="integer" name="[frozen_candidate_index]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[selected_validation_confidence]" role="measure" type="quantitative" />
+            <column datatype="real" name="[selection_validation_confidence]" role="measure" type="quantitative" />
+            <column datatype="string" name="[status]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[selection_validation_confidence]" derivation="Sum" name="[sum:selection_validation_confidence:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[selected_validation_confidence]" derivation="Sum" name="[sum:selected_validation_confidence:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[frozen_candidate_index]" derivation="Attribute" name="[attr:frozen_candidate_index:nk]" pivot="key" type="quantitative" />
+            <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Selection Confidence: &lt;[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Candidate: &lt;[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#4E79A7" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id="2" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Selection Confidence: &lt;[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Candidate: &lt;[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#F28E2B" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.v312_walk_forward].[sum:selection_validation_confidence:qk] + [federated.v312_walk_forward].[sum:selected_validation_confidence:qk])</rows>
+        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{6E4A24F5-B63C-43C5-9ECD-C16E583E350E}" />
+    </worksheet>
+    <worksheet name="04A Formal OOS">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">04A Formal OOS</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="RankIC Zero Reference" datatype="real" name="[Parameter Zero]" param-domain-type="any" role="measure" type="quantitative" value="0.0">
+              <calculation class="tableau" formula="0.0" />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="string" name="[status]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[formal_oos_rankic]" derivation="Sum" name="[sum:formal_oos_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+            </encodings>
+            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+04A Formal OOS: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#4E79A7" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]</rows>
+        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{B2312C69-B8A0-414D-AC5F-41A4037B93BD}" />
+    </worksheet>
+    <worksheet name="04B Shadow OOS - Diagnostic Only">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">04B Shadow OOS - Diagnostic Only</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="RankIC Zero Reference" datatype="real" name="[Parameter Zero]" param-domain-type="any" role="measure" type="quantitative" value="0.0">
+              <calculation class="tableau" formula="0.0" />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[shadow_diagnostic_rankic]" role="measure" type="quantitative" />
+            <column datatype="string" name="[status]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[shadow_diagnostic_rankic]" derivation="Sum" name="[sum:shadow_diagnostic_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" />
+              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+            </encodings>
+            <reference-line axis-column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+04B Shadow OOS - Diagnostic Only: &lt;[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#9C9C9C" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="line-pattern-only" value="dashed" />
+                <format attr="line-pattern" value="dashed" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]</rows>
+        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{FFAA5DA2-1EAD-4B63-B0D8-8215F179D68E}" />
+    </worksheet>
+    <worksheet name="04 Formal vs Shadow">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">04 Formal vs Shadow</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="RankIC Zero Reference" datatype="real" name="[Parameter Zero]" param-domain-type="any" role="measure" type="quantitative" value="0.0">
+              <calculation class="tableau" formula="0.0" />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="federated.v312_walk_forward">
+            <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[shadow_diagnostic_rankic]" role="measure" type="quantitative" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[formal_oos_rankic]" derivation="Sum" name="[sum:formal_oos_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[shadow_diagnostic_rankic]" derivation="Sum" name="[sum:shadow_diagnostic_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings />
+            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#4E79A7" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id="2" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings />
+            <reference-line axis-column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#9C9C9C" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="line-pattern-only" value="dashed" />
+                <format attr="line-pattern" value="dashed" />
+              </style-rule>
+              <style-rule element="mark">
+                <format attr="mark-markers-mode" value="all" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.v312_walk_forward].[sum:formal_oos_rankic:qk] + [federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk])</rows>
+        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{C58C8A2B-C910-4CA0-951C-63703C30C486}" />
+    </worksheet>
+    <worksheet name="05 Frozen Factor Weights">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">05 Frozen Factor Weights</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Frozen Weights" name="federated.v312_window_weights" />
+          </datasources>
+          <datasource-dependencies datasource="federated.v312_window_weights">
+            <column datatype="integer" name="[direction]" role="measure" type="quantitative" />
+            <column datatype="string" name="[factor_name]" role="dimension" type="nominal" />
+            <column datatype="string" name="[oos_role]" role="dimension" type="nominal" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[weight]" role="measure" type="quantitative" />
+            <column datatype="string" name="[weight_sha256]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[factor_name]" derivation="None" name="[none:factor_name:nk]" pivot="key" type="nominal" />
+            <column-instance column="[weight]" derivation="Sum" name="[sum:weight:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[oos_role]" derivation="None" name="[none:oos_role:nk]" pivot="key" type="nominal" />
+            <column-instance column="[direction]" derivation="Attribute" name="[attr:direction:nk]" pivot="key" type="quantitative" />
+            <column-instance column="[weight_sha256]" derivation="None" name="[none:weight_sha256:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_window_weights].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_window_weights].[none:window:ok]">
+            <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_window_weights].[none:oos_role:nk]">
+            <groupfilter function="level-members" level="[none:oos_role:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_window_weights].[none:factor_name:nk]">
+            <groupfilter function="level-members" level="[none:factor_name:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_window_weights].[none:run_id:nk]</column>
+            <column>[federated.v312_window_weights].[none:window:ok]</column>
+            <column>[federated.v312_window_weights].[none:oos_role:nk]</column>
+            <column>[federated.v312_window_weights].[none:factor_name:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Square" />
+            <encodings>
+              <color column="[federated.v312_window_weights].[sum:weight:qk]" />
+              <size column="[federated.v312_window_weights].[sum:weight:qk]" />
+              <lod column="[federated.v312_window_weights].[none:oos_role:nk]" />
+              <lod column="[federated.v312_window_weights].[none:window:ok]" />
+              <lod column="[federated.v312_window_weights].[none:factor_name:nk]" />
+              <tooltip column="[federated.v312_window_weights].[attr:direction:nk]" />
+              <tooltip column="[federated.v312_window_weights].[sum:weight:qk]" />
+              <lod column="[federated.v312_window_weights].[none:weight_sha256:nk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_window_weights].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Factor: &lt;[federated.v312_window_weights].[none:factor_name:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Role: &lt;[federated.v312_window_weights].[none:oos_role:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Direction: &lt;[federated.v312_window_weights].[attr:direction:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Weight: &lt;[federated.v312_window_weights].[sum:weight:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Weight SHA-256: &lt;[federated.v312_window_weights].[none:weight_sha256:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>[federated.v312_window_weights].[none:factor_name:nk]</rows>
+        <cols>[federated.v312_window_weights].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{DB01BB93-1BDA-434A-ABD2-5C1E5FB46349}" />
+    </worksheet>
+    <worksheet name="06 Factor Stability">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">06 Factor Stability</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Factor Screening" name="federated.v312_factor_screening" />
+          </datasources>
+          <datasource-dependencies datasource="federated.v312_factor_screening">
+            <column datatype="real" name="[abs_mean_ic]" role="measure" type="quantitative" />
+            <column datatype="integer" name="[direction]" role="measure" type="quantitative" />
+            <column datatype="string" name="[factor]" role="dimension" type="nominal" />
+            <column datatype="real" name="[factor_stability_score]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[factor]" derivation="None" name="[none:factor:nk]" pivot="key" type="nominal" />
+            <column-instance column="[factor_stability_score]" derivation="Avg" name="[avg:factor_stability_score:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[direction]" derivation="Attribute" name="[attr:direction:nk]" pivot="key" type="quantitative" />
+            <column-instance column="[abs_mean_ic]" derivation="Avg" name="[avg:abs_mean_ic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_factor_screening].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_factor_screening].[none:window:ok]">
+            <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_factor_screening].[none:run_id:nk]</column>
+            <column>[federated.v312_factor_screening].[none:window:ok]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Square" />
+            <encodings>
+              <color column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
+              <size column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
+              <lod column="[federated.v312_factor_screening].[none:window:ok]" />
+              <lod column="[federated.v312_factor_screening].[none:factor:nk]" />
+              <tooltip column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
+              <tooltip column="[federated.v312_factor_screening].[attr:direction:nk]" />
+              <tooltip column="[federated.v312_factor_screening].[avg:abs_mean_ic:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_factor_screening].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Factor: &lt;[federated.v312_factor_screening].[none:factor:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Stability Score: &lt;[federated.v312_factor_screening].[avg:factor_stability_score:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Direction: &lt;[federated.v312_factor_screening].[attr:direction:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Abs Mean IC: &lt;[federated.v312_factor_screening].[avg:abs_mean_ic:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>[federated.v312_factor_screening].[none:factor:nk]</rows>
+        <cols>[federated.v312_factor_screening].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{ABFB7A57-8255-4CE5-B072-0E290DF905F3}" />
+    </worksheet>
+    <worksheet name="07 Validation Candidates">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="14">07 Validation Candidates</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="V3.1.2 Validation Candidates" name="federated.v312_validation_candidates" />
+          </datasources>
+          <datasource-dependencies datasource="federated.v312_validation_candidates">
+            <column datatype="integer" name="[candidate_index]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[confidence_hac_lags]" role="measure" type="quantitative" />
+            <column datatype="real" name="[icir]" role="measure" type="quantitative" />
+            <column datatype="real" name="[mean_rankic]" role="measure" type="quantitative" />
+            <column datatype="integer" name="[multiple_testing_family_size]" role="measure" type="quantitative" />
+            <column datatype="real" name="[raw_validation_confidence]" role="measure" type="quantitative" />
+            <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column datatype="real" name="[validation_confidence]" role="measure" type="quantitative" />
+            <column datatype="string" name="[validation_stage]" role="dimension" type="nominal" />
+            <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+            <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+            <column-instance column="[validation_confidence]" derivation="Avg" name="[avg:validation_confidence:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[validation_stage]" derivation="None" name="[none:validation_stage:nk]" pivot="key" type="nominal" />
+            <column-instance column="[mean_rankic]" derivation="Avg" name="[avg:mean_rankic:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[icir]" derivation="Avg" name="[avg:icir:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[multiple_testing_family_size]" derivation="Attribute" name="[attr:multiple_testing_family_size:nk]" pivot="key" type="quantitative" />
+            <column-instance column="[confidence_hac_lags]" derivation="Attribute" name="[attr:confidence_hac_lags:nk]" pivot="key" type="quantitative" />
+            <column-instance column="[raw_validation_confidence]" derivation="Avg" name="[avg:raw_validation_confidence:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[candidate_index]" derivation="None" name="[none:candidate_index:nk]" pivot="key" type="nominal" />
+            <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.v312_validation_candidates].[none:run_id:nk]">
+            <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <filter class="categorical" column="[federated.v312_validation_candidates].[none:validation_stage:nk]">
+            <groupfilter function="level-members" level="[none:validation_stage:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
+          </filter>
+          <slices>
+            <column>[federated.v312_validation_candidates].[none:run_id:nk]</column>
+            <column>[federated.v312_validation_candidates].[none:validation_stage:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="cols" value="false" />
+          </style-rule>
+          <style-rule element="refline">
+            <format attr="stroke-color" id="refline0" value="#8C8C8C" />
+            <format attr="stroke-size" id="refline0" value="1" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id="1" selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Circle" />
+            <encodings>
+              <color column="[federated.v312_validation_candidates].[none:validation_stage:nk]" />
+              <size column="[federated.v312_validation_candidates].[avg:mean_rankic:qk]" />
+              <lod column="[federated.v312_validation_candidates].[none:candidate_index:nk]" />
+              <lod column="[federated.v312_validation_candidates].[none:window:ok]" />
+              <lod column="[federated.v312_validation_candidates].[none:validation_stage:nk]" />
+              <tooltip column="[federated.v312_validation_candidates].[avg:mean_rankic:qk]" />
+              <tooltip column="[federated.v312_validation_candidates].[avg:icir:qk]" />
+              <tooltip column="[federated.v312_validation_candidates].[attr:confidence_hac_lags:nk]" />
+              <tooltip column="[federated.v312_validation_candidates].[attr:multiple_testing_family_size:nk]" />
+              <tooltip column="[federated.v312_validation_candidates].[avg:raw_validation_confidence:qk]" />
+              <tooltip column="[federated.v312_validation_candidates].[avg:validation_confidence:qk]" />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_validation_candidates].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Stage: &lt;[federated.v312_validation_candidates].[none:validation_stage:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Candidate: &lt;[federated.v312_validation_candidates].[none:candidate_index:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Mean RankIC: &lt;[federated.v312_validation_candidates].[avg:mean_rankic:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+ICIR: &lt;[federated.v312_validation_candidates].[avg:icir:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+HAC Lag: &lt;[federated.v312_validation_candidates].[attr:confidence_hac_lags:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Holm Family: &lt;[federated.v312_validation_candidates].[attr:multiple_testing_family_size:nk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Raw Confidence: &lt;[federated.v312_validation_candidates].[avg:raw_validation_confidence:qk]&gt;</run>
+                <run fontname="Tableau Regular" fontsize="10">
+Adjusted Confidence: &lt;[federated.v312_validation_candidates].[avg:validation_confidence:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>[federated.v312_validation_candidates].[avg:validation_confidence:qk]</rows>
+        <cols>[federated.v312_validation_candidates].[none:window:ok]</cols>
+      </table>
+      <simple-id uuid="{5ABF95A7-D317-431C-84D7-63520D9F889A}" />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="V3.1.2 Final Walk-Forward Dashboard">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Tableau Semibold" fontsize="18">V3.1.2 Final Walk-Forward Dashboard</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight="900" maxwidth="1200" minheight="900" minwidth="1200" sizing-mode="fixed" />
+      <datasources>
+        <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+        <datasource caption="V3.1.2 Frozen Weights" name="federated.v312_window_weights" />
+      </datasources>
+      <datasource-dependencies datasource="federated.v312_walk_forward">
+        <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
+        <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
+        <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
+        <column-instance column="[window]" derivation="None" name="[none:window:ok]" pivot="key" type="ordinal" />
+        <column datatype="string" name="[status]" role="dimension" type="nominal" />
+        <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
+      </datasource-dependencies>
+      <datasource-dependencies datasource="federated.v312_window_weights">
+        <column datatype="string" name="[oos_role]" role="dimension" type="nominal" />
+        <column-instance column="[oos_role]" derivation="None" name="[none:oos_role:nk]" pivot="key" type="nominal" />
+      </datasource-dependencies>
+      <zones>
+        <zone h="100000" id="1" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="5500" id="2" type-v2="title" w="100000" x="0" y="0" />
+          <zone h="6500" id="3" type-v2="text" w="100000" x="0" y="5500">
+            <formatted-text>
+              <run fontname="Tableau Regular" fontsize="10">Research Spec: v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3
+23 complete walk-forward windows. Formal OOS is report-only. Shadow OOS is post-hoc diagnostic only. Neither may be used for further model tuning.</run>
+            </formatted-text>
+          </zone>
+          <zone h="23500" id="10" name="01 Formal OOS RankIC" show-title="true" w="65000" x="0" y="16500">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="23500" id="11" name="02 Deployment Status" show-title="true" w="35000" x="65000" y="16500">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="26000" id="12" name="03 Validation Confidence" show-title="true" w="50000" x="0" y="40000">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="13000" id="13" name="04A Formal OOS" show-title="true" w="50000" x="50000" y="40000">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="13000" id="14" name="04B Shadow OOS - Diagnostic Only" show-title="true" w="50000" x="50000" y="53000">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="34000" id="15" name="05 Frozen Factor Weights" show-title="true" w="100000" x="0" y="66000">
+            <layout-cache type-h="scalable" type-w="scalable" />
+          </zone>
+          <zone h="4500" id="30" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:run_id:nk]" type-v2="filter" w="24000" x="0" y="12000" />
+          <zone h="4500" id="31" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:window:ok]" type-v2="filter" w="24000" x="25000" y="12000" />
+          <zone h="4500" id="32" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:status:nk]" type-v2="filter" w="24000" x="50000" y="12000" />
+          <zone h="4500" id="33" mode="dropdown" name="05 Frozen Factor Weights" param="[federated.v312_window_weights].[none:oos_role:nk]" type-v2="filter" w="24000" x="75000" y="12000" />
+        </zone>
+      </zones>
+      <simple-id uuid="{8A539F23-9E35-4D2B-A0FB-DB336BFB557F}" />
+    </dashboard>
+  </dashboards>
+  <windows source-height="30">
+    <window class="dashboard" maximized="true" name="V3.1.2 Final Walk-Forward Dashboard">
+      <viewpoints>
+        <viewpoint name="01 Formal OOS RankIC">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="02 Deployment Status">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="03 Validation Confidence">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="04A Formal OOS">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="04B Shadow OOS - Diagnostic Only">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="05 Frozen Factor Weights">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <simple-id uuid="{DD53610E-6478-41CB-9383-9EDA1748FC81}" />
+    </window>
+    <window class="worksheet" name="01 Formal OOS RankIC">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{D46F8205-9C89-430F-8706-74B1D6F2A6A9}" />
+    </window>
+    <window class="worksheet" name="02 Deployment Status">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{DEA2FF60-84EB-4563-AD7A-E5B67E90097F}" />
+    </window>
+    <window class="worksheet" name="03 Validation Confidence">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{39092225-5EA8-4A96-8C3A-E62DD5AC7165}" />
+    </window>
+    <window class="worksheet" name="04 Formal vs Shadow">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{4707E189-68D7-430E-903F-65458501759C}" />
+    </window>
+    <window class="worksheet" name="04A Formal OOS">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{1895F086-C0B3-47F5-B69B-201300ECE56F}" />
+    </window>
+    <window class="worksheet" name="04B Shadow OOS - Diagnostic Only">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{CC8A467B-5800-4C2C-A7CF-61F5B9841E0C}" />
+    </window>
+    <window class="worksheet" name="05 Frozen Factor Weights">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{E0EC621C-0FAB-443B-B9B0-47EE207CCAF1}" />
+    </window>
+    <window class="worksheet" name="06 Factor Stability">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{B8CAB1A9-DBCF-41F5-81C8-D76A9B4FAEBC}" />
+    </window>
+    <window class="worksheet" name="07 Validation Candidates">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{ABC94445-057E-4DB6-B479-52D4FA80A36C}" />
+    </window>
+  </windows>
+</workbook>
