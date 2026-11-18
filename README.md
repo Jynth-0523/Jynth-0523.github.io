@@ -13,6 +13,13 @@ is outside this repository. The existing GitHub Pages entry point is retained.
 
 ## Try it with a ready-to-use CSV
 
+**Want to see how the website works in practice?** Download the example CSV below
+and load it into the [online discovery workspace](https://factor-discovery-research.xu001258.chatgpt.site/discover).
+Use it to try the complete workflow: map columns, audit the data, run factor
+discovery, inspect the results, and export the reports. You do not need your own
+dataset to explore the platform. This is synthetic demonstration data, not real
+market data or evidence of investment performance.
+
 **[Download the example CSV (13.5 MB)](https://raw.githubusercontent.com/Jynth-0523/Jynth-0523.github.io/main/examples/factor-discovery-daily-example-1990-2025.csv)**
 · [View the file in this repository](examples/factor-discovery-daily-example-1990-2025.csv)
 
