@@ -11,6 +11,51 @@ This repository contains the English, portable source release prepared on
 health-check, and Tableau integrations. The separate four-algorithm paper project
 is outside this repository. The existing GitHub Pages entry point is retained.
 
+## Try it with a ready-to-use CSV
+
+**[Download the example CSV (13.5 MB)](https://raw.githubusercontent.com/Jynth-0523/Jynth-0523.github.io/main/examples/factor-discovery-daily-example-1990-2025.csv)**
+· [View the file in this repository](examples/factor-discovery-daily-example-1990-2025.csv)
+
+The live website already offers this file under
+[Example data → Download example CSV](https://factor-discovery-research.xu001258.chatgpt.site/#example-data).
+This repository copy was downloaded unchanged from that button on 17 November 2026.
+It contains **187,860 rows, 20 synthetic assets, 9,393 weekday dates, and four
+candidate features**, spanning **1990-01-01 through 2025-12-31**. Its weekday calendar
+is illustrative, not an exchange-holiday calendar.
+
+1. Save the linked file as `.csv`. If your browser displays the raw text, use
+   **Save As** to download it.
+2. Open the [discovery workspace](https://factor-discovery-research.xu001258.chatgpt.site/discover)
+   and choose the downloaded CSV.
+3. Check the field mapping and settings below. Keep the observations **Daily**;
+   the target is a **21-period forward return**, not a one-day return.
+4. Run the data audit, then run discovery after it passes. Review any validation
+   failures and export your own run evidence; a passing data audit is not a
+   successful investment strategy.
+
+| Workspace setting | Value |
+| --- | --- |
+| Entity identifier | `asset_id` |
+| Observation date | `date` |
+| Feature availability date | `available_date` |
+| Forward return target | `forward_return_21d` |
+| Data frequency | Daily |
+| Target horizon | 21 daily periods |
+| Candidate features | `value`, `quality`, `momentum_1m`, `volatility_1m` |
+
+Returns use decimal units: `0.01` means 1%. Do not include the return target or the
+date columns among candidate features. On the hosted workspace, portfolio
+rebalancing frequency is a separate setting; it does not change the input frequency
+or the target horizon.
+
+**Synthetic example only:** these are artificial values for learning the upload
+format and workflow. They contain no licensed observations and are not the historical
+research sample, author-replication data, or evidence of empirical accuracy. Availability
+dates are synthetic too. The hosted site and this source snapshot evolve separately;
+the bundled local sample-download component still generates its older monthly demo.
+The daily CSV linked here passes the bundled worker's import and data audit with
+the mapping above. No discovery result or research replication was rerun for this addition.
+
 ## Technology and responsibilities
 
 | Technology | Implemented responsibility | Source |
@@ -140,6 +185,7 @@ The frozen private V8 runner was not found in the inspected platform folders.
 | `health_check/` | English read-only historical-asset verifier and environment-based configuration |
 | `database/` | PostgreSQL importer, read-only verification SQL, optional dependencies |
 | `tableau/` | Sanitized Live Connection workbook template |
+| `examples/` | Ready-to-upload synthetic daily CSV copied from the live website |
 | `docs/` | Per-file inventory, provenance hashes, evidence scope, release verification |
 
 See [`docs/file_inventory.md`](docs/file_inventory.md) for every published file and

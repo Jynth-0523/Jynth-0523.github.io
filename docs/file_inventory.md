@@ -6,7 +6,7 @@ File names describe responsibilities. Original names and hashes are retained onl
 | --- | --- |
 | [`.env.example`](../.env.example) | Optional local environment settings; no credentials. |
 | [`.gitignore`](../.gitignore) | Exclude private data, local settings, dependencies, and runtime output. |
-| [`README.md`](../README.md) | Overview, setup, technology responsibilities, and evidence boundaries. |
+| [`README.md`](../README.md) | Overview, downloadable example and mapping, setup, technology responsibilities, and evidence boundaries. |
 | [`backend/README.md`](../backend/README.md) | Component setup and operational documentation. |
 | [`backend/config/discovery_config.json`](../backend/config/discovery_config.json) | Component configuration: discovery config. |
 | [`backend/config/platform_config.json`](../backend/config/platform_config.json) | Component configuration: platform config. |
@@ -62,6 +62,7 @@ File names describe responsibilities. Original names and hashes are retained onl
 | [`docs/release_manifest.json`](../docs/release_manifest.json) | Published-file sizes and SHA-256 hashes; excludes its own self-hash. |
 | [`docs/source_manifest.json`](../docs/source_manifest.json) | Original-to-published provenance, extraction mapping, and SHA-256 hashes. |
 | [`docs/validation.json`](../docs/validation.json) | Executed verification checks and untested integration boundaries. |
+| [`examples/factor-discovery-daily-example-1990-2025.csv`](../examples/factor-discovery-daily-example-1990-2025.csv) | Unchanged synthetic daily sample from the live website: 20 assets, 187,860 rows, 1990–2025. |
 | [`health_check/audit_archive.py`](../health_check/audit_archive.py) | Locked archive and canonical report checks. |
 | [`health_check/audit_common.py`](../health_check/audit_common.py) | Read-only file hashes, safe paths, snapshots, and evidence recorder. |
 | [`health_check/audit_database.py`](../health_check/audit_database.py) | Read-only PostgreSQL invariants and view checks. |

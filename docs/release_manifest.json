@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 9120,
-      "sha256": "2b44259c0108b5e12ab73736ea314439e789956b3da4ae13eac947309d8c260b"
+      "bytes": 11762,
+      "sha256": "c9fdca7b663df17ba79a4decdc3d6802d612213bb495ddaba75281a730b176f5"
     },
     {
       "path": "backend/README.md",
@@ -274,8 +274,8 @@
     },
     {
       "path": "docs/file_inventory.md",
-      "bytes": 14182,
-      "sha256": "46eb0adee4c7f03a8679ff80ff203057ca38d2b5f2b94a1453664b1e0022e0f6"
+      "bytes": 14432,
+      "sha256": "26967caaebcf01563bec5d88d92024d402d54f21fbc1d8e76108dd5d0192c333"
     },
     {
       "path": "docs/source_manifest.json",
@@ -284,8 +284,13 @@
     },
     {
       "path": "docs/validation.json",
-      "bytes": 1796,
-      "sha256": "46931df4ba490ff8f1c860375ad3cda952ace1891ff8b84a813970dc99e00e82"
+      "bytes": 3026,
+      "sha256": "389d9eef047d0ee5d2180c11088a60f5e9ac08d02eede6d8f7c5f286fd377b2c"
+    },
+    {
+      "path": "examples/factor-discovery-daily-example-1990-2025.csv",
+      "bytes": 13453375,
+      "sha256": "3ae6ecb64d36830982a60e02d87b7a02d4e082f5c9b7841df11ea4de51d32402"
     },
     {
       "path": "health_check/audit_archive.py",
