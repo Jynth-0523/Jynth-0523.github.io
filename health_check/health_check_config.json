@@ -4,6 +4,7 @@
   "identity": {
     "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
     "run_id": "v312_final_walkforward_v3_yCFdQy",
+    "dashboard_names": ["V3.1.2 Final Walk-Forward Dashboard"],
     "canonical_rows": 23,
     "canonical_columns": 72,
     "windows": [
@@ -46,15 +47,15 @@
     "handoff": "${RESEARCH_ASSETS_ROOT}/handoff.md",
     "archive_manifest": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/archive_manifest.json",
     "archive_sha256sums": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/SHA256SUMS.txt",
-    "archive_directory": "${RESEARCH_ASSETS_ROOT}/final_walkforward_archive/v312_final_walkforward_v3_yCFdQy",
+    "archive_directory": "${RESEARCH_ARCHIVE_DIR}",
     "report_manifest": "${RESEARCH_ASSETS_ROOT}/final_report/report_manifest.json",
     "report_directory": "${RESEARCH_ASSETS_ROOT}/final_report",
-    "database_dump": "${RESEARCH_ASSETS_ROOT}/database/backups/v312_research_final.dump",
+    "database_dump": "${LOCKED_DATABASE_DUMP}",
     "tableau_directory": "${RESEARCH_ASSETS_ROOT}/tableau",
     "tableau_validation_report": "${RESEARCH_ASSETS_ROOT}/tableau/validation_report.json",
     "tableau_verification_directory": "${RESEARCH_ASSETS_ROOT}/tableau/verification",
-    "tableau_twb": "${RESEARCH_ASSETS_ROOT}/tableau/V312_Final_Research_Dashboard.twb",
-    "tableau_twbx": "${RESEARCH_ASSETS_ROOT}/tableau/V312_Final_Research_Dashboard.twbx"
+    "tableau_twb": "${LOCKED_TABLEAU_WORKBOOK}",
+    "tableau_twbx": "${LOCKED_TABLEAU_PACKAGE}"
   },
   "root_sha256": {
     "report_manifest": "c281c1e248e4390c84c1b309a1c3a285bd6fad0ae1834c6b41008776edd9889f",
@@ -67,15 +68,15 @@
   },
   "protected_files": [
     {
-      "path": "${LOCKED_RESEARCH_ROOT}/v312_research.py",
+      "path": "${LOCKED_RESEARCH_SOURCE}",
       "sha256": "fb0f80d1b37514ba65b89fee379402653f5574ccec49759056fd8f19ea30a97a"
     },
     {
-      "path": "${LOCKED_RESEARCH_ROOT}/test_v312.py",
+      "path": "${LOCKED_RESEARCH_TESTS}",
       "sha256": "e781a06490b099e899fe602b07e887a824d8f083b8fd2025e2093ec3a0297891"
     },
     {
-      "path": "${LOCKED_RESEARCH_ROOT}/v312_research_before_fix.py",
+      "path": "${LOCKED_RESEARCH_BACKUP}",
       "sha256": "892cde6913457fd53143897ff48f43dade403521969288b2c9b58600f9061d65"
     }
   ],
@@ -83,22 +84,22 @@
     "host": "${PGHOST}",
     "port": "${PGPORT}",
     "database": "${PGDATABASE}",
-    "schema": "v312",
+    "schema": "${PGSCHEMA}",
     "user": "${PGUSER}",
     "psql_candidates": [
       "psql"
     ],
     "views": [
-      "v312.tableau_walk_forward",
-      "v312.tableau_window_weights",
-      "v312.tableau_validation_candidates",
-      "v312.tableau_factor_screening"
+      "${PGSCHEMA}.tableau_walk_forward",
+      "${PGSCHEMA}.tableau_window_weights",
+      "${PGSCHEMA}.tableau_validation_candidates",
+      "${PGSCHEMA}.tableau_factor_screening"
     ],
     "expected_view_rows": {
-      "v312.tableau_walk_forward": 23,
-      "v312.tableau_window_weights": 415,
-      "v312.tableau_validation_candidates": 253,
-      "v312.tableau_factor_screening": 2300
+      "${PGSCHEMA}.tableau_walk_forward": 23,
+      "${PGSCHEMA}.tableau_window_weights": 415,
+      "${PGSCHEMA}.tableau_validation_candidates": 253,
+      "${PGSCHEMA}.tableau_factor_screening": 2300
     },
     "weight_sum_tolerance": 1e-06,
     "credential_policy": "Use an existing local PostgreSQL authentication mechanism; never persist credentials in this tool."

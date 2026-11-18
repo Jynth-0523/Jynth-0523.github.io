@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .historical_contract import canonical_artifact_path, locked_research_is_unchanged
+
 import hashlib
 import json
 import math
@@ -58,31 +60,31 @@ def _read_json(path: Path, *, label: str) -> dict[str, Any]:
 
 
 def build_registry_snapshot(*, project_root: Path, result_path: Path) -> dict[str, Any]:
-    """Build the human-review registry from locked V8 development artifacts."""
-    result = _read_json(result_path, label="V8 result")
-    _require(result.get("formal_sample_accessed") is False, "V8 result crossed the Formal boundary")
-    _require(result.get("formal_sample_authorized") is False, "V8 result authorized Formal access")
-    _require(result.get("v312_code_modified") is False, "V8 result reports a V3.1.2 modification")
+    """Build the human-review registry from frozen development discovery artifacts."""
+    result = _read_json(result_path, label="development discovery result")
+    _require(result.get("formal_sample_accessed") is False, "development discovery result crossed the Formal boundary")
+    _require(result.get("formal_sample_authorized") is False, "development discovery result authorized Formal access")
+    _require(locked_research_is_unchanged(result), "development discovery result reports a locked research modification")
     quality = result.get("quality_checks")
-    _require(isinstance(quality, dict) and quality.get("status") == "PASS", "V8 quality checks did not pass")
-    _require(int(quality.get("duplicate_permno_pointdate_keys", -1)) == 0, "V8 cache contains duplicate stable keys")
+    _require(isinstance(quality, dict) and quality.get("status") == "PASS", "development discovery quality checks did not pass")
+    _require(int(quality.get("duplicate_permno_pointdate_keys", -1)) == 0, "development discovery cache contains duplicate stable keys")
 
     artifacts = result.get("artifacts")
-    _require(isinstance(artifacts, dict), "V8 artifact manifest is missing")
+    _require(isinstance(artifacts, dict), "development discovery artifact manifest is missing")
     expected_artifacts = {
-        "candidate_ledger": Path("runtime/factor_discovery_v8/candidate_ledger.json"),
-        "train_screening": Path("runtime/factor_discovery_v8/train_screening.parquet"),
+        "candidate_ledger": Path("runtime/factor_discovery/candidate_ledger.json"),
+        "train_screening": Path("runtime/factor_discovery/train_screening.parquet"),
     }
     resolved_artifacts: dict[str, Path] = {}
     artifact_hashes: dict[str, str] = {}
     for key, expected_relative in expected_artifacts.items():
         relative = Path(str(artifacts.get(key, "")))
-        _require(relative == expected_relative, f"unexpected V8 {key} path")
+        _require(canonical_artifact_path(relative.as_posix()) == expected_relative.as_posix(), f"unexpected development discovery {key} path")
         path = project_root / relative
-        _require(path.is_file() and not path.is_symlink(), f"V8 {key} is missing or symlinked")
+        _require(path.is_file() and not path.is_symlink(), f"development discovery {key} is missing or symlinked")
         expected_hash = artifacts.get(f"{key}_sha256")
-        _require(isinstance(expected_hash, str) and len(expected_hash) == 64, f"V8 {key} hash is invalid")
-        _require(_sha256_file(path) == expected_hash, f"V8 {key} hash mismatch")
+        _require(isinstance(expected_hash, str) and len(expected_hash) == 64, f"development discovery {key} hash is invalid")
+        _require(_sha256_file(path) == expected_hash, f"development discovery {key} hash mismatch")
         resolved_artifacts[key] = path
         artifact_hashes[key] = expected_hash
 
@@ -123,7 +125,7 @@ def build_registry_snapshot(*, project_root: Path, result_path: Path) -> dict[st
     _require(len(screening_by_factor) == screening_table.num_rows, "screening factor ids are not unique")
 
     selected = result.get("selected_factors")
-    _require(isinstance(selected, list) and len(selected) == 30, "V8 selected component set is incomplete")
+    _require(isinstance(selected, list) and len(selected) == 30, "development discovery selected component set is incomplete")
     weight_order = sorted(
         range(len(selected)),
         key=lambda index: (-abs(float(selected[index]["frozen_weight"])), str(selected[index]["factor"])),
@@ -199,7 +201,7 @@ def build_registry_snapshot(*, project_root: Path, result_path: Path) -> dict[st
     registry_id = _canonical_sha256(identity_payload)
     active_count = sum(bool(item["active_in_frozen_score"]) for item in candidates)
     return {
-        "schema_version": "v312.factor-component-registry.v1",
+        "schema_version": "research.factor-component-registry",
         "registry_id": registry_id,
         "source": {
             "research_spec_id": str(result.get("research_spec_id", "")),
@@ -208,7 +210,7 @@ def build_registry_snapshot(*, project_root: Path, result_path: Path) -> dict[st
             "candidate_ledger_sha256": artifact_hashes["candidate_ledger"],
             "train_screening_sha256": artifact_hashes["train_screening"],
             "formal_sample_accessed": False,
-            "v312_code_modified": False,
+            "locked_research_code_modified": False,
         },
         "summary": {
             "component_count": len(candidates),
@@ -254,7 +256,7 @@ class FactorRegistryStore:
             self._validate_document(document)
         else:
             document = {
-                "schema_version": "v312.factor-component-review-state.v1",
+                "schema_version": "research.factor-component-review-state",
                 "current_registry_id": self.snapshot["registry_id"],
                 "registries": {},
             }
@@ -271,7 +273,7 @@ class FactorRegistryStore:
         return document
 
     def _validate_document(self, document: dict[str, Any]) -> None:
-        _require(document.get("schema_version") == "v312.factor-component-review-state.v1", "wrong registry state schema")
+        _require(document.get("schema_version") == "research.factor-component-review-state", "wrong registry state schema")
         _require(isinstance(document.get("registries"), dict), "registry state collection is invalid")
 
     def _validate_current_entry(self, entry: Any) -> None:
@@ -315,7 +317,7 @@ class FactorRegistryStore:
                 can_freeze=entry["state"] == "OPEN" and counts.get("UNREVIEWED", 0) == 0,
                 freeze=deepcopy(entry["freeze"]),
                 prior_registry_count=max(0, len(self._document["registries"]) - 1),
-                decision_effect="review_only_does_not_modify_v8_weights",
+                decision_effect="review_only_does_not_modify_frozen_weights",
                 formal_sample_allowed=False,
                 ai_decision_authority=False,
             )
@@ -381,7 +383,7 @@ class FactorRegistryStore:
 
 
 class FactorRegistryController:
-    """Keep the review registry aligned with the latest verified V8 result."""
+    """Keep the review registry aligned with the latest verified development discovery result."""
 
     def __init__(self, *, project_root: Path, result_path: Path, state_path: Path) -> None:
         self.project_root = project_root.resolve()
@@ -402,7 +404,7 @@ class FactorRegistryController:
             result_path=self.result_path,
         )
         signature_after = _sha256_file(self.result_path)
-        _require(signature_after == signature_before, "V8 result changed while registry was loading")
+        _require(signature_after == signature_before, "development discovery result changed while registry was loading")
         self._store = FactorRegistryStore(snapshot, self.state_path)
         self._result_sha256 = signature_after
 

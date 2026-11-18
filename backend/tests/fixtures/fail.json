@@ -40,7 +40,7 @@
   "credentials_recorded": false,
   "oos_used_for_tuning": false,
   "new_research_gate_created": false,
-  "v3_cache_modified": false,
+  "research_cache_modified": false,
   "writes_outside_health_check": false,
   "official_assets_unchanged_during_run": true
 }

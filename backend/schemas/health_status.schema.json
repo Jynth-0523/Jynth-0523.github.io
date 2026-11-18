@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "v312-health-status-1.0",
+  "$id": "research-health-status-1.0",
   "type": "object",
   "required": [
     "schema_version",
@@ -19,7 +19,7 @@
     "credentials_recorded",
     "oos_used_for_tuning",
     "new_research_gate_created",
-    "v3_cache_modified",
+    "research_cache_modified",
     "writes_outside_health_check",
     "official_assets_unchanged_during_run"
   ],
@@ -51,7 +51,7 @@
     "credentials_recorded": {"const": false},
     "oos_used_for_tuning": {"const": false},
     "new_research_gate_created": {"const": false},
-    "v3_cache_modified": {"const": false},
+    "research_cache_modified": {"const": false},
     "writes_outside_health_check": {"const": false},
     "official_assets_unchanged_during_run": {"const": true}
   }

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 PLATFORM_SCHEMA_VERSION = "1.0"
-ONLY_COMMAND_ID = "v312_read_only_health_check"
+ONLY_COMMAND_ID = "locked_research_health_check"
 ALLOWED_HEALTH_STATUSES = frozenset({"PASS", "FAIL", "BLOCKED"})
 
 LOCKED_RESEARCH_SPEC_ID = (

@@ -1,20 +1,20 @@
-# V3.1.2 Automation Platform
+# Research Automation Backend
 
 ## Portable source release (17 November 2026)
 
 This directory is the English publication copy of the platform backend. Its tests
-use synthetic fixtures, including the V8-shaped discovery and registry fixtures.
+use synthetic fixtures, including the development discovery and registry fixtures.
 They do not require the author's private data. Install `requirements.txt` first.
 The public browser workspace runs independently in `../web`.
 
-The optional historical V8 subprocess requires a separately supplied,
+The optional historical development discovery subprocess requires a separately supplied,
 hash-verified project at `DISCOVERY_ENGINE_ROOT`; its former local path is unavailable.
 The original frozen implementation hashes remain unchanged. The default private
 integration fails closed when those files are absent. Historical health checks
 require the environment described in the root README and `.env.example`.
 
 This project is the independent automation and governance layer for the locked
-V3.1.2 research run. It does **not** import or execute the research module, and
+locked research run. It does **not** import or execute the research module, and
 it has no write path to the research code, database, archive, report, or
 Tableau workbook.
 
@@ -22,9 +22,9 @@ Tableau workbook.
 
 Implemented in Phase 0/1 and the local-only portion of Phase 2:
 
-- locked health-result schema and V3.1.2 semantic invariants;
+- locked health-result schema and locked research semantic invariants;
 - PASS/FAIL/BLOCKED and adversarial golden fixtures;
-- one allowlisted command (`v312_read_only_health_check`);
+- one allowlisted command (`locked_research_health_check`);
 - single-instance execution, idempotency claims, timeout, and bounded retry;
 - kill switch with a separate audit trail;
 - immutable run envelopes linked by SHA-256;
@@ -32,10 +32,10 @@ Implemented in Phase 0/1 and the local-only portion of Phase 2:
 - offline replay and fault-injection tests;
 - PASS-silent local alert simulation with FAIL/BLOCKED severity;
 - root-cause deduplication and auditable human acknowledgement.
-- one fixed V8 development-only discovery route with locked code hashes;
-- an optional no-tool AI explanation of a minimized aggregate V8 summary;
-- a 30-component V8 registry with persistent human KEEP/WATCH/REJECT review;
-- a separate irreversible review freeze hash that never changes V8 weights.
+- one fixed development-only discovery route with locked code hashes;
+- an optional no-tool AI explanation of a minimized aggregate development discovery summary;
+- a 30-component development discovery registry with persistent human KEEP/WATCH/REJECT review;
+- a separate irreversible review freeze hash that never changes development discovery weights.
 - a public bring-your-own-data workspace that performs private factor discovery
   inside the user's browser without uploading or retaining the CSV.
 - a constrained open-source-AI candidate proposer that sees only untrusted
@@ -49,11 +49,11 @@ Not implemented:
 
 ## Candidate component review
 
-The V8 result contains one frozen score assembled from 30 correlation-pruned
+The development discovery result contains one frozen score assembled from 30 correlation-pruned
 components: 25 have non-zero weights and 5 have zero weights. They are not 30
 independently calibrated strategies. The backend maintains a separate human
 review record. Review labels are stored in one local state file under
-`runtime/factor_registry/`; they never write into the V8 artifacts or research
+`runtime/factor_registry/`; they never write into the development discovery artifacts or research
 database. After all 30 components are reviewed, the decisions can be frozen
 with a deterministic SHA-256 identity. The public website does not expose
 these operator controls; it publishes only the verified read-only registry.
@@ -67,7 +67,7 @@ pruning, and frozen-ensemble calibration in a browser worker. Before discovery,
 a mandatory local audit checks entity-date uniqueness, complete-case and period
 coverage, chronology, target scale, and optional point-in-time availability;
 the user must also declare the forward-return horizon. The browser engine ports
-the reusable V3.1.2 inference principles through horizon-aware purge boundaries,
+the reusable locked research inference principles through horizon-aware purge boundaries,
 HAC standard errors, and a joint Holm–Bonferroni family. It adds a public-panel
 economic check using equal-weight top-minus-bottom 20% returns, realized
 turnover, and a selectable transaction-cost assumption. It also runs annual
@@ -80,11 +80,11 @@ latest affordable sequence is evaluated and the result is marked as truncated.
 The candidate dictionary is fixed before these annual tests. The worker scans CSV
 input in chunks and retains only mapped columns in a column-oriented working
 set, with explicit memory and candidate-workload guards. The CSV and the private
-result are not sent to this project's backend or added to the published V8
+result are not sent to this project's backend or added to the published development discovery
 registry. The browser workflow is a separate discovery engine and does not
-alter the locked V3.1.2/V8 research artifacts.
+alter the locked research/development discovery research artifacts.
 
-Browser discovery V9 expands the bounded language with same-asset one-period
+Browser discovery expands the bounded language with same-asset one-period
 lags, changes, normalized growth, three-period rolling means and volatility,
 signed nonlinear transforms, and two-feature interactions. Temporal operators
 use only prior dated observations for the same entity. Missing history remains
@@ -110,7 +110,7 @@ and next actions to deterministic local text.
 
 OpenAI remains an explicit optional fallback by setting `PLATFORM_AI_PROVIDER` to
 `openai`. It uses `store: false`; its API key is never passed to the browser or
-V8 subprocess. `OPENAI_MODEL` may select only an allowlisted GPT-5.6 model.
+development discovery subprocess. `OPENAI_MODEL` may select only an allowlisted GPT-5.6 model.
 
 The local `qwen3:4b` integration also exposes a separate candidate-proposal
 contract. It receives feature IDs and untrusted display names only—never raw
@@ -125,7 +125,7 @@ workflow does not call this service by default, preserving its local-data promis
 The only live command accepted by the runner is:
 
 ```text
-v312_read_only_health_check
+locked_research_health_check
 ```
 
 It resolves to the existing absolute script path recorded in

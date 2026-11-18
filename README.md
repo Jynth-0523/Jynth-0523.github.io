@@ -7,7 +7,7 @@ generate bounded candidate formulas, and inspect frozen-model validation evidenc
 **[Open the platform](https://jynth-0523.github.io/)**
 
 This repository contains the English, portable source release prepared on
-17 November 2026 from the local automation platform, plus its historical database,
+18 November 2026 from the local automation platform, plus its historical database,
 health-check, and Tableau integrations. The separate four-algorithm paper project
 is outside this repository. The existing GitHub Pages entry point is retained.
 
@@ -98,21 +98,30 @@ optional integrations; their schemas and deterministic checks constrain authorit
 
 ## Run on another computer
 
-Prerequisites: Python 3.11+ for the backend; Node.js **22.13+** and npm for the web.
-The application has no author-specific absolute paths. `.env.example` documents
-optional environment settings; it is not loaded automatically.
+Download the whole repository ZIP and extract it, or clone the repository. Install
+Node.js **22.13+** with npm. Python is **not required for the browser workspace**;
+Python 3.11+ is needed only for the optional backend. No author-specific folders,
+database, paid dataset, API key, or local AI service are needed for the web demo.
 
 ```sh
 git clone https://github.com/Jynth-0523/Jynth-0523.github.io.git
 cd Jynth-0523.github.io
-python3 -m pip install -r backend/requirements.txt
-cd web
-npm ci
-npm run dev
+node start-platform.mjs --install
 ```
 
+After the first installation, run `node start-platform.mjs`. The launcher resolves
+the web application and its files relative to itself, so the extracted directory
+can be renamed or moved. It also works when invoked by its path from a different
+working directory. Use `node start-platform.mjs --check` to check prerequisites
+without starting the server. Initial dependency installation requires internet
+access; dependencies are not bundled in the download.
+
+For optional backend checks, install `backend/requirements.txt` into your own
+Python environment. `.env.example` documents optional external settings and is
+not loaded automatically. It contains placeholders, not required local paths.
+
 Open `http://localhost:3000`. The default browser workspace starts without the
-private V8 research runner, local AI server, PostgreSQL, or proprietary datasets.
+private research runner, local AI server, PostgreSQL, or proprietary datasets.
 The existing `index.html` is the GitHub Pages link to the hosted application;
 committing this source does not itself redeploy that hosted application.
 
@@ -152,7 +161,7 @@ recorded as **FAILED** and `finalModelCreated` is **false**. These are stored sn
 values carried into this source release, not newly rerun or independently reproduced
 results. The components are not 30 separately validated strategies.
 
-The historical V3.1.2 reporting identity is 23 windows by 72 columns: 14 deployed
+The historical locked research reporting identity is 23 windows by 72 columns: 14 deployed
 Formal OOS windows and 9 Shadow-only diagnostic windows. Formal and Shadow remain
 mutually exclusive, and unavailable observations remain NULL. These historical
 counts are not an accuracy or profitability guarantee.
@@ -161,27 +170,38 @@ counts are not an accuracy or profitability guarantee.
 
 `backend/config/platform_config.json` locates the bundled health-check launcher
 relative to the repository and verifies its hash. To inspect your own authorized
-copy of the locked historical archive, export `RESEARCH_ASSETS_ROOT`,
-`LOCKED_RESEARCH_ROOT`, `PGHOST`, `PGPORT`, `PGDATABASE`, and `PGUSER`, using the layout
-in `health_check/health_check_config.json`. Use local PostgreSQL authentication.
+copy of the locked historical archive, set the individual archive, research-file,
+workbook, and database locations listed in `.env.example` and
+`health_check/health_check_config.json`. `PGSCHEMA` selects the existing schema;
+the read-only checker does not rename or migrate it. Use local PostgreSQL authentication.
 Do not put passwords in source files or command-line arguments.
 
 `database/import_locked_run.py` is an explicit administrative importer for a
 separate authorized database. It is not called by the platform, tests, or startup.
 Do not reimport or overwrite an existing immutable run. Read-only verification is
 available in `database/verify_locked_run.sql`.
+The importer accepts `--source-file`, `--test-file`, and `--backup-file` relative
+to `--project-root`, plus `--comparison-file` relative to `--source-root` (absolute
+paths also work). Set these to your existing authorized files; do not rename or
+edit a frozen archive to match the descriptive example defaults.
 
 `tableau/research_dashboard_template.twb` is a sanitized derivative of the historical
 workbook. Set your own PostgreSQL connection and authentication in Tableau. It
-requires the four `v312.tableau_*` views; no extract, database dump, password, or
+requires the four `research.tableau_*` views; no extract, database dump, password, or
 licensed row-level data is included. Its published hash differs from the locked
-original because the connection username was removed.
+original because the connection username and public display names were changed.
+The public SQL examples and template use the neutral `research` schema. This is
+not a migration of any pre-existing locked database.
 
-The optional Python V8 discovery endpoint requires a separately restored project
+The optional Python development discovery endpoint requires a separately restored project
 specified by `DISCOVERY_ENGINE_ROOT`, matching the frozen hashes in
 `backend/config/discovery_config.json`. Set `PLATFORM_PYTHON` if a particular interpreter
 is needed, and `ENABLE_LOCAL_DISCOVERY_API=1` only after configuring that integration.
-The frozen private V8 runner was not found in the inspected platform folders.
+The frozen private runner was not found in the inspected platform folders. When
+connecting an existing authorized copy, configure its actual relative paths and
+unchanged hash manifest. The compatibility adapter recognizes the original
+artifact-directory labels without rewriting frozen files. This integration stays
+blocked until the external files and hashes are valid.
 
 ## Repository map
 
@@ -197,11 +217,12 @@ The frozen private V8 runner was not found in the inspected platform folders.
 
 See [`docs/file_inventory.md`](docs/file_inventory.md) for every published file and
 [`docs/source_manifest.json`](docs/source_manifest.json) for source-to-release
-mapping and hashes. Files and package directories are named for their purpose,
+categories and hashes. Files and package directories are named for their purpose,
 not a release number. Statistics, candidate formulas, portfolio evidence, charts,
 exports, and historical asset checks are separate modules. Historical research
-IDs, database schema names, and locked archive references retain their original
-identities for compatibility; they are not publication filenames. Dependency
+IDs and explicitly isolated compatibility fields retain their original
+identities for auditability; they are not publication filenames or branding. See
+[`docs/compatibility.md`](docs/compatibility.md). Dependency
 lockfiles, Tableau XML, and the generated browser-worker bundle are machine
 artifacts rather than large hand-maintained source modules.
 

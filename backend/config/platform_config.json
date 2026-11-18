@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "command": {
-    "command_id": "v312_read_only_health_check",
+    "command_id": "locked_research_health_check",
     "script_path": "../health_check/run_health_check.sh",
     "script_sha256": "084070a535cc4f947aa28e8d14fee7f098f7690aac6107c8147553e9865b2196",
     "health_status_path": "../health_check/latest_health_status.json"
@@ -64,11 +64,18 @@
     "TMPDIR",
     "PLATFORM_PYTHON",
     "RESEARCH_ASSETS_ROOT",
-    "LOCKED_RESEARCH_ROOT",
+    "RESEARCH_ARCHIVE_DIR",
+    "LOCKED_RESEARCH_SOURCE",
+    "LOCKED_RESEARCH_TESTS",
+    "LOCKED_RESEARCH_BACKUP",
+    "LOCKED_DATABASE_DUMP",
+    "LOCKED_TABLEAU_WORKBOOK",
+    "LOCKED_TABLEAU_PACKAGE",
     "PGHOST",
     "PGPORT",
     "PGDATABASE",
-    "PGUSER"
+    "PGUSER",
+    "PGSCHEMA"
   ],
   "governance": {
     "database_writes_allowed": false,

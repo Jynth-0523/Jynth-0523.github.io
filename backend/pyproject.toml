@@ -1,7 +1,7 @@
 [project]
 name = "factor-discovery-platform"
 version = "0.1.0"
-description = "Read-only automation and governance layer for locked V3.1.2 research assets"
+description = "Read-only automation and governance layer for locked research assets"
 requires-python = ">=3.11"
 dependencies = ["pyarrow>=14"]
 

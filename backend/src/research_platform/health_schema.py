@@ -104,7 +104,7 @@ def validate_health_data(data: dict[str, Any], identity: dict[str, Any]) -> Heal
         "credentials_recorded",
         "oos_used_for_tuning",
         "new_research_gate_created",
-        "v3_cache_modified",
+        "research_cache_modified",
         "writes_outside_health_check",
         "official_assets_unchanged_during_run",
     }
@@ -223,7 +223,7 @@ def validate_health_data(data: dict[str, Any], identity: dict[str, Any]) -> Heal
         "credentials_recorded",
         "oos_used_for_tuning",
         "new_research_gate_created",
-        "v3_cache_modified",
+        "research_cache_modified",
         "writes_outside_health_check",
     ):
         _strict_bool(data, key, False, issues)

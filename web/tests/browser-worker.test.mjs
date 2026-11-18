@@ -157,7 +157,7 @@ test("requires a passing audit before discovery and completes after audit", asyn
 
   const result = await harness.dispatch({ type: "RUN", config }, ["RESULT", "ERROR"]);
   assert.equal(result.type, "RESULT");
-  assert.equal(result.result.schemaVersion, "browser-factor-discovery.v10");
+  assert.equal(result.result.schemaVersion, "browser-factor-discovery");
   assert.equal(result.result.source.dataLeftBrowser, false);
   assert.equal(result.result.validation.purge.totalPurgedPeriods, 2);
   assert.equal(result.result.validation.multipleTesting.method, "Holm-Bonferroni joint family");

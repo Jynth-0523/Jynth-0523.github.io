@@ -59,6 +59,10 @@ def decimal_or_none(value: str) -> Decimal | None:
 def run_database_checks(recorder: Recorder, config: dict[str, Any]) -> dict[str, Any]:
     database = config["database"]
     identity = config["identity"]
+    schema = database["schema"]
+    if not isinstance(schema, str) or not re.fullmatch(r"[a-z_][a-z0-9_]*", schema):
+        recorder.blocked("database.schema", "safe configured PostgreSQL schema", None, {}, "Unsafe schema; no database query was executed.", "database")
+        return {"database_modified": False, "explicit_read_only_transaction": False}
     psql = resolve_psql(database["psql_candidates"])
     summary: dict[str, Any] = {
         "host": database["host"],
@@ -81,19 +85,19 @@ SELECT 'TX_MODE', current_setting('transaction_read_only');
 SELECT 'WF', run_id, research_spec_id, \"window\"::text, status,
        CASE WHEN formal_oos_rankic IS NULL THEN '{NULL_TOKEN}' ELSE formal_oos_rankic::text END,
        CASE WHEN shadow_diagnostic_rankic IS NULL THEN '{NULL_TOKEN}' ELSE shadow_diagnostic_rankic::text END
-FROM v312.tableau_walk_forward AS wf
+FROM {schema}.tableau_walk_forward AS wf
 ORDER BY wf.run_id, wf.\"window\";
 SELECT 'WT', run_id, \"window\"::text,
        CASE WHEN weight IS NULL THEN '{NULL_TOKEN}' ELSE weight::text END,
        CASE WHEN weight_sum IS NULL THEN '{NULL_TOKEN}' ELSE weight_sum::text END
-FROM v312.tableau_window_weights AS wt
+FROM {schema}.tableau_window_weights AS wt
 ORDER BY wt.run_id, wt.\"window\", wt.factor_position;
 SELECT 'VC', run_id, COUNT(*)::text
-FROM v312.tableau_validation_candidates
+FROM {schema}.tableau_validation_candidates
 GROUP BY run_id
 ORDER BY run_id;
 SELECT 'FS', run_id, COUNT(*)::text
-FROM v312.tableau_factor_screening
+FROM {schema}.tableau_factor_screening
 GROUP BY run_id
 ORDER BY run_id;
 SELECT 'END_MARKER', 'ok';
@@ -172,7 +176,7 @@ COMMIT;
         ["on"],
         tx_values,
         {"query": "SELECT current_setting('transaction_read_only')"},
-        "transaction_read_only = on。",
+        "transaction_read_only = on.",
         "Transaction read-only state is not on.",
         "database",
     )
@@ -221,10 +225,10 @@ COMMIT;
     )
 
     run_ids = {
-        "v312.tableau_walk_forward": sorted({row["run_id"] for row in wf}),
-        "v312.tableau_window_weights": sorted({row["run_id"] for row in wt}),
-        "v312.tableau_validation_candidates": sorted({run_id for run_id, _ in vc}),
-        "v312.tableau_factor_screening": sorted({run_id for run_id, _ in fs}),
+        f"{schema}.tableau_walk_forward": sorted({row["run_id"] for row in wf}),
+        f"{schema}.tableau_window_weights": sorted({row["run_id"] for row in wt}),
+        f"{schema}.tableau_validation_candidates": sorted({run_id for run_id, _ in vc}),
+        f"{schema}.tableau_factor_screening": sorted({run_id for run_id, _ in fs}),
     }
     expected_run_ids = {view: [identity["run_id"]] for view in database["views"]}
     recorder.equal(
@@ -241,17 +245,17 @@ COMMIT;
         "database.research_spec_id",
         [identity["research_spec_id"]],
         specs,
-        {"view": "v312.tableau_walk_forward"},
+        {"view": f"{schema}.tableau_walk_forward"},
         "research_spec_id matches the locked specification.",
         "research_spec_id mismatch.",
         "database",
     )
 
     view_counts = {
-        "v312.tableau_walk_forward": len(wf),
-        "v312.tableau_window_weights": len(wt),
-        "v312.tableau_validation_candidates": sum(count for _, count in vc),
-        "v312.tableau_factor_screening": sum(count for _, count in fs),
+        f"{schema}.tableau_walk_forward": len(wf),
+        f"{schema}.tableau_window_weights": len(wt),
+        f"{schema}.tableau_validation_candidates": sum(count for _, count in vc),
+        f"{schema}.tableau_factor_screening": sum(count for _, count in fs),
     }
     recorder.equal(
         "database.view_row_counts",
@@ -269,7 +273,7 @@ COMMIT;
         "database.window_sequence",
         identity["windows"],
         windows,
-        {"view": "v312.tableau_walk_forward"},
+        {"view": f"{schema}.tableau_walk_forward"},
         "Windows are consecutive from 1 to 23.",
         "Window sequence is nonconsecutive or out of bounds.",
         "database",

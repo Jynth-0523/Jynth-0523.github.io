@@ -20,14 +20,14 @@
         <calculation class="tableau" formula="0.0" />
       </column>
     </datasource>
-    <datasource caption="V3.1.2 Walk Forward" inline="true" name="federated.v312_walk_forward" version="18.1">
+    <datasource caption="Research Walk Forward" inline="true" name="federated.research_walk_forward" version="18.1">
       <connection class="federated">
         <named-connections>
-          <named-connection caption="127.0.0.1" name="postgres.v312_walk_forward">
-            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          <named-connection caption="127.0.0.1" name="postgres.research_walk_forward">
+            <connection authentication="username-password" class="postgres" dbname="research_archive" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
           </named-connection>
         </named-connections>
-        <relation connection="postgres.v312_walk_forward" name="tableau_walk_forward" table="[v312].[tableau_walk_forward]" type="table" />
+        <relation connection="postgres.research_walk_forward" name="tableau_walk_forward" table="[research].[tableau_walk_forward]" type="table" />
         <metadata-records>
           <metadata-record class="column">
             <remote-name>run_id</remote-name>
@@ -39,7 +39,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>research_spec_id</remote-name>
@@ -51,7 +51,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>window</remote-name>
@@ -63,7 +63,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>is_complete_oos</remote-name>
@@ -75,7 +75,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_start</remote-name>
@@ -87,7 +87,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_end</remote-name>
@@ -99,7 +99,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_start</remote-name>
@@ -111,7 +111,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_end</remote-name>
@@ -123,7 +123,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_validation_start</remote-name>
@@ -135,7 +135,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_validation_end</remote-name>
@@ -147,7 +147,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_validation_start</remote-name>
@@ -159,7 +159,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_validation_end</remote-name>
@@ -171,7 +171,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_actual_start</remote-name>
@@ -183,7 +183,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_actual_end</remote-name>
@@ -195,7 +195,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_actual_start</remote-name>
@@ -207,7 +207,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_actual_end</remote-name>
@@ -219,7 +219,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>test_start</remote-name>
@@ -231,7 +231,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>test_end</remote-name>
@@ -243,7 +243,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>planned_test_end</remote-name>
@@ -255,7 +255,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_multiple_testing_method</remote-name>
@@ -267,7 +267,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>status</remote-name>
@@ -279,7 +279,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>num_screened_factors</remote-name>
@@ -291,7 +291,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>num_selected_factors</remote-name>
@@ -303,7 +303,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>num_validation_candidates</remote-name>
@@ -315,7 +315,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>num_validation_absolute_gate_passed</remote-name>
@@ -327,7 +327,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>num_validation_confidence_deployable</remote-name>
@@ -339,7 +339,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>frozen_candidate_index</remote-name>
@@ -351,7 +351,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_candidate_count</remote-name>
@@ -363,7 +363,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_multiple_testing_family_size</remote-name>
@@ -375,7 +375,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_validation_confidence</remote-name>
@@ -387,7 +387,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selection_raw_validation_confidence</remote-name>
@@ -399,7 +399,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_candidate_count</remote-name>
@@ -411,7 +411,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_multiple_testing_family_size</remote-name>
@@ -423,7 +423,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>calibration_passed</remote-name>
@@ -435,7 +435,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_stability_fitness</remote-name>
@@ -447,7 +447,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_rankic</remote-name>
@@ -459,7 +459,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_icir</remote-name>
@@ -471,7 +471,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_positive_ratio</remote-name>
@@ -483,7 +483,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_subperiod_stability</remote-name>
@@ -495,7 +495,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_stability_fitness</remote-name>
@@ -507,7 +507,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_rankic</remote-name>
@@ -519,7 +519,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_icir</remote-name>
@@ -531,7 +531,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_positive_ratio</remote-name>
@@ -543,7 +543,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_subperiod_stability</remote-name>
@@ -555,7 +555,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_validation_confidence</remote-name>
@@ -567,7 +567,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_confidence_level</remote-name>
@@ -579,7 +579,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_raw_validation_confidence</remote-name>
@@ -591,7 +591,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_raw_mean_rankic_confidence</remote-name>
@@ -603,7 +603,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_raw_directional_confidence</remote-name>
@@ -615,7 +615,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_multiple_testing_family_size</remote-name>
@@ -627,7 +627,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_mean_rankic_confidence</remote-name>
@@ -639,7 +639,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_directional_confidence</remote-name>
@@ -651,7 +651,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_subperiod_stability</remote-name>
@@ -663,7 +663,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>oos_test_rankic</remote-name>
@@ -675,7 +675,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_factors</remote-name>
@@ -687,7 +687,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>selected_weights</remote-name>
@@ -699,7 +699,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directions</remote-name>
@@ -711,7 +711,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_oos_test_rankic</remote-name>
@@ -723,7 +723,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_validation_rankic</remote-name>
@@ -735,7 +735,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_validation_icir</remote-name>
@@ -747,7 +747,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_validation_positive_ratio</remote-name>
@@ -759,7 +759,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_validation_stability_fitness</remote-name>
@@ -771,7 +771,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_validation_confidence</remote-name>
@@ -783,7 +783,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_confidence_level</remote-name>
@@ -795,7 +795,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_raw_validation_confidence</remote-name>
@@ -807,7 +807,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_raw_mean_rankic_confidence</remote-name>
@@ -819,7 +819,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_raw_directional_confidence</remote-name>
@@ -831,7 +831,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_multiple_testing_family_size</remote-name>
@@ -843,7 +843,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_mean_rankic_confidence</remote-name>
@@ -855,7 +855,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_directional_confidence</remote-name>
@@ -867,7 +867,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_subperiod_stability</remote-name>
@@ -879,7 +879,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_best_validation_index</remote-name>
@@ -891,7 +891,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_selected_weights</remote-name>
@@ -903,7 +903,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>oos_branch</remote-name>
@@ -915,7 +915,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>formal_oos_rankic</remote-name>
@@ -927,7 +927,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>shadow_diagnostic_rankic</remote-name>
@@ -939,7 +939,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_walk_forward_V312_FINAL]</object-id>
+            <object-id>[tableau_walk_forward_LOCKED_RESEARCH]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
@@ -1042,22 +1042,22 @@
       </style>
       <object-graph>
         <objects>
-          <object caption="tableau_walk_forward" id="tableau_walk_forward_V312_FINAL">
+          <object caption="tableau_walk_forward" id="tableau_walk_forward_LOCKED_RESEARCH">
             <properties context="">
-              <relation connection="postgres.v312_walk_forward" name="tableau_walk_forward" table="[v312].[tableau_walk_forward]" type="table" />
+              <relation connection="postgres.research_walk_forward" name="tableau_walk_forward" table="[research].[tableau_walk_forward]" type="table" />
             </properties>
           </object>
         </objects>
       </object-graph>
     </datasource>
-    <datasource caption="V3.1.2 Frozen Weights" inline="true" name="federated.v312_window_weights" version="18.1">
+    <datasource caption="locked research Frozen Weights" inline="true" name="federated.research_window_weights" version="18.1">
       <connection class="federated">
         <named-connections>
-          <named-connection caption="127.0.0.1" name="postgres.v312_window_weights">
-            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          <named-connection caption="127.0.0.1" name="postgres.research_window_weights">
+            <connection authentication="username-password" class="postgres" dbname="research_archive" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
           </named-connection>
         </named-connections>
-        <relation connection="postgres.v312_window_weights" name="tableau_window_weights" table="[v312].[tableau_window_weights]" type="table" />
+        <relation connection="postgres.research_window_weights" name="tableau_window_weights" table="[research].[tableau_window_weights]" type="table" />
         <metadata-records>
           <metadata-record class="column">
             <remote-name>run_id</remote-name>
@@ -1069,7 +1069,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>window</remote-name>
@@ -1081,7 +1081,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>factor_position</remote-name>
@@ -1093,7 +1093,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>factor_name</remote-name>
@@ -1105,7 +1105,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>direction</remote-name>
@@ -1117,7 +1117,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>weight</remote-name>
@@ -1129,7 +1129,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>oos_role</remote-name>
@@ -1141,7 +1141,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>weight_sha256</remote-name>
@@ -1153,7 +1153,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>weight_count</remote-name>
@@ -1165,7 +1165,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>nonzero_weight_count</remote-name>
@@ -1177,7 +1177,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>weight_sum</remote-name>
@@ -1189,7 +1189,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>max_weight</remote-name>
@@ -1201,7 +1201,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_window_weights_V312_FINAL]</object-id>
+            <object-id>[tableau_window_weights_LOCKED_RESEARCH]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
@@ -1234,22 +1234,22 @@
       </style>
       <object-graph>
         <objects>
-          <object caption="tableau_window_weights" id="tableau_window_weights_V312_FINAL">
+          <object caption="tableau_window_weights" id="tableau_window_weights_LOCKED_RESEARCH">
             <properties context="">
-              <relation connection="postgres.v312_window_weights" name="tableau_window_weights" table="[v312].[tableau_window_weights]" type="table" />
+              <relation connection="postgres.research_window_weights" name="tableau_window_weights" table="[research].[tableau_window_weights]" type="table" />
             </properties>
           </object>
         </objects>
       </object-graph>
     </datasource>
-    <datasource caption="V3.1.2 Validation Candidates" inline="true" name="federated.v312_validation_candidates" version="18.1">
+    <datasource caption="locked research Validation Candidates" inline="true" name="federated.research_validation_candidates" version="18.1">
       <connection class="federated">
         <named-connections>
-          <named-connection caption="127.0.0.1" name="postgres.v312_validation_candidates">
-            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          <named-connection caption="127.0.0.1" name="postgres.research_validation_candidates">
+            <connection authentication="username-password" class="postgres" dbname="research_archive" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
           </named-connection>
         </named-connections>
-        <relation connection="postgres.v312_validation_candidates" name="tableau_validation_candidates" table="[v312].[tableau_validation_candidates]" type="table" />
+        <relation connection="postgres.research_validation_candidates" name="tableau_validation_candidates" table="[research].[tableau_validation_candidates]" type="table" />
         <metadata-records>
           <metadata-record class="column">
             <remote-name>run_id</remote-name>
@@ -1261,7 +1261,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>candidate_index</remote-name>
@@ -1273,7 +1273,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic</remote-name>
@@ -1285,7 +1285,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>rankic_std</remote-name>
@@ -1297,7 +1297,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>icir</remote-name>
@@ -1309,7 +1309,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>positive_ratio</remote-name>
@@ -1321,7 +1321,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>valid_days</remote-name>
@@ -1333,7 +1333,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>valid_subperiod_ratio</remote-name>
@@ -1345,7 +1345,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>positive_subperiod_ratio</remote-name>
@@ -1357,7 +1357,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_stability</remote-name>
@@ -1369,7 +1369,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>fitness_mean_rankic_component</remote-name>
@@ -1381,7 +1381,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>fitness_icir_component</remote-name>
@@ -1393,7 +1393,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>fitness_directional_component</remote-name>
@@ -1405,7 +1405,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>fitness_subperiod_component</remote-name>
@@ -1417,7 +1417,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>stability_fitness</remote-name>
@@ -1429,7 +1429,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic_iid_se</remote-name>
@@ -1441,7 +1441,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic_hac_se</remote-name>
@@ -1453,7 +1453,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic_confidence_se</remote-name>
@@ -1465,7 +1465,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_iid_se</remote-name>
@@ -1477,7 +1477,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_hac_se</remote-name>
@@ -1489,7 +1489,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_confidence_se</remote-name>
@@ -1501,7 +1501,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>confidence_hac_lags</remote-name>
@@ -1513,7 +1513,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>passes_absolute_quality_gate</remote-name>
@@ -1525,7 +1525,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>raw_mean_rankic_confidence</remote-name>
@@ -1537,7 +1537,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>raw_directional_confidence</remote-name>
@@ -1549,7 +1549,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic_pvalue</remote-name>
@@ -1561,7 +1561,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_pvalue</remote-name>
@@ -1573,7 +1573,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>adjusted_mean_rankic_pvalue</remote-name>
@@ -1585,7 +1585,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>adjusted_directional_pvalue</remote-name>
@@ -1597,7 +1597,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_rankic_confidence</remote-name>
@@ -1609,7 +1609,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_confidence</remote-name>
@@ -1621,7 +1621,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>raw_validation_confidence</remote-name>
@@ -1633,7 +1633,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_confidence</remote-name>
@@ -1645,7 +1645,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>multiple_testing_method</remote-name>
@@ -1657,7 +1657,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>multiple_testing_family_size</remote-name>
@@ -1669,7 +1669,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>confidence_level</remote-name>
@@ -1681,7 +1681,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>passes_confidence_soft_gate</remote-name>
@@ -1693,7 +1693,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>eligible_for_candidate_selection</remote-name>
@@ -1705,7 +1705,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_stage</remote-name>
@@ -1717,7 +1717,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>original_candidate_index</remote-name>
@@ -1729,7 +1729,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>original_selection_candidate_index</remote-name>
@@ -1741,7 +1741,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>window</remote-name>
@@ -1753,7 +1753,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>is_complete_oos</remote-name>
@@ -1765,7 +1765,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>research_spec_id</remote-name>
@@ -1777,7 +1777,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_stage_start</remote-name>
@@ -1789,7 +1789,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_stage_end</remote-name>
@@ -1801,7 +1801,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_actual_start</remote-name>
@@ -1813,7 +1813,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_actual_end</remote-name>
@@ -1825,7 +1825,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_min_mean_rankic</remote-name>
@@ -1837,7 +1837,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_min_icir</remote-name>
@@ -1849,7 +1849,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_min_positive_ratio</remote-name>
@@ -1861,7 +1861,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_deploy_confidence_threshold</remote-name>
@@ -1873,7 +1873,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>validation_high_confidence_threshold</remote-name>
@@ -1885,7 +1885,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_validation_candidates_V312_FINAL]</object-id>
+            <object-id>[tableau_validation_candidates_LOCKED_RESEARCH]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
@@ -1949,22 +1949,22 @@
       </style>
       <object-graph>
         <objects>
-          <object caption="tableau_validation_candidates" id="tableau_validation_candidates_V312_FINAL">
+          <object caption="tableau_validation_candidates" id="tableau_validation_candidates_LOCKED_RESEARCH">
             <properties context="">
-              <relation connection="postgres.v312_validation_candidates" name="tableau_validation_candidates" table="[v312].[tableau_validation_candidates]" type="table" />
+              <relation connection="postgres.research_validation_candidates" name="tableau_validation_candidates" table="[research].[tableau_validation_candidates]" type="table" />
             </properties>
           </object>
         </objects>
       </object-graph>
     </datasource>
-    <datasource caption="V3.1.2 Factor Screening" inline="true" name="federated.v312_factor_screening" version="18.1">
+    <datasource caption="locked research Factor Screening" inline="true" name="federated.research_factor_screening" version="18.1">
       <connection class="federated">
         <named-connections>
-          <named-connection caption="127.0.0.1" name="postgres.v312_factor_screening">
-            <connection authentication="username-password" class="postgres" dbname="v312_research" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
+          <named-connection caption="127.0.0.1" name="postgres.research_factor_screening">
+            <connection authentication="username-password" class="postgres" dbname="research_archive" one-time-sql="" port="5432" server="127.0.0.1" sslmode="" username="" />
           </named-connection>
         </named-connections>
-        <relation connection="postgres.v312_factor_screening" name="tableau_factor_screening" table="[v312].[tableau_factor_screening]" type="table" />
+        <relation connection="postgres.research_factor_screening" name="tableau_factor_screening" table="[research].[tableau_factor_screening]" type="table" />
         <metadata-records>
           <metadata-record class="column">
             <remote-name>run_id</remote-name>
@@ -1976,7 +1976,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>factor</remote-name>
@@ -1988,7 +1988,7 @@
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>mean_ic</remote-name>
@@ -2000,7 +2000,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>abs_mean_ic</remote-name>
@@ -2012,7 +2012,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>std_ic</remote-name>
@@ -2024,7 +2024,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>icir</remote-name>
@@ -2036,7 +2036,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>abs_icir</remote-name>
@@ -2048,7 +2048,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>positive_ratio</remote-name>
@@ -2060,7 +2060,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>direction</remote-name>
@@ -2072,7 +2072,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>directional_consistency</remote-name>
@@ -2084,7 +2084,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>valid_days</remote-name>
@@ -2096,7 +2096,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>valid_subperiod_count</remote-name>
@@ -2108,7 +2108,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>valid_subperiod_ratio</remote-name>
@@ -2120,7 +2120,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_direction_consistency</remote-name>
@@ -2132,7 +2132,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_ic_dispersion</remote-name>
@@ -2144,7 +2144,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>normalized_subperiod_dispersion</remote-name>
@@ -2156,7 +2156,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_stability</remote-name>
@@ -2168,7 +2168,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_1_mean_ic</remote-name>
@@ -2180,7 +2180,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_2_mean_ic</remote-name>
@@ -2192,7 +2192,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_3_mean_ic</remote-name>
@@ -2204,7 +2204,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>subperiod_4_mean_ic</remote-name>
@@ -2216,7 +2216,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>coverage</remote-name>
@@ -2228,7 +2228,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>rank_mean_ic</remote-name>
@@ -2240,7 +2240,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>rank_icir</remote-name>
@@ -2252,7 +2252,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>rank_directional_consistency</remote-name>
@@ -2264,7 +2264,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>rank_subperiod_stability</remote-name>
@@ -2276,7 +2276,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>factor_stability_score</remote-name>
@@ -2288,7 +2288,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>window</remote-name>
@@ -2300,7 +2300,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_start</remote-name>
@@ -2312,7 +2312,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>train_end</remote-name>
@@ -2324,7 +2324,7 @@
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
           <metadata-record class="column">
             <remote-name>is_complete_oos</remote-name>
@@ -2336,7 +2336,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[tableau_factor_screening_V312_FINAL]</object-id>
+            <object-id>[tableau_factor_screening_LOCKED_RESEARCH]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
@@ -2378,9 +2378,9 @@
       </style>
       <object-graph>
         <objects>
-          <object caption="tableau_factor_screening" id="tableau_factor_screening_V312_FINAL">
+          <object caption="tableau_factor_screening" id="tableau_factor_screening_LOCKED_RESEARCH">
             <properties context="">
-              <relation connection="postgres.v312_factor_screening" name="tableau_factor_screening" table="[v312].[tableau_factor_screening]" type="table" />
+              <relation connection="postgres.research_factor_screening" name="tableau_factor_screening" table="[research].[tableau_factor_screening]" type="table" />
             </properties>
           </object>
         </objects>
@@ -2399,7 +2399,7 @@
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
             <datasource name="Parameters" />
           </datasources>
           <datasource-dependencies datasource="Parameters">
@@ -2407,7 +2407,7 @@
               <calculation class="tableau" formula="0.0" />
             </column>
           </datasource-dependencies>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="real" name="[selected_validation_confidence]" role="measure" type="quantitative" />
@@ -2423,19 +2423,19 @@
             <column-instance column="[selected_validation_confidence]" derivation="Sum" name="[sum:selected_validation_confidence:qk]" pivot="key" type="quantitative" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:window:ok]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:window:ok]">
             <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:status:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:status:nk]">
             <groupfilter function="level-members" level="[none:status:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
-            <column>[federated.v312_walk_forward].[none:window:ok]</column>
-            <column>[federated.v312_walk_forward].[none:status:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:window:ok]</column>
+            <column>[federated.research_walk_forward].[none:status:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2455,28 +2455,28 @@
             </view>
             <mark class="Line" />
             <encodings>
-              <color column="[federated.v312_walk_forward].[none:status:nk]" />
-              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
-              <lod column="[federated.v312_walk_forward].[attr:test_start:ok]" />
-              <lod column="[federated.v312_walk_forward].[attr:test_end:ok]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" />
+              <color column="[federated.research_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[none:window:ok]" />
+              <lod column="[federated.research_walk_forward].[attr:test_start:ok]" />
+              <lod column="[federated.research_walk_forward].[attr:test_end:ok]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
+              <tooltip column="[federated.research_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.research_walk_forward].[sum:formal_oos_rankic:qk]" />
             </encodings>
-            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <reference-line axis-column="[federated.research_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_walk_forward].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Test Start: &lt;[federated.v312_walk_forward].[attr:test_start:ok]&gt;</run>
+Test Start: &lt;[federated.research_walk_forward].[attr:test_start:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Test End: &lt;[federated.v312_walk_forward].[attr:test_end:ok]&gt;</run>
+Test End: &lt;[federated.research_walk_forward].[attr:test_end:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+Calibration Confidence: &lt;[federated.research_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
+Formal OOS RankIC: &lt;[federated.research_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2486,8 +2486,8 @@ Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&
             </style>
           </pane>
         </panes>
-        <rows>[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]</rows>
-        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+        <rows>[federated.research_walk_forward].[sum:formal_oos_rankic:qk]</rows>
+        <cols>[federated.research_walk_forward].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{D856FE7F-1FA3-4E7A-AE46-129FA5EDA98C}" />
     </worksheet>
@@ -2502,9 +2502,9 @@ Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
           </datasources>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="string" name="[status]" role="dimension" type="nominal" />
             <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
@@ -2515,11 +2515,11 @@ Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&
             <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2539,22 +2539,22 @@ Formal OOS RankIC: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&
             </view>
             <mark class="Bar" />
             <encodings>
-              <color column="[federated.v312_walk_forward].[none:status:nk]" />
-              <text column="[federated.v312_walk_forward].[Status Label]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
-              <lod column="[federated.v312_walk_forward].[ctd:window:qk]" />
+              <color column="[federated.research_walk_forward].[none:status:nk]" />
+              <text column="[federated.research_walk_forward].[Status Label]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[ctd:window:qk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Window Count: &lt;[federated.v312_walk_forward].[ctd:window:qk]&gt;</run>
+Window Count: &lt;[federated.research_walk_forward].[ctd:window:qk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
           </pane>
         </panes>
-        <rows>[federated.v312_walk_forward].[none:status:nk]</rows>
-        <cols>[federated.v312_walk_forward].[ctd:window:qk]</cols>
+        <rows>[federated.research_walk_forward].[none:status:nk]</rows>
+        <cols>[federated.research_walk_forward].[ctd:window:qk]</cols>
       </table>
       <simple-id uuid="{830CE4AD-0649-40C2-A46C-6FBE27796F16}" />
     </worksheet>
@@ -2569,9 +2569,9 @@ Window Count: &lt;[federated.v312_walk_forward].[ctd:window:qk]&gt;</run>
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
           </datasources>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="integer" name="[frozen_candidate_index]" role="measure" type="quantitative" />
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="real" name="[selected_validation_confidence]" role="measure" type="quantitative" />
@@ -2585,11 +2585,11 @@ Window Count: &lt;[federated.v312_walk_forward].[ctd:window:qk]&gt;</run>
             <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2609,23 +2609,23 @@ Window Count: &lt;[federated.v312_walk_forward].[ctd:window:qk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings>
-              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.research_walk_forward].[sum:selection_validation_confidence:qk]" />
+              <tooltip column="[federated.research_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.research_walk_forward].[attr:frozen_candidate_index:nk]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_walk_forward].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Selection Confidence: &lt;[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
+Selection Confidence: &lt;[federated.research_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+Calibration Confidence: &lt;[federated.research_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Candidate: &lt;[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
+Candidate: &lt;[federated.research_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2643,23 +2643,23 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings>
-              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.research_walk_forward].[sum:selection_validation_confidence:qk]" />
+              <tooltip column="[federated.research_walk_forward].[sum:selected_validation_confidence:qk]" />
+              <tooltip column="[federated.research_walk_forward].[attr:frozen_candidate_index:nk]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_walk_forward].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Selection Confidence: &lt;[federated.v312_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
+Selection Confidence: &lt;[federated.research_walk_forward].[sum:selection_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Calibration Confidence: &lt;[federated.v312_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
+Calibration Confidence: &lt;[federated.research_walk_forward].[sum:selected_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Candidate: &lt;[federated.v312_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
+Candidate: &lt;[federated.research_walk_forward].[attr:frozen_candidate_index:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2672,8 +2672,8 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </style>
           </pane>
         </panes>
-        <rows>([federated.v312_walk_forward].[sum:selection_validation_confidence:qk] + [federated.v312_walk_forward].[sum:selected_validation_confidence:qk])</rows>
-        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+        <rows>([federated.research_walk_forward].[sum:selection_validation_confidence:qk] + [federated.research_walk_forward].[sum:selected_validation_confidence:qk])</rows>
+        <cols>[federated.research_walk_forward].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{6E4A24F5-B63C-43C5-9ECD-C16E583E350E}" />
     </worksheet>
@@ -2688,7 +2688,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
             <datasource name="Parameters" />
           </datasources>
           <datasource-dependencies datasource="Parameters">
@@ -2696,7 +2696,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
               <calculation class="tableau" formula="0.0" />
             </column>
           </datasource-dependencies>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="string" name="[status]" role="dimension" type="nominal" />
@@ -2706,11 +2706,11 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2730,18 +2730,18 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings>
-              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.research_walk_forward].[sum:formal_oos_rankic:qk]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
             </encodings>
-            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <reference-line axis-column="[federated.research_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_walk_forward].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-04A Formal OOS: &lt;[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
+04A Formal OOS: &lt;[federated.research_walk_forward].[sum:formal_oos_rankic:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2754,8 +2754,8 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </style>
           </pane>
         </panes>
-        <rows>[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]</rows>
-        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+        <rows>[federated.research_walk_forward].[sum:formal_oos_rankic:qk]</rows>
+        <cols>[federated.research_walk_forward].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{B2312C69-B8A0-414D-AC5F-41A4037B93BD}" />
     </worksheet>
@@ -2770,7 +2770,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
             <datasource name="Parameters" />
           </datasources>
           <datasource-dependencies datasource="Parameters">
@@ -2778,7 +2778,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
               <calculation class="tableau" formula="0.0" />
             </column>
           </datasource-dependencies>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="real" name="[shadow_diagnostic_rankic]" role="measure" type="quantitative" />
             <column datatype="string" name="[status]" role="dimension" type="nominal" />
@@ -2788,11 +2788,11 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2812,18 +2812,18 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings>
-              <lod column="[federated.v312_walk_forward].[none:window:ok]" />
-              <tooltip column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" />
-              <lod column="[federated.v312_walk_forward].[none:status:nk]" />
+              <lod column="[federated.research_walk_forward].[none:window:ok]" />
+              <tooltip column="[federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk]" />
+              <lod column="[federated.research_walk_forward].[none:status:nk]" />
             </encodings>
-            <reference-line axis-column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <reference-line axis-column="[federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_walk_forward].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_walk_forward].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-04B Shadow OOS - Diagnostic Only: &lt;[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]&gt;</run>
+04B Shadow OOS - Diagnostic Only: &lt;[federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
+Status: &lt;[federated.research_walk_forward].[none:status:nk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2840,8 +2840,8 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </style>
           </pane>
         </panes>
-        <rows>[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]</rows>
-        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+        <rows>[federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk]</rows>
+        <cols>[federated.research_walk_forward].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{FFAA5DA2-1EAD-4B63-B0D8-8215F179D68E}" />
     </worksheet>
@@ -2856,7 +2856,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
+            <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
             <datasource name="Parameters" />
           </datasources>
           <datasource-dependencies datasource="Parameters">
@@ -2864,7 +2864,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
               <calculation class="tableau" formula="0.0" />
             </column>
           </datasource-dependencies>
-          <datasource-dependencies datasource="federated.v312_walk_forward">
+          <datasource-dependencies datasource="federated.research_walk_forward">
             <column datatype="real" name="[formal_oos_rankic]" role="measure" type="quantitative" />
             <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
             <column datatype="real" name="[shadow_diagnostic_rankic]" role="measure" type="quantitative" />
@@ -2874,11 +2874,11 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             <column-instance column="[shadow_diagnostic_rankic]" derivation="Sum" name="[sum:shadow_diagnostic_rankic:qk]" pivot="key" type="quantitative" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_walk_forward].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_walk_forward].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_walk_forward].[none:run_id:nk]</column>
+            <column>[federated.research_walk_forward].[none:run_id:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2898,7 +2898,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings />
-            <reference-line axis-column="[federated.v312_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <reference-line axis-column="[federated.research_walk_forward].[sum:formal_oos_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
             <style>
               <style-rule element="mark">
                 <format attr="mark-color" value="#4E79A7" />
@@ -2914,7 +2914,7 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Line" />
             <encodings />
-            <reference-line axis-column="[federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
+            <reference-line axis-column="[federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk]" enable-instant-analytics="false" formula="average" id="refline0" label-type="none" scope="per-pane" value-column="[Parameters].[Parameter Zero]" z-order="1" />
             <style>
               <style-rule element="mark">
                 <format attr="mark-color" value="#9C9C9C" />
@@ -2929,8 +2929,8 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </style>
           </pane>
         </panes>
-        <rows>([federated.v312_walk_forward].[sum:formal_oos_rankic:qk] + [federated.v312_walk_forward].[sum:shadow_diagnostic_rankic:qk])</rows>
-        <cols>[federated.v312_walk_forward].[none:window:ok]</cols>
+        <rows>([federated.research_walk_forward].[sum:formal_oos_rankic:qk] + [federated.research_walk_forward].[sum:shadow_diagnostic_rankic:qk])</rows>
+        <cols>[federated.research_walk_forward].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{C58C8A2B-C910-4CA0-951C-63703C30C486}" />
     </worksheet>
@@ -2945,9 +2945,9 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Frozen Weights" name="federated.v312_window_weights" />
+            <datasource caption="locked research Frozen Weights" name="federated.research_window_weights" />
           </datasources>
-          <datasource-dependencies datasource="federated.v312_window_weights">
+          <datasource-dependencies datasource="federated.research_window_weights">
             <column datatype="integer" name="[direction]" role="measure" type="quantitative" />
             <column datatype="string" name="[factor_name]" role="dimension" type="nominal" />
             <column datatype="string" name="[oos_role]" role="dimension" type="nominal" />
@@ -2963,23 +2963,23 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             <column-instance column="[weight_sha256]" derivation="None" name="[none:weight_sha256:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_window_weights].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_window_weights].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_window_weights].[none:window:ok]">
+          <filter class="categorical" column="[federated.research_window_weights].[none:window:ok]">
             <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_window_weights].[none:oos_role:nk]">
+          <filter class="categorical" column="[federated.research_window_weights].[none:oos_role:nk]">
             <groupfilter function="level-members" level="[none:oos_role:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_window_weights].[none:factor_name:nk]">
+          <filter class="categorical" column="[federated.research_window_weights].[none:factor_name:nk]">
             <groupfilter function="level-members" level="[none:factor_name:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_window_weights].[none:run_id:nk]</column>
-            <column>[federated.v312_window_weights].[none:window:ok]</column>
-            <column>[federated.v312_window_weights].[none:oos_role:nk]</column>
-            <column>[federated.v312_window_weights].[none:factor_name:nk]</column>
+            <column>[federated.research_window_weights].[none:run_id:nk]</column>
+            <column>[federated.research_window_weights].[none:window:ok]</column>
+            <column>[federated.research_window_weights].[none:oos_role:nk]</column>
+            <column>[federated.research_window_weights].[none:factor_name:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -2999,34 +2999,34 @@ Status: &lt;[federated.v312_walk_forward].[none:status:nk]&gt;</run>
             </view>
             <mark class="Square" />
             <encodings>
-              <color column="[federated.v312_window_weights].[sum:weight:qk]" />
-              <size column="[federated.v312_window_weights].[sum:weight:qk]" />
-              <lod column="[federated.v312_window_weights].[none:oos_role:nk]" />
-              <lod column="[federated.v312_window_weights].[none:window:ok]" />
-              <lod column="[federated.v312_window_weights].[none:factor_name:nk]" />
-              <tooltip column="[federated.v312_window_weights].[attr:direction:nk]" />
-              <tooltip column="[federated.v312_window_weights].[sum:weight:qk]" />
-              <lod column="[federated.v312_window_weights].[none:weight_sha256:nk]" />
+              <color column="[federated.research_window_weights].[sum:weight:qk]" />
+              <size column="[federated.research_window_weights].[sum:weight:qk]" />
+              <lod column="[federated.research_window_weights].[none:oos_role:nk]" />
+              <lod column="[federated.research_window_weights].[none:window:ok]" />
+              <lod column="[federated.research_window_weights].[none:factor_name:nk]" />
+              <tooltip column="[federated.research_window_weights].[attr:direction:nk]" />
+              <tooltip column="[federated.research_window_weights].[sum:weight:qk]" />
+              <lod column="[federated.research_window_weights].[none:weight_sha256:nk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_window_weights].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_window_weights].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Factor: &lt;[federated.v312_window_weights].[none:factor_name:nk]&gt;</run>
+Factor: &lt;[federated.research_window_weights].[none:factor_name:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Role: &lt;[federated.v312_window_weights].[none:oos_role:nk]&gt;</run>
+Role: &lt;[federated.research_window_weights].[none:oos_role:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Direction: &lt;[federated.v312_window_weights].[attr:direction:nk]&gt;</run>
+Direction: &lt;[federated.research_window_weights].[attr:direction:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Weight: &lt;[federated.v312_window_weights].[sum:weight:qk]&gt;</run>
+Weight: &lt;[federated.research_window_weights].[sum:weight:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Weight SHA-256: &lt;[federated.v312_window_weights].[none:weight_sha256:nk]&gt;</run>
+Weight SHA-256: &lt;[federated.research_window_weights].[none:weight_sha256:nk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
           </pane>
         </panes>
-        <rows>[federated.v312_window_weights].[none:factor_name:nk]</rows>
-        <cols>[federated.v312_window_weights].[none:window:ok]</cols>
+        <rows>[federated.research_window_weights].[none:factor_name:nk]</rows>
+        <cols>[federated.research_window_weights].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{DB01BB93-1BDA-434A-ABD2-5C1E5FB46349}" />
     </worksheet>
@@ -3041,9 +3041,9 @@ Weight SHA-256: &lt;[federated.v312_window_weights].[none:weight_sha256:nk]&gt;<
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Factor Screening" name="federated.v312_factor_screening" />
+            <datasource caption="locked research Factor Screening" name="federated.research_factor_screening" />
           </datasources>
-          <datasource-dependencies datasource="federated.v312_factor_screening">
+          <datasource-dependencies datasource="federated.research_factor_screening">
             <column datatype="real" name="[abs_mean_ic]" role="measure" type="quantitative" />
             <column datatype="integer" name="[direction]" role="measure" type="quantitative" />
             <column datatype="string" name="[factor]" role="dimension" type="nominal" />
@@ -3057,15 +3057,15 @@ Weight SHA-256: &lt;[federated.v312_window_weights].[none:weight_sha256:nk]&gt;<
             <column-instance column="[abs_mean_ic]" derivation="Avg" name="[avg:abs_mean_ic:qk]" pivot="key" type="quantitative" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_factor_screening].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_factor_screening].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_factor_screening].[none:window:ok]">
+          <filter class="categorical" column="[federated.research_factor_screening].[none:window:ok]">
             <groupfilter function="level-members" level="[none:window:ok]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_factor_screening].[none:run_id:nk]</column>
-            <column>[federated.v312_factor_screening].[none:window:ok]</column>
+            <column>[federated.research_factor_screening].[none:run_id:nk]</column>
+            <column>[federated.research_factor_screening].[none:window:ok]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -3085,31 +3085,31 @@ Weight SHA-256: &lt;[federated.v312_window_weights].[none:weight_sha256:nk]&gt;<
             </view>
             <mark class="Square" />
             <encodings>
-              <color column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
-              <size column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
-              <lod column="[federated.v312_factor_screening].[none:window:ok]" />
-              <lod column="[federated.v312_factor_screening].[none:factor:nk]" />
-              <tooltip column="[federated.v312_factor_screening].[avg:factor_stability_score:qk]" />
-              <tooltip column="[federated.v312_factor_screening].[attr:direction:nk]" />
-              <tooltip column="[federated.v312_factor_screening].[avg:abs_mean_ic:qk]" />
+              <color column="[federated.research_factor_screening].[avg:factor_stability_score:qk]" />
+              <size column="[federated.research_factor_screening].[avg:factor_stability_score:qk]" />
+              <lod column="[federated.research_factor_screening].[none:window:ok]" />
+              <lod column="[federated.research_factor_screening].[none:factor:nk]" />
+              <tooltip column="[federated.research_factor_screening].[avg:factor_stability_score:qk]" />
+              <tooltip column="[federated.research_factor_screening].[attr:direction:nk]" />
+              <tooltip column="[federated.research_factor_screening].[avg:abs_mean_ic:qk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_factor_screening].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_factor_screening].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Factor: &lt;[federated.v312_factor_screening].[none:factor:nk]&gt;</run>
+Factor: &lt;[federated.research_factor_screening].[none:factor:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Stability Score: &lt;[federated.v312_factor_screening].[avg:factor_stability_score:qk]&gt;</run>
+Stability Score: &lt;[federated.research_factor_screening].[avg:factor_stability_score:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Direction: &lt;[federated.v312_factor_screening].[attr:direction:nk]&gt;</run>
+Direction: &lt;[federated.research_factor_screening].[attr:direction:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Abs Mean IC: &lt;[federated.v312_factor_screening].[avg:abs_mean_ic:qk]&gt;</run>
+Abs Mean IC: &lt;[federated.research_factor_screening].[avg:abs_mean_ic:qk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
           </pane>
         </panes>
-        <rows>[federated.v312_factor_screening].[none:factor:nk]</rows>
-        <cols>[federated.v312_factor_screening].[none:window:ok]</cols>
+        <rows>[federated.research_factor_screening].[none:factor:nk]</rows>
+        <cols>[federated.research_factor_screening].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{ABFB7A57-8255-4CE5-B072-0E290DF905F3}" />
     </worksheet>
@@ -3124,9 +3124,9 @@ Abs Mean IC: &lt;[federated.v312_factor_screening].[avg:abs_mean_ic:qk]&gt;</run
       <table>
         <view>
           <datasources>
-            <datasource caption="V3.1.2 Validation Candidates" name="federated.v312_validation_candidates" />
+            <datasource caption="locked research Validation Candidates" name="federated.research_validation_candidates" />
           </datasources>
-          <datasource-dependencies datasource="federated.v312_validation_candidates">
+          <datasource-dependencies datasource="federated.research_validation_candidates">
             <column datatype="integer" name="[candidate_index]" role="dimension" type="nominal" />
             <column datatype="integer" name="[confidence_hac_lags]" role="measure" type="quantitative" />
             <column datatype="real" name="[icir]" role="measure" type="quantitative" />
@@ -3148,15 +3148,15 @@ Abs Mean IC: &lt;[federated.v312_factor_screening].[avg:abs_mean_ic:qk]&gt;</run
             <column-instance column="[candidate_index]" derivation="None" name="[none:candidate_index:nk]" pivot="key" type="nominal" />
             <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
           </datasource-dependencies>
-          <filter class="categorical" column="[federated.v312_validation_candidates].[none:run_id:nk]">
+          <filter class="categorical" column="[federated.research_validation_candidates].[none:run_id:nk]">
             <groupfilter function="level-members" level="[none:run_id:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
-          <filter class="categorical" column="[federated.v312_validation_candidates].[none:validation_stage:nk]">
+          <filter class="categorical" column="[federated.research_validation_candidates].[none:validation_stage:nk]">
             <groupfilter function="level-members" level="[none:validation_stage:nk]" user:ui-enumeration="all" user:ui-marker="enumerate" />
           </filter>
           <slices>
-            <column>[federated.v312_validation_candidates].[none:run_id:nk]</column>
-            <column>[federated.v312_validation_candidates].[none:validation_stage:nk]</column>
+            <column>[federated.research_validation_candidates].[none:run_id:nk]</column>
+            <column>[federated.research_validation_candidates].[none:validation_stage:nk]</column>
           </slices>
           <aggregation value="true" />
         </view>
@@ -3176,63 +3176,63 @@ Abs Mean IC: &lt;[federated.v312_factor_screening].[avg:abs_mean_ic:qk]&gt;</run
             </view>
             <mark class="Circle" />
             <encodings>
-              <color column="[federated.v312_validation_candidates].[none:validation_stage:nk]" />
-              <size column="[federated.v312_validation_candidates].[avg:mean_rankic:qk]" />
-              <lod column="[federated.v312_validation_candidates].[none:candidate_index:nk]" />
-              <lod column="[federated.v312_validation_candidates].[none:window:ok]" />
-              <lod column="[federated.v312_validation_candidates].[none:validation_stage:nk]" />
-              <tooltip column="[federated.v312_validation_candidates].[avg:mean_rankic:qk]" />
-              <tooltip column="[federated.v312_validation_candidates].[avg:icir:qk]" />
-              <tooltip column="[federated.v312_validation_candidates].[attr:confidence_hac_lags:nk]" />
-              <tooltip column="[federated.v312_validation_candidates].[attr:multiple_testing_family_size:nk]" />
-              <tooltip column="[federated.v312_validation_candidates].[avg:raw_validation_confidence:qk]" />
-              <tooltip column="[federated.v312_validation_candidates].[avg:validation_confidence:qk]" />
+              <color column="[federated.research_validation_candidates].[none:validation_stage:nk]" />
+              <size column="[federated.research_validation_candidates].[avg:mean_rankic:qk]" />
+              <lod column="[federated.research_validation_candidates].[none:candidate_index:nk]" />
+              <lod column="[federated.research_validation_candidates].[none:window:ok]" />
+              <lod column="[federated.research_validation_candidates].[none:validation_stage:nk]" />
+              <tooltip column="[federated.research_validation_candidates].[avg:mean_rankic:qk]" />
+              <tooltip column="[federated.research_validation_candidates].[avg:icir:qk]" />
+              <tooltip column="[federated.research_validation_candidates].[attr:confidence_hac_lags:nk]" />
+              <tooltip column="[federated.research_validation_candidates].[attr:multiple_testing_family_size:nk]" />
+              <tooltip column="[federated.research_validation_candidates].[avg:raw_validation_confidence:qk]" />
+              <tooltip column="[federated.research_validation_candidates].[avg:validation_confidence:qk]" />
             </encodings>
             <customized-tooltip>
               <formatted-text>
-                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.v312_validation_candidates].[none:window:ok]&gt;</run>
+                <run fontname="Tableau Semibold" fontsize="12">Window: &lt;[federated.research_validation_candidates].[none:window:ok]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Stage: &lt;[federated.v312_validation_candidates].[none:validation_stage:nk]&gt;</run>
+Stage: &lt;[federated.research_validation_candidates].[none:validation_stage:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Candidate: &lt;[federated.v312_validation_candidates].[none:candidate_index:nk]&gt;</run>
+Candidate: &lt;[federated.research_validation_candidates].[none:candidate_index:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Mean RankIC: &lt;[federated.v312_validation_candidates].[avg:mean_rankic:qk]&gt;</run>
+Mean RankIC: &lt;[federated.research_validation_candidates].[avg:mean_rankic:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-ICIR: &lt;[federated.v312_validation_candidates].[avg:icir:qk]&gt;</run>
+ICIR: &lt;[federated.research_validation_candidates].[avg:icir:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-HAC Lag: &lt;[federated.v312_validation_candidates].[attr:confidence_hac_lags:nk]&gt;</run>
+HAC Lag: &lt;[federated.research_validation_candidates].[attr:confidence_hac_lags:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Holm Family: &lt;[federated.v312_validation_candidates].[attr:multiple_testing_family_size:nk]&gt;</run>
+Holm Family: &lt;[federated.research_validation_candidates].[attr:multiple_testing_family_size:nk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Raw Confidence: &lt;[federated.v312_validation_candidates].[avg:raw_validation_confidence:qk]&gt;</run>
+Raw Confidence: &lt;[federated.research_validation_candidates].[avg:raw_validation_confidence:qk]&gt;</run>
                 <run fontname="Tableau Regular" fontsize="10">
-Adjusted Confidence: &lt;[federated.v312_validation_candidates].[avg:validation_confidence:qk]&gt;</run>
+Adjusted Confidence: &lt;[federated.research_validation_candidates].[avg:validation_confidence:qk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
           </pane>
         </panes>
-        <rows>[federated.v312_validation_candidates].[avg:validation_confidence:qk]</rows>
-        <cols>[federated.v312_validation_candidates].[none:window:ok]</cols>
+        <rows>[federated.research_validation_candidates].[avg:validation_confidence:qk]</rows>
+        <cols>[federated.research_validation_candidates].[none:window:ok]</cols>
       </table>
       <simple-id uuid="{5ABF95A7-D317-431C-84D7-63520D9F889A}" />
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard name="V3.1.2 Final Walk-Forward Dashboard">
+    <dashboard name="Research Walk-Forward Dashboard">
       <layout-options>
         <title>
           <formatted-text>
-            <run fontname="Tableau Semibold" fontsize="18">V3.1.2 Final Walk-Forward Dashboard</run>
+            <run fontname="Tableau Semibold" fontsize="18">Research Walk-Forward Dashboard</run>
           </formatted-text>
         </title>
       </layout-options>
       <style />
       <size maxheight="900" maxwidth="1200" minheight="900" minwidth="1200" sizing-mode="fixed" />
       <datasources>
-        <datasource caption="V3.1.2 Walk Forward" name="federated.v312_walk_forward" />
-        <datasource caption="V3.1.2 Frozen Weights" name="federated.v312_window_weights" />
+        <datasource caption="Research Walk Forward" name="federated.research_walk_forward" />
+        <datasource caption="locked research Frozen Weights" name="federated.research_window_weights" />
       </datasources>
-      <datasource-dependencies datasource="federated.v312_walk_forward">
+      <datasource-dependencies datasource="federated.research_walk_forward">
         <column datatype="string" name="[run_id]" role="dimension" type="nominal" />
         <column-instance column="[run_id]" derivation="None" name="[none:run_id:nk]" pivot="key" type="nominal" />
         <column datatype="integer" name="[window]" role="dimension" type="ordinal" />
@@ -3240,7 +3240,7 @@ Adjusted Confidence: &lt;[federated.v312_validation_candidates].[avg:validation_
         <column datatype="string" name="[status]" role="dimension" type="nominal" />
         <column-instance column="[status]" derivation="None" name="[none:status:nk]" pivot="key" type="nominal" />
       </datasource-dependencies>
-      <datasource-dependencies datasource="federated.v312_window_weights">
+      <datasource-dependencies datasource="federated.research_window_weights">
         <column datatype="string" name="[oos_role]" role="dimension" type="nominal" />
         <column-instance column="[oos_role]" derivation="None" name="[none:oos_role:nk]" pivot="key" type="nominal" />
       </datasource-dependencies>
@@ -3271,17 +3271,17 @@ Adjusted Confidence: &lt;[federated.v312_validation_candidates].[avg:validation_
           <zone h="34000" id="15" name="05 Frozen Factor Weights" show-title="true" w="100000" x="0" y="66000">
             <layout-cache type-h="scalable" type-w="scalable" />
           </zone>
-          <zone h="4500" id="30" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:run_id:nk]" type-v2="filter" w="24000" x="0" y="12000" />
-          <zone h="4500" id="31" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:window:ok]" type-v2="filter" w="24000" x="25000" y="12000" />
-          <zone h="4500" id="32" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.v312_walk_forward].[none:status:nk]" type-v2="filter" w="24000" x="50000" y="12000" />
-          <zone h="4500" id="33" mode="dropdown" name="05 Frozen Factor Weights" param="[federated.v312_window_weights].[none:oos_role:nk]" type-v2="filter" w="24000" x="75000" y="12000" />
+          <zone h="4500" id="30" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.research_walk_forward].[none:run_id:nk]" type-v2="filter" w="24000" x="0" y="12000" />
+          <zone h="4500" id="31" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.research_walk_forward].[none:window:ok]" type-v2="filter" w="24000" x="25000" y="12000" />
+          <zone h="4500" id="32" mode="dropdown" name="01 Formal OOS RankIC" param="[federated.research_walk_forward].[none:status:nk]" type-v2="filter" w="24000" x="50000" y="12000" />
+          <zone h="4500" id="33" mode="dropdown" name="05 Frozen Factor Weights" param="[federated.research_window_weights].[none:oos_role:nk]" type-v2="filter" w="24000" x="75000" y="12000" />
         </zone>
       </zones>
       <simple-id uuid="{8A539F23-9E35-4D2B-A0FB-DB336BFB557F}" />
     </dashboard>
   </dashboards>
   <windows source-height="30">
-    <window class="dashboard" maximized="true" name="V3.1.2 Final Walk-Forward Dashboard">
+    <window class="dashboard" maximized="true" name="Research Walk-Forward Dashboard">
       <viewpoints>
         <viewpoint name="01 Formal OOS RankIC">
           <zoom type="entire-view" />

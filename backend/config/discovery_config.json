@@ -7,13 +7,13 @@
       "http://localhost:3000",
       "http://127.0.0.1:3000"
     ],
-    "run_header": "run-v8-development-only"
+    "run_header": "run-development-discovery-only"
   },
   "command": {
     "python_path": "CURRENT_INTERPRETER",
-    "project_root": "../external/v8",
-    "runner_path": "factor_discovery_stage_v8/run_discovery.py",
-    "result_path": "runtime/factor_discovery_v8/discovery_result.json",
+    "project_root": "../external/discovery_engine",
+    "runner_path": "factor_discovery/run_discovery.py",
+    "result_path": "runtime/factor_discovery/discovery_result.json",
     "timeout_seconds": 300
   },
   "identity": {
@@ -27,10 +27,10 @@
     "formal_sample_allowed": false
   },
   "implementation_sha256": {
-    "factor_discovery_stage_v8/protocol.json": "baa3ec925407f33343b4258d117d0f65b8db421e79c56e56610a0ba551eab19f",
-    "factor_discovery_stage_v8/discovery_core.py": "e831f1e575b3bf70e04aed3d60e48b7b69ceb54e9c85c21146c4699cfd90c5a3",
-    "factor_discovery_stage_v8/run_discovery.py": "c3b83aeea031e9a8b9b71b233f11cee4a8d9e0930a0e9367d0296a0832ebebfb",
-    "factor_discovery_stage_v8/test_discovery.py": "99c1b7acc56b75c88ddc9f6abb3de54021ae6a334cb64a0e5e54bb6ebd18161a",
-    "factor_discovery_stage_v8/run_tests.py": "7d3bf6ead4d8361514b339db1a003bcf64dd2ed66e46de694c615e82f422200a"
+    "factor_discovery/protocol.json": "baa3ec925407f33343b4258d117d0f65b8db421e79c56e56610a0ba551eab19f",
+    "factor_discovery/discovery_core.py": "e831f1e575b3bf70e04aed3d60e48b7b69ceb54e9c85c21146c4699cfd90c5a3",
+    "factor_discovery/run_discovery.py": "c3b83aeea031e9a8b9b71b233f11cee4a8d9e0930a0e9367d0296a0832ebebfb",
+    "factor_discovery/test_discovery.py": "99c1b7acc56b75c88ddc9f6abb3de54021ae6a334cb64a0e5e54bb6ebd18161a",
+    "factor_discovery/run_tests.py": "7d3bf6ead4d8361514b339db1a003bcf64dd2ed66e46de694c615e82f422200a"
   }
 }

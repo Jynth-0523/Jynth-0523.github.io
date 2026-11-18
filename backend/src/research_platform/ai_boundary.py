@@ -53,7 +53,7 @@ def build_minimized_ai_input(
 
 
 def build_minimized_discovery_ai_input(result: dict[str, Any]) -> dict[str, Any]:
-    """Return the only V8 discovery facts that may cross the AI boundary.
+    """Return the only development discovery facts that may cross the AI boundary.
 
     The payload intentionally excludes expressions, names, weights, raw rows,
     research paths, free-form messages, held-out results, and identifiers. All

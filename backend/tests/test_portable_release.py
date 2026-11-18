@@ -26,7 +26,7 @@ class PortableReleaseTests(unittest.TestCase):
 
     def test_missing_archive_configuration_blocks_before_access(self):
         environment = {key: value for key, value in os.environ.items()
-                       if key not in {'RESEARCH_ASSETS_ROOT', 'LOCKED_RESEARCH_ROOT'}}
+                       if key != 'RESEARCH_ASSETS_ROOT'}
         environment['PLATFORM_PYTHON'] = sys.executable
         with tempfile.TemporaryDirectory() as directory:
             result = subprocess.run(['/bin/sh', str(ROOT / 'health_check/run_health_check.sh')],

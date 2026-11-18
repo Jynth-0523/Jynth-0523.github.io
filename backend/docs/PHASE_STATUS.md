@@ -8,10 +8,10 @@
 | Phase 3 | Not started | no-tool, no-memory, read-only AI explanation |
 | Phase 4 | Out of scope | new factor generation or new research specification |
 
-Phase status is an engineering state. It does not alter the locked V3.1.2
+Phase status is an engineering state. It does not alter the locked research
 research specification or its results.
 
 The Phase 1 test suite includes a 100-trigger concurrency test, adversarial
 health fixtures, timeout/retry fault injection, command-denial tests, kill
 switch verification, and envelope tamper detection. The suite does not execute
-the V3.1.2 research algorithm.
+the locked research algorithm.

@@ -6,7 +6,7 @@ This is a platform source release, not the separate four-algorithm paper package
 | --- | --- | --- |
 | Synthetic backend and browser tests | Specific software invariants under tested fixtures | Empirical paper replication or investment accuracy |
 | Stored development snapshot | Values recorded in the existing web source | A newly audited run or a final tradable model |
-| Historical V3.1.2 identity | Locked window, schema, and Formal/Shadow reporting semantics | Long-run profitability |
+| Historical locked research identity | Locked window, schema, and Formal/Shadow reporting semantics | Long-run profitability |
 | Earlier literature review: 72 objects / 68 unique primary versions | Coverage of the reviewed literature corpus | 68 or 72 successful replications |
 | Source and release SHA-256 inventory | File identity and the scope of publication changes | Truth of external data or statistical claims |
 

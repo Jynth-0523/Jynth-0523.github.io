@@ -31,7 +31,7 @@ def format_value(value: Any, max_length: int = 500) -> str:
 
 def markdown_report(status: dict[str, Any]) -> str:
     lines = [
-        "# V3.1.2 Read-only Health Check Report",
+        "# locked research Read-only Health Check Report",
         "",
         f"- **Overall status: {status['overall_status']}**",
         f"- Checked at: {status['checked_at']}",

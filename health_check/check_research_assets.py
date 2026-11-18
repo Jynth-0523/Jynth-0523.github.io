@@ -29,26 +29,28 @@ from health_report import markdown_report
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
+def expand_environment(value):
+    if isinstance(value, dict):
+        return {expand_environment(key): expand_environment(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [expand_environment(item) for item in value]
+    if isinstance(value, str):
+        expanded = os.path.expandvars(value)
+        if re.search(r'\$\{[^}]+\}', expanded):
+            raise ValueError(f'Required environment variable is unset: {value}')
+        return expanded
+    return value
+
+
 def run_health_check() -> int:
     started_monotonic = time.monotonic()
-    parser = argparse.ArgumentParser(description="V3.1.2 read-only health check")
+    parser = argparse.ArgumentParser(description="locked research read-only health check")
     parser.add_argument("--config", default=str(SCRIPT_DIR / "health_check_config.json"))
     args = parser.parse_args()
     config_path = Path(args.config).resolve()
     try:
         config = json_load(config_path)
-        def expand(value):
-            if isinstance(value, dict):
-                return {key: expand(item) for key, item in value.items()}
-            if isinstance(value, list):
-                return [expand(item) for item in value]
-            if isinstance(value, str):
-                expanded = os.path.expandvars(value)
-                if re.search(r'\$\{[^}]+\}', expanded):
-                    raise ValueError(f'Required environment variable is unset: {value}')
-                return expanded
-            return value
-        config = expand(config)
+        config = expand_environment(config)
         directory = Path(config['health_check_directory'])
         if not directory.is_absolute():
             config['health_check_directory'] = str((config_path.parent / directory).resolve())
@@ -154,7 +156,7 @@ def run_health_check() -> int:
             "database_transaction": "READ ONLY",
             "research_module_imported": False,
             "output_root": str(SCRIPT_DIR),
-            "v3_cache_accessed": False,
+            "research_cache_accessed": False,
             "new_research_gate_created": False,
             "oos_used_for_tuning": False,
         },
@@ -198,7 +200,7 @@ def run_health_check() -> int:
         "research_algorithm_executed": False,
         "walk_forward_executed": False,
         "main_executed": False,
-        "v3_cache_modified": False,
+        "research_cache_modified": False,
         "oos_used_for_tuning": False,
         "new_research_gate_created": False,
         "pyc_created": pyc_created,
@@ -233,7 +235,7 @@ def run_health_check() -> int:
         print(f"BLOCKED: cannot write health-check outputs: {type(exc).__name__}: {exc}", file=sys.stderr)
         return STATUS_EXIT["BLOCKED"]
 
-    print(f"{overall}: V3.1.2 health check")
+    print(f"{overall}: locked research health check")
     print(f"JSON: {latest_json}")
     print(f"Markdown: {latest_md}")
     return STATUS_EXIT[overall]

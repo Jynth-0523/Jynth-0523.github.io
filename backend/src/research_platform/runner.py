@@ -89,7 +89,7 @@ class AutomationRunner:
         keys = tuple(sorted(set(self.config.environment_allowlist)))
         environment = {key: os.environ[key] for key in keys if key in os.environ}
         environment["PYTHONDONTWRITEBYTECODE"] = "1"
-        environment["V312_AUTOMATION_COMMAND_ID"] = ONLY_COMMAND_ID
+        environment["RESEARCH_PLATFORM_COMMAND_ID"] = ONLY_COMMAND_ID
         return environment, tuple(sorted(environment))
 
     def _observe_once(self) -> ProcessObservation:

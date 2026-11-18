@@ -10,7 +10,7 @@ from research_platform.alerts import LocalAlertManager
 
 def _envelope(status: str, check_id: str = "files.example") -> dict:
     return {
-        "command_id": "v312_read_only_health_check",
+        "command_id": "locked_research_health_check",
         "validated_status": status,
         "attempts": [
             {

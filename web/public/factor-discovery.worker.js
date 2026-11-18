@@ -977,7 +977,7 @@
 		send({
 			type: "AUDIT_RESULT",
 			result: {
-				schemaVersion: "browser-data-audit.v1",
+				schemaVersion: "browser-data-audit",
 				generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
 				passed,
 				blockers,
@@ -1505,7 +1505,7 @@
 			detail: "The component table remains an audit trail of what was tested; it is not a factor recommendation. Add economically distinct features or more history instead of relaxing gates after seeing this result."
 		};
 		const result = {
-			schemaVersion: "browser-factor-discovery.v10",
+			schemaVersion: "browser-factor-discovery",
 			generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
 			source: {
 				filename: uploadedFilename,
@@ -1564,7 +1564,7 @@
 			},
 			assessment,
 			validation: {
-				protocol: "frequency-aware-purged-hac-holm-cost-full-year-walk-forward-v4",
+				protocol: "frequency-aware-purged-hac-holm-cost-full-year-walk-forward",
 				purge: {
 					periodsPerBoundary: purgePeriods,
 					totalPurgedPeriods: 2 * purgePeriods,

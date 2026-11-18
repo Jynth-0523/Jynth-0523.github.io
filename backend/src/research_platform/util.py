@@ -59,7 +59,7 @@ def source_tree_sha256(project_root: Path) -> str:
 
 def atomic_write_bytes(path: Path, content: bytes, mode: int = 0o600) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=".v312_tmp_", dir=path.parent)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=".research_tmp_", dir=path.parent)
     temporary_path = Path(temporary_name)
     try:
         os.fchmod(descriptor, mode)
@@ -80,7 +80,7 @@ def atomic_write_bytes(path: Path, content: bytes, mode: int = 0o600) -> None:
 def exclusive_publish_bytes(path: Path, content: bytes, mode: int = 0o600) -> None:
     """Publish a never-overwritten file atomically."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=".v312_publish_", dir=path.parent)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=".research_publish_", dir=path.parent)
     temporary_path = Path(temporary_name)
     try:
         os.fchmod(descriptor, mode)

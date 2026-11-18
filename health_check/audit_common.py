@@ -21,7 +21,7 @@ from typing import Any, Iterable
 
 
 
-NULL_TOKEN = "<V312_NULL>"
+NULL_TOKEN = "<RESEARCH_NULL>"
 STATUS_EXIT = {"PASS": 0, "FAIL": 1, "BLOCKED": 2}
 
 class Recorder:
@@ -133,7 +133,7 @@ def json_load(path: Path) -> Any:
 
 def atomic_write(path: Path, data: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary_name = tempfile.mkstemp(prefix=".v312_health_", dir=str(path.parent))
+    descriptor, temporary_name = tempfile.mkstemp(prefix=".research_health_", dir=str(path.parent))
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(data)

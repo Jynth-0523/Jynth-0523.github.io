@@ -2,8 +2,8 @@
 
 ## Protected assets
 
-- V3.1.2 research source and tests;
-- V3 market, membership, primitive, and factor caches;
+- locked research source and tests;
+- historical market, membership, primitive, and factor caches;
 - the immutable PostgreSQL final run;
 - permanent walk-forward archive and manifests;
 - final report and Tableau workbook;
@@ -25,7 +25,7 @@ path, permission, retry, database operation, or research decision.
 
 ## Denied effects
 
-- importing or running `v312_research.py`;
+- importing or running `locked_research.py`;
 - running walk-forward, research tests, SQL writes, or Tableau modifications;
 - accepting shell commands, paths, or subprocess arguments from user/model text;
 - merging Formal and Shadow values or replacing null with zero;

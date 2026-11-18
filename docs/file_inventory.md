@@ -1,6 +1,6 @@
 # Published file inventory
 
-File names describe responsibilities. Original names and hashes are retained only in the provenance manifest and locked external archive references.
+File names describe responsibilities. Original source hashes are retained in the provenance manifest. Exact historical identities and narrowly scoped read-only compatibility labels are documented in [compatibility.md](compatibility.md).
 
 | File | Purpose |
 | --- | --- |
@@ -30,6 +30,7 @@ File names describe responsibilities. Original names and hashes are retained onl
 | [`backend/src/research_platform/discovery_api.py`](../backend/src/research_platform/discovery_api.py) | Optional loopback API and hash-verified private discovery adapter. |
 | [`backend/src/research_platform/factor_registry.py`](../backend/src/research_platform/factor_registry.py) | Frozen component registry and separate human review state. |
 | [`backend/src/research_platform/health_schema.py`](../backend/src/research_platform/health_schema.py) | Health-output parsing and Formal/Shadow semantic validation. |
+| [`backend/src/research_platform/historical_contract.py`](../backend/src/research_platform/historical_contract.py) | Read-only compatibility for immutable historical fields and artifact directory labels. |
 | [`backend/src/research_platform/lock.py`](../backend/src/research_platform/lock.py) | Single-instance file locking. |
 | [`backend/src/research_platform/runner.py`](../backend/src/research_platform/runner.py) | Allowlisted jobs, timeouts, retries, and run envelopes. |
 | [`backend/src/research_platform/store.py`](../backend/src/research_platform/store.py) | Immutable run records and hash-chain persistence. |
@@ -47,16 +48,21 @@ File names describe responsibilities. Original names and hashes are retained onl
 | [`backend/tests/test_ai_candidate_proposer.py`](../backend/tests/test_ai_candidate_proposer.py) | Automated checks: ai candidate proposer. |
 | [`backend/tests/test_ai_explainer.py`](../backend/tests/test_ai_explainer.py) | Automated checks: ai explainer. |
 | [`backend/tests/test_alerts.py`](../backend/tests/test_alerts.py) | Automated checks: alerts. |
+| [`backend/tests/test_archive_paths.py`](../backend/tests/test_archive_paths.py) | Environment expansion, schema safety, and mocked read-only archive checks. |
 | [`backend/tests/test_config.py`](../backend/tests/test_config.py) | Automated checks: config. |
 | [`backend/tests/test_discovery_api.py`](../backend/tests/test_discovery_api.py) | Automated checks: discovery api. |
 | [`backend/tests/test_factor_registry.py`](../backend/tests/test_factor_registry.py) | Automated checks: factor registry. |
 | [`backend/tests/test_health_schema.py`](../backend/tests/test_health_schema.py) | Automated checks: health schema. |
+| [`backend/tests/test_historical_contract.py`](../backend/tests/test_historical_contract.py) | Historical compatibility aliases and conflicting-field rejection tests. |
+| [`backend/tests/test_importer_paths.py`](../backend/tests/test_importer_paths.py) | Explicit archive input paths and missing-input checks with database calls mocked. |
 | [`backend/tests/test_portable_release.py`](../backend/tests/test_portable_release.py) | Automated checks: portable release. |
+| [`backend/tests/test_publication_names.py`](../backend/tests/test_publication_names.py) | English source, descriptive filename, and author-independent path regression checks. |
 | [`backend/tests/test_runner.py`](../backend/tests/test_runner.py) | Automated checks: runner. |
 | [`backend/tests/test_store_and_lock.py`](../backend/tests/test_store_and_lock.py) | Automated checks: store and lock. |
 | [`database/import_locked_run.py`](../database/import_locked_run.py) | Explicit administrative importer for an authorized historical archive. |
 | [`database/requirements.txt`](../database/requirements.txt) | Python dependencies for this directory. |
 | [`database/verify_locked_run.sql`](../database/verify_locked_run.sql) | Read-only SQL verification of historical invariants. |
+| [`docs/compatibility.md`](../docs/compatibility.md) | Naming scope, portable paths, historical exceptions, and local-state migration boundaries. |
 | [`docs/evidence_scope.md`](../docs/evidence_scope.md) | What software, literature, and historical evidence can establish. |
 | [`docs/file_inventory.md`](../docs/file_inventory.md) | This per-file purpose index. |
 | [`docs/release_manifest.json`](../docs/release_manifest.json) | Published-file sizes and SHA-256 hashes; excludes its own self-hash. |
@@ -74,6 +80,7 @@ File names describe responsibilities. Original names and hashes are retained onl
 | [`health_check/run_health_check.sh`](../health_check/run_health_check.sh) | Portable Python launcher for the read-only asset checker. |
 | [`index.html`](../index.html) | Unmodified existing GitHub Pages entry point to the hosted application. |
 | [`scripts/verify_release.py`](../scripts/verify_release.py) | Read-only checker of release-file identities. |
+| [`start-platform.mjs`](../start-platform.mjs) | Repository-relative launcher with optional dependency installation and prerequisite checks. |
 | [`tableau/research_dashboard_template.twb`](../tableau/research_dashboard_template.twb) | Machine-generated Tableau Live Connection template, with credentials removed. |
 | [`web/.gitignore`](../web/.gitignore) | Component-specific exclusions for generated and private files. |
 | [`web/README.md`](../web/README.md) | Component setup and operational documentation. |
@@ -109,7 +116,9 @@ File names describe responsibilities. Original names and hashes are retained onl
 | [`web/public/research-method.md`](../web/public/research-method.md) | Browser research contract and interpretation limitations. |
 | [`web/scripts/build-browser-worker.mjs`](../web/scripts/build-browser-worker.mjs) | Bundle the worker modules into one browser asset. |
 | [`web/scripts/dev.mjs`](../web/scripts/dev.mjs) | Portable web launcher; private local API disabled by default. |
+| [`web/scripts/run-web.mjs`](../web/scripts/run-web.mjs) | Portable build and production-server launcher without shell-specific environment syntax. |
 | [`web/tests/browser-worker.test.mjs`](../web/tests/browser-worker.test.mjs) | Synthetic production-worker audit and signal/null regression tests. |
+| [`web/tests/portable-launcher.test.mjs`](../web/tests/portable-launcher.test.mjs) | Relocated folders, spaces, unrelated working directories, and invalid-option checks. |
 | [`web/tests/rendered-html.test.mjs`](../web/tests/rendered-html.test.mjs) | Production-page rendering, evidence disclosure, and UI contract tests. |
 | [`web/tsconfig.json`](../web/tsconfig.json) | Component configuration: tsconfig. |
 | [`web/vite.config.ts`](../web/vite.config.ts) | Component configuration: vite config. |

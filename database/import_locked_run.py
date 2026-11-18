@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import one immutable V3.1.2 walk-forward run into PostgreSQL."""
+"""Import one immutable locked research walk-forward run into PostgreSQL."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ MIN_AVAILABLE_WEIGHT_FRACTION = 0.50
 CSV_TABLES = {
     "results/walk_forward_all_results.csv": "walk_forward_windows",
     "results/oos_summary.csv": "oos_summary",
-    "results/v3_v31_v311_v312_comparison.csv": "model_comparison",
+    "results/model_comparison.csv": "model_comparison",
     "diagnostics/validation_confidence_diagnostics.csv": "validation_candidates",
     "diagnostics/factor_screening_diagnostics.csv": "factor_screening",
     "diagnostics/confidence_calibration_summary.csv": "confidence_calibration_summary",
@@ -102,7 +102,7 @@ def create_frame_table(
     table_name: str,
     frame: pd.DataFrame,
 ) -> None:
-    definitions = [sql.SQL("run_id text NOT NULL REFERENCES v312.research_runs(run_id)")]
+    definitions = [sql.SQL("run_id text NOT NULL REFERENCES research.research_runs(run_id)")]
     for column in frame.columns:
         definitions.append(
             sql.SQL("{} {}").format(
@@ -111,7 +111,7 @@ def create_frame_table(
             )
         )
     cursor.execute(
-        sql.SQL("CREATE TABLE IF NOT EXISTS v312.{} ({})").format(
+        sql.SQL("CREATE TABLE IF NOT EXISTS research.{} ({})").format(
             sql.Identifier(table_name),
             sql.SQL(", ").join(definitions),
         )
@@ -130,7 +130,7 @@ def copy_frame(
     payload.to_csv(buffer, index=False, na_rep="\\N")
     columns = [sql.Identifier(column) for column in payload.columns]
     copy_statement = sql.SQL(
-        "COPY v312.{} ({}) FROM STDIN WITH (FORMAT CSV, HEADER TRUE, NULL '\\N')"
+        "COPY research.{} ({}) FROM STDIN WITH (FORMAT CSV, HEADER TRUE, NULL '\\N')"
     ).format(sql.Identifier(table_name), sql.SQL(", ").join(columns))
     with cursor.copy(copy_statement) as copy:
         copy.write(buffer.getvalue())
@@ -150,10 +150,10 @@ def canonical_weight_hash(weights: list[float]) -> str:
 
 
 def create_core_schema(cursor: psycopg.Cursor) -> None:
-    cursor.execute("CREATE SCHEMA IF NOT EXISTS v312")
+    cursor.execute("CREATE SCHEMA IF NOT EXISTS research")
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS v312.research_runs (
+        CREATE TABLE IF NOT EXISTS research.research_runs (
             run_id text PRIMARY KEY,
             research_spec_id text NOT NULL,
             source_root text NOT NULL,
@@ -178,8 +178,8 @@ def create_core_schema(cursor: psycopg.Cursor) -> None:
     )
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS v312.artifacts (
-            run_id text NOT NULL REFERENCES v312.research_runs(run_id),
+        CREATE TABLE IF NOT EXISTS research.artifacts (
+            run_id text NOT NULL REFERENCES research.research_runs(run_id),
             relative_path text NOT NULL,
             sha256 text NOT NULL,
             size_bytes bigint NOT NULL,
@@ -192,8 +192,8 @@ def create_core_schema(cursor: psycopg.Cursor) -> None:
     )
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS v312.audit_manifests (
-            run_id text NOT NULL REFERENCES v312.research_runs(run_id),
+        CREATE TABLE IF NOT EXISTS research.audit_manifests (
+            run_id text NOT NULL REFERENCES research.research_runs(run_id),
             relative_path text NOT NULL,
             payload jsonb NOT NULL,
             PRIMARY KEY (run_id, relative_path)
@@ -202,8 +202,8 @@ def create_core_schema(cursor: psycopg.Cursor) -> None:
     )
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS v312.window_weight_sets (
-            run_id text NOT NULL REFERENCES v312.research_runs(run_id),
+        CREATE TABLE IF NOT EXISTS research.window_weight_sets (
+            run_id text NOT NULL REFERENCES research.research_runs(run_id),
             "window" bigint NOT NULL,
             oos_role text NOT NULL CHECK (oos_role IN ('formal', 'shadow')),
             weight_count integer NOT NULL,
@@ -217,8 +217,8 @@ def create_core_schema(cursor: psycopg.Cursor) -> None:
     )
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS v312.window_factor_weights (
-            run_id text NOT NULL REFERENCES v312.research_runs(run_id),
+        CREATE TABLE IF NOT EXISTS research.window_factor_weights (
+            run_id text NOT NULL REFERENCES research.research_runs(run_id),
             "window" bigint NOT NULL,
             factor_position integer NOT NULL,
             factor_name text NOT NULL,
@@ -228,7 +228,7 @@ def create_core_schema(cursor: psycopg.Cursor) -> None:
             weight_sha256 text NOT NULL,
             PRIMARY KEY (run_id, "window", factor_position),
             FOREIGN KEY (run_id, "window")
-                REFERENCES v312.window_weight_sets(run_id, "window")
+                REFERENCES research.window_weight_sets(run_id, "window")
         )
         """
     )
@@ -240,10 +240,12 @@ def insert_run(
     run_id: str,
     source_root: Path,
     windows: pd.DataFrame,
-    project_root: Path,
+    source_path: Path,
+    test_path: Path,
+    backup_path: Path,
 ) -> None:
     cursor.execute(
-        "SELECT 1 FROM v312.research_runs WHERE run_id = %s",
+        "SELECT 1 FROM research.research_runs WHERE run_id = %s",
         (run_id,),
     )
     if cursor.fetchone() is not None:
@@ -257,12 +259,9 @@ def insert_run(
         )
     if windows["window"].tolist() != list(range(1, EXPECTED_WINDOWS + 1)):
         raise ValueError("Window numbers must be exactly 1..23")
-    source_path = project_root / "v312_research.py"
-    test_path = project_root / "test_v312.py"
-    backup_path = project_root / "v312_research_before_fix.py"
     cursor.execute(
         """
-        INSERT INTO v312.research_runs (
+        INSERT INTO research.research_runs (
             run_id, research_spec_id, source_root, expected_windows,
             actual_windows, result_column_count,
             information_set_diagnostic_column_count, min_cross_section,
@@ -302,7 +301,7 @@ def insert_artifacts(
         stat = path.stat()
         cursor.execute(
             """
-            INSERT INTO v312.artifacts (
+            INSERT INTO research.artifacts (
                 run_id, relative_path, sha256, size_bytes, modified_at,
                 row_count, column_count
             ) VALUES (%s, %s, %s, %s, to_timestamp(%s), %s, %s)
@@ -322,7 +321,7 @@ def insert_artifacts(
                 payload = json.load(handle)
             cursor.execute(
                 """
-                INSERT INTO v312.audit_manifests (run_id, relative_path, payload)
+                INSERT INTO research.audit_manifests (run_id, relative_path, payload)
                 VALUES (%s, %s, %s)
                 """,
                 (run_id, relative_path, Jsonb(payload)),
@@ -351,7 +350,7 @@ def insert_weights(
         weight_hash = canonical_weight_hash(weights)
         cursor.execute(
             """
-            INSERT INTO v312.window_weight_sets (
+            INSERT INTO research.window_weight_sets (
                 run_id, "window", oos_role, weight_count, nonzero_weight_count,
                 weight_sum, max_weight, weight_sha256
             ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
@@ -370,7 +369,7 @@ def insert_weights(
         for position, (factor, weight) in enumerate(zip(factors, weights)):
             cursor.execute(
                 """
-                INSERT INTO v312.window_factor_weights (
+                INSERT INTO research.window_factor_weights (
                     run_id, "window", factor_position, factor_name, direction,
                     weight, oos_role, weight_sha256
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
@@ -391,19 +390,19 @@ def insert_weights(
 def create_indexes_and_views(cursor: psycopg.Cursor) -> None:
     cursor.execute(
         "CREATE UNIQUE INDEX IF NOT EXISTS ux_walk_forward_run_window "
-        "ON v312.walk_forward_windows (run_id, \"window\")"
+        "ON research.walk_forward_windows (run_id, \"window\")"
     )
     cursor.execute(
         "CREATE INDEX IF NOT EXISTS ix_validation_run_window_stage "
-        "ON v312.validation_candidates (run_id, \"window\", validation_stage)"
+        "ON research.validation_candidates (run_id, \"window\", validation_stage)"
     )
     cursor.execute(
         "CREATE INDEX IF NOT EXISTS ix_factor_screening_run_window_factor "
-        "ON v312.factor_screening (run_id, \"window\", factor)"
+        "ON research.factor_screening (run_id, \"window\", factor)"
     )
     cursor.execute(
         """
-        CREATE OR REPLACE VIEW v312.tableau_walk_forward AS
+        CREATE OR REPLACE VIEW research.tableau_walk_forward AS
         SELECT
             w.*,
             CASE
@@ -414,38 +413,38 @@ def create_indexes_and_views(cursor: psycopg.Cursor) -> None:
             END AS oos_branch,
             w.oos_test_rankic AS formal_oos_rankic,
             w.shadow_oos_test_rankic AS shadow_diagnostic_rankic
-        FROM v312.walk_forward_windows AS w
+        FROM research.walk_forward_windows AS w
         """
     )
     cursor.execute(
         """
-        CREATE OR REPLACE VIEW v312.tableau_window_weights AS
+        CREATE OR REPLACE VIEW research.tableau_window_weights AS
         SELECT
             f.run_id, f."window", f.factor_position, f.factor_name,
             f.direction, f.weight, f.oos_role, f.weight_sha256,
             s.weight_count, s.nonzero_weight_count, s.weight_sum, s.max_weight
-        FROM v312.window_factor_weights AS f
-        JOIN v312.window_weight_sets AS s
+        FROM research.window_factor_weights AS f
+        JOIN research.window_weight_sets AS s
           ON s.run_id = f.run_id AND s."window" = f."window"
         """
     )
     cursor.execute(
-        "CREATE OR REPLACE VIEW v312.tableau_validation_candidates AS "
-        "SELECT * FROM v312.validation_candidates"
+        "CREATE OR REPLACE VIEW research.tableau_validation_candidates AS "
+        "SELECT * FROM research.validation_candidates"
     )
     cursor.execute(
-        "CREATE OR REPLACE VIEW v312.tableau_factor_screening AS "
-        "SELECT * FROM v312.factor_screening"
+        "CREATE OR REPLACE VIEW research.tableau_factor_screening AS "
+        "SELECT * FROM research.factor_screening"
     )
 
 
 def install_append_only_guards(cursor: psycopg.Cursor) -> None:
     cursor.execute(
         """
-        CREATE OR REPLACE FUNCTION v312.reject_mutation()
+        CREATE OR REPLACE FUNCTION research.reject_mutation()
         RETURNS trigger LANGUAGE plpgsql AS $$
         BEGIN
-            RAISE EXCEPTION 'V3.1.2 research archive is append-only';
+            RAISE EXCEPTION 'Locked research archive is append-only';
         END;
         $$
         """
@@ -458,15 +457,15 @@ def install_append_only_guards(cursor: psycopg.Cursor) -> None:
             FOR item IN
                 SELECT tablename
                 FROM pg_tables
-                WHERE schemaname = 'v312'
+                WHERE schemaname = 'research'
             LOOP
                 EXECUTE format(
-                    'DROP TRIGGER IF EXISTS reject_mutation ON v312.%I',
+                    'DROP TRIGGER IF EXISTS reject_mutation ON research.%I',
                     item.tablename
                 );
                 EXECUTE format(
-                    'CREATE TRIGGER reject_mutation BEFORE UPDATE OR DELETE ON v312.%I '
-                    'FOR EACH ROW EXECUTE FUNCTION v312.reject_mutation()',
+                    'CREATE TRIGGER reject_mutation BEFORE UPDATE OR DELETE ON research.%I '
+                    'FOR EACH ROW EXECUTE FUNCTION research.reject_mutation()',
                     item.tablename
                 );
             END LOOP;
@@ -480,6 +479,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--project-root", type=Path, required=True)
+    parser.add_argument("--source-file", type=Path, default=Path("locked_research.py"),
+                        help="Research source path, absolute or relative to --project-root.")
+    parser.add_argument("--test-file", type=Path, default=Path("test_locked_research.py"),
+                        help="Research test path, absolute or relative to --project-root.")
+    parser.add_argument("--backup-file", type=Path, default=Path("research_original_backup.py"),
+                        help="Original backup path, absolute or relative to --project-root.")
+    parser.add_argument("--comparison-file", type=Path, default=Path("results/model_comparison.csv"),
+                        help="Comparison CSV path, absolute or relative to --source-root. Configure the existing file; do not rename a locked archive.")
     parser.add_argument("--run-id", required=True)
     parser.add_argument(
         "--dsn",
@@ -489,9 +496,16 @@ def main() -> None:
     args = parser.parse_args()
     source_root = args.source_root.resolve()
     project_root = args.project_root.resolve()
+    source_paths = {name: (project_root / getattr(args, name)).resolve()
+                    for name in ("source_file", "test_file", "backup_file")}
+    comparison_path = (source_root / args.comparison_file).resolve()
+    for path in (*source_paths.values(), comparison_path):
+        if not path.is_file():
+            parser.error(f"Required input is missing: {path}. Configure the matching file option; do not rename locked originals.")
     windows = load_csv(source_root / "results/walk_forward_all_results.csv")
 
     with psycopg.connect(args.dsn) as connection:
+        database_name = connection.info.dbname
         with connection.cursor() as cursor:
             create_core_schema(cursor)
             insert_run(
@@ -499,10 +513,12 @@ def main() -> None:
                 run_id=args.run_id,
                 source_root=source_root,
                 windows=windows,
-                project_root=project_root,
+                source_path=source_paths["source_file"],
+                test_path=source_paths["test_file"],
+                backup_path=source_paths["backup_file"],
             )
             for relative_path, table_name in CSV_TABLES.items():
-                frame = load_csv(source_root / relative_path)
+                frame = load_csv(comparison_path if table_name == "model_comparison" else source_root / relative_path)
                 create_frame_table(cursor, table_name, frame)
                 copy_frame(cursor, args.run_id, table_name, frame)
             insert_weights(cursor, args.run_id, windows)
@@ -510,7 +526,7 @@ def main() -> None:
             create_indexes_and_views(cursor)
             install_append_only_guards(cursor)
         connection.commit()
-    print(json.dumps({"database": "v312_research", "schema": "v312", "run_id": args.run_id}))
+    print(json.dumps({"database": database_name, "schema": "research", "run_id": args.run_id}))
 
 
 if __name__ == "__main__":

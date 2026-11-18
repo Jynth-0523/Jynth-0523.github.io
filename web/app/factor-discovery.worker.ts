@@ -472,7 +472,7 @@ async function auditDataset(config: ResearchConfig, job: number) {
   passedAuditFingerprint = passed ? auditFingerprint(config) : "";
   entitySets.clear();
   const result = {
-    schemaVersion: "browser-data-audit.v1",
+    schemaVersion: "browser-data-audit",
     generatedAt: new Date().toISOString(),
     passed,
     blockers,
@@ -1037,7 +1037,7 @@ async function runDiscovery(config: ResearchConfig, job: number) {
           };
 
   const result = {
-    schemaVersion: "browser-factor-discovery.v10",
+    schemaVersion: "browser-factor-discovery",
     generatedAt: new Date().toISOString(),
     source: {
       filename: uploadedFilename,
@@ -1096,7 +1096,7 @@ async function runDiscovery(config: ResearchConfig, job: number) {
     },
     assessment,
     validation: {
-      protocol: "frequency-aware-purged-hac-holm-cost-full-year-walk-forward-v4",
+      protocol: "frequency-aware-purged-hac-holm-cost-full-year-walk-forward",
       purge: {
         periodsPerBoundary: purgePeriods,
         totalPurgedPeriods: 2 * purgePeriods,

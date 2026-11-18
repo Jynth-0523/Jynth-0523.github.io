@@ -36,7 +36,7 @@ test("separates the public overview, example data, and real registry evidence", 
   assert.match(html, /Download the research contract/);
   assert.match(html, /0\.6765/);
   assert.match(html, /platform-preview\.png/);
-  assert.doesNotMatch(html, /V8|RESEARCH RELEASE|12 AUG 2026|wordmark-symbol|local edition/i);
+  assert.doesNotMatch(html, /development discovery|RESEARCH RELEASE|12 AUG 2026|wordmark-symbol|local edition/i);
   assert.doesNotMatch(html, /type="file"/);
 });
 
@@ -53,7 +53,7 @@ test("renders the separate discovery workspace with all usable features visible"
   assert.match(html, /type="file"/);
   assert.match(html, /Audit data/);
   assert.match(html, /Run discovery/);
-  assert.doesNotMatch(html, /Sample CSV|V8|local edition/i);
+  assert.doesNotMatch(html, /Sample CSV|development discovery|local edition/i);
   const browserWorker = await readFile(new URL("../public/factor-discovery.worker.js", import.meta.url), "utf8");
   const workspaceSource = (await Promise.all([
     "../app/upload-discovery-workspace.tsx", "../app/discovery/workspace-types.ts",

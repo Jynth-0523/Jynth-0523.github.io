@@ -117,7 +117,7 @@ def validate_tableau(recorder: Recorder, config: dict[str, Any], report_manifest
     expected_semantics = {
         "xml_valid": True,
         "source_tables": sorted(expected_tables),
-        "dashboard_names": ["V3.1.2 Final Walk-Forward Dashboard"],
+        "dashboard_names": identity["dashboard_names"],
         "password_embedded": False,
         "live_connection": True,
         "formal_shadow_separate": True,

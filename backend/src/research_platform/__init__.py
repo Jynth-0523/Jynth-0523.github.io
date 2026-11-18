@@ -1,4 +1,4 @@
-"""Independent read-only automation layer for the locked V3.1.2 run."""
+"""Independent read-only automation layer for the locked research run."""
 
 from .constants import ONLY_COMMAND_ID, PLATFORM_SCHEMA_VERSION
 

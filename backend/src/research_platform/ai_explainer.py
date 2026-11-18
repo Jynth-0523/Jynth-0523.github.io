@@ -88,7 +88,7 @@ def build_responses_request(payload: dict[str, Any], *, model: str) -> dict[str,
             "verbosity": "low",
             "format": {
                 "type": "json_schema",
-                "name": "v8_development_read_only_explanation",
+                "name": "development_read_only_explanation",
                 "strict": True,
                 "schema": EXPLANATION_SCHEMA,
             },

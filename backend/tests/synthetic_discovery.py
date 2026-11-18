@@ -1,4 +1,4 @@
-"""Synthetic V8-shaped fixtures; these are not empirical research results."""
+"""Synthetic development discovery-shaped fixtures; these are not empirical research results."""
 import hashlib
 import json
 import sys
@@ -12,8 +12,8 @@ def make_discovery_fixture(testcase):
     temporary = tempfile.TemporaryDirectory()
     testcase.addCleanup(temporary.cleanup)
     root = Path(temporary.name)
-    implementation = root / 'factor_discovery_stage_v8'
-    runtime = root / 'runtime/factor_discovery_v8'
+    implementation = root / 'factor_discovery'
+    runtime = root / 'runtime/factor_discovery'
     implementation.mkdir()
     runtime.mkdir(parents=True)
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -22,7 +22,7 @@ def make_discovery_fixture(testcase):
     config = json.loads((Path(__file__).resolve().parents[1]/'config/discovery_config.json').read_text())
     config['command']['python_path'] = sys.executable
     config['command']['project_root'] = str(root)
-    config['implementation_sha256'] = {'factor_discovery_stage_v8/run_discovery.py': digest(runner)}
+    config['implementation_sha256'] = {'factor_discovery/run_discovery.py': digest(runner)}
     ledger, screening, selected = [], [], []
     for i in range(1000):
         factor = f'synthetic_{i:04d}'
@@ -48,7 +48,7 @@ def make_discovery_fixture(testcase):
     result = {'research_spec_id': config['identity']['research_spec_id'],
               'feature_snapshot_identity': config['identity']['feature_snapshot_identity'],
               'formal_sample_accessed': False, 'formal_sample_authorized': False,
-              'v312_code_modified': False, 'state': 'SYNTHETIC_TEST_ONLY',
+              'locked_research_code_modified': False, 'state': 'SYNTHETIC_TEST_ONLY',
               'generated_at': '2000-01-01T00:00:00Z', 'calibration_passed': True,
               'calibration_threshold': .55, 'calibration': {'validation_confidence': .6},
               'quality_checks': {'status': 'PASS', 'duplicate_permno_pointdate_keys': 0,
@@ -56,9 +56,9 @@ def make_discovery_fixture(testcase):
               'candidate_count': 1000, 'train_hygiene_pass_count': 1000,
               'top_stability_count': 100, 'correlation_pruned_factor_count': 30,
               'selected_factors': selected, 'artifacts': {
-                  'candidate_ledger': 'runtime/factor_discovery_v8/candidate_ledger.json',
+                  'candidate_ledger': 'runtime/factor_discovery/candidate_ledger.json',
                   'candidate_ledger_sha256': digest(ledger_path),
-                  'train_screening': 'runtime/factor_discovery_v8/train_screening.parquet',
+                  'train_screening': 'runtime/factor_discovery/train_screening.parquet',
                   'train_screening_sha256': digest(screening_path)}}
     (runtime/'discovery_result.json').write_text(json.dumps(result))
     (root/'config').mkdir()

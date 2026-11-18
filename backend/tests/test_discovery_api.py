@@ -56,7 +56,7 @@ class DiscoveryApiTests(unittest.TestCase):
         self.assertEqual(captured["feature_columns"], ["value", "quality"])
         self.assertFalse(result["targets_shared"])
 
-    def test_locked_config_allows_only_v8_development_runner(self) -> None:
+    def test_locked_config_allows_only_reviewed_discovery_runner(self) -> None:
         config = load_discovery_config(default_config_path())
         self.assertEqual(config.bind_host, "127.0.0.1")
         self.assertEqual(config.runner_path.name, "run_discovery.py")

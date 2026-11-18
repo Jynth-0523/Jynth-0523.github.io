@@ -28,7 +28,7 @@ class FactorRegistryTests(unittest.TestCase):
         patcher.start()
         self.addCleanup(patcher.stop)
 
-    def test_snapshot_matches_the_locked_v8_component_structure(self) -> None:
+    def test_snapshot_matches_the_locked_component_structure(self) -> None:
         snapshot = current_snapshot()
         self.assertEqual(snapshot["summary"]["component_count"], 30)  # type: ignore[index]
         self.assertEqual(snapshot["summary"]["active_weight_count"], 25)  # type: ignore[index]

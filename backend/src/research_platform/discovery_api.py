@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any, Callable, Mapping
 
 from .ai_boundary import build_minimized_discovery_ai_input
+from .historical_contract import canonical_artifact_path, locked_research_is_unchanged
 from .ai_candidate_proposer import request_ollama_proposals
 from .ai_explainer import (
     AIExplanationError,
@@ -106,7 +107,7 @@ def load_discovery_config(path: Path, *, verify_hashes: bool = True) -> Discover
         "unsafe discovery API origin",
     )
     run_header = api.get("run_header")
-    _require(run_header == "run-v8-development-only", "wrong fixed run header")
+    _require(run_header == "run-development-discovery-only", "wrong fixed run header")
 
     python_setting = os.environ.get("PLATFORM_PYTHON", str(command.get("python_path", "")))
     python_path = Path(sys.executable if python_setting == "CURRENT_INTERPRETER" else python_setting)
@@ -116,33 +117,33 @@ def load_discovery_config(path: Path, *, verify_hashes: bool = True) -> Discover
     runner_relative = Path(str(command.get("runner_path", "")))
     result_relative = Path(str(command.get("result_path", "")))
     _require(python_path.is_absolute() and python_path.is_file(), "fixed Python interpreter is missing")
-    _require(project_root.is_absolute() and project_root.is_dir(), "fixed V8 project root is missing")
+    _require(project_root.is_absolute() and project_root.is_dir(), "fixed development discovery project root is missing")
     # A Python virtual environment normally exposes its interpreter as a
     # symlink. The allowlist locks the exact venv path; research source files
     # remain independently content-hash locked below.
     for relative, label in ((runner_relative, "runner"), (result_relative, "result")):
         _require(not relative.is_absolute() and ".." not in relative.parts, f"unsafe {label} path")
     _require(
-        runner_relative == Path("factor_discovery_stage_v8/run_discovery.py"),
-        "only the reviewed V8 discovery runner is allowlisted",
+        canonical_artifact_path(runner_relative.as_posix()) == "factor_discovery/run_discovery.py",
+        "only the reviewed development discovery runner is allowlisted",
     )
     _require(
-        result_relative == Path("runtime/factor_discovery_v8/discovery_result.json"),
-        "wrong V8 result path",
+        canonical_artifact_path(result_relative.as_posix()) == "runtime/factor_discovery/discovery_result.json",
+        "wrong development discovery result path",
     )
     runner_path = project_root / runner_relative
     result_path = project_root / result_relative
-    _require(runner_path.is_file() and not runner_path.is_symlink(), "V8 runner is missing or symlinked")
+    _require(runner_path.is_file() and not runner_path.is_symlink(), "development discovery runner is missing or symlinked")
     timeout_seconds = float(command.get("timeout_seconds", 0))
-    _require(30 <= timeout_seconds <= 900, "V8 timeout out of range")
+    _require(30 <= timeout_seconds <= 900, "development discovery timeout out of range")
 
     _require(
         identity.get("research_spec_id") == "v4_automatic_factor_discovery_v8_development_only_v1",
-        "wrong V8 research spec",
+        "wrong development discovery research spec",
     )
     _require(
         identity.get("allowed_roles") == ["train_discovery", "selection", "calibration"],
-        "V8 role allowlist changed",
+        "development discovery role allowlist changed",
     )
     _require(identity.get("formal_sample_allowed") is False, "Formal sample must remain forbidden")
     snapshot_identity = identity.get("feature_snapshot_identity")
@@ -208,25 +209,25 @@ def summarize_result(config: DiscoveryConfig) -> dict[str, Any]:
     try:
         result = json.loads(config.result_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        raise DiscoveryResultError(f"cannot read V8 result: {exc}") from exc
+        raise DiscoveryResultError(f"cannot read development discovery result: {exc}") from exc
     if result.get("research_spec_id") != config.research_spec_id:
-        raise DiscoveryResultError("V8 result research spec mismatch")
+        raise DiscoveryResultError("development discovery result research spec mismatch")
     if result.get("feature_snapshot_identity") != config.feature_snapshot_identity:
-        raise DiscoveryResultError("V8 result snapshot mismatch")
+        raise DiscoveryResultError("development discovery result snapshot mismatch")
     if result.get("formal_sample_accessed") is not False:
-        raise DiscoveryResultError("V8 result does not preserve Formal isolation")
-    if result.get("v312_code_modified") is not False:
-        raise DiscoveryResultError("V8 result reports a V3.1.2 modification")
+        raise DiscoveryResultError("development discovery result does not preserve Formal isolation")
+    if not locked_research_is_unchanged(result):
+        raise DiscoveryResultError("development discovery result reports a locked research modification")
     quality = result.get("quality_checks")
     calibration = result.get("calibration")
     if not isinstance(quality, dict) or quality.get("status") != "PASS":
-        raise DiscoveryResultError("V8 quality checks did not pass")
+        raise DiscoveryResultError("development discovery quality checks did not pass")
     if not isinstance(calibration, dict):
-        raise DiscoveryResultError("V8 calibration result missing")
+        raise DiscoveryResultError("development discovery calibration result missing")
     confidence = float(calibration.get("validation_confidence", math.nan))
     threshold = float(result.get("calibration_threshold", math.nan))
     if not np_isfinite(confidence) or not np_isfinite(threshold):
-        raise DiscoveryResultError("V8 calibration values are invalid")
+        raise DiscoveryResultError("development discovery calibration values are invalid")
     return {
         "result_state": str(result.get("state")),
         "calibration_passed": bool(result.get("calibration_passed")),
@@ -300,7 +301,7 @@ class DiscoveryController:
                 "state": "RUNNING",
                 "progress": 1,
                 "stage": "Verifying frozen implementation",
-                "message": "V8 development discovery only; Formal access is unavailable",
+                "message": "Development discovery only; Formal access is unavailable",
                 "started_at": _utc_now(),
                 "finished_at": None,
                 "result": self._status.get("result"),
@@ -386,10 +387,10 @@ class DiscoveryController:
         selector.close()
         exit_code = process.wait()
         if timed_out:
-            self._finish(state="BLOCKED", stage="Execution timed out", message="V8 exceeded the fixed 300-second limit and was stopped")
+            self._finish(state="BLOCKED", stage="Execution timed out", message="development discovery exceeded the fixed 300-second limit and was stopped")
             return
         if exit_code != 0:
-            self._finish(state="FAILED", stage="Execution failed", message=last_line or f"V8 exit code {exit_code}")
+            self._finish(state="FAILED", stage="Execution failed", message=last_line or f"development discovery exit code {exit_code}")
             return
         try:
             result = summarize_result(load_discovery_config(self.config_path))
@@ -403,7 +404,7 @@ class DiscoveryController:
 
 
 class AIExplanationController:
-    """Run one no-tool explanation against a minimized V8 summary."""
+    """Run one no-tool explanation against a minimized development discovery summary."""
 
     def __init__(
         self,
@@ -463,7 +464,7 @@ class AIExplanationController:
         self._status.update(
             state="READY",
             configured=True,
-            message="A read-only explanation is available for the latest V8 development summary",
+            message="A read-only explanation is available for the latest development discovery summary",
             model=self._model,
         )
 
@@ -498,7 +499,7 @@ class AIExplanationController:
             source_generated_at = result["generated_at"]
         except (DiscoveryConfigurationError, DiscoveryResultError, TypeError, ValueError):
             with self._lock:
-                self._status.update(state="BLOCKED", message="V8 result validation failed; AI explanation was not started")
+                self._status.update(state="BLOCKED", message="development discovery result validation failed; AI explanation was not started")
                 return False, json.loads(json.dumps(self._status))
         with self._lock:
             if self._status["state"] == "RUNNING":
@@ -589,7 +590,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
     ai_proposal_controller: AICandidateProposalController
     registry: FactorRegistryController
     config: DiscoveryConfig
-    server_version = "V312LocalDiscovery/1.1"
+    server_version = "ResearchDiscovery/1.1"
 
     def log_message(self, format: str, *args: object) -> None:
         return
@@ -623,7 +624,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header(
             "Access-Control-Allow-Headers",
-            "Content-Type, X-V312-Discovery, X-V312-AI, X-V312-Review",
+            "Content-Type, X-Research-Discovery, X-Research-AI, X-Research-Review",
         )
         self.send_header("Access-Control-Max-Age", "600")
         self.end_headers()
@@ -676,7 +677,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
             self._send(400, {"state": "DENIED", "message": "request body is too large"})
             return
         if self.path == "/api/discovery/run":
-            if self.headers.get("X-V312-Discovery") != self.config.run_header:
+            if self.headers.get("X-Research-Discovery") != self.config.run_header:
                 self._send(403, {"state": "DENIED", "message": "fixed discovery header missing"})
                 return
             if content_length > 0:
@@ -686,7 +687,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
             self._send(202 if accepted else 409, status)
             return
         if self.path == "/api/ai/explain":
-            if self.headers.get("X-V312-AI") != "explain-v8-summary-only":
+            if self.headers.get("X-Research-AI") != "explain-discovery-summary-only":
                 self._send(403, {"state": "DENIED", "message": "fixed AI header missing"})
                 return
             if content_length > 0:
@@ -696,7 +697,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
             self._send(202 if accepted else 409, status)
             return
         if self.path == "/api/ai/propose":
-            if self.headers.get("X-V312-AI") != "propose-v9-feature-labels-only":
+            if self.headers.get("X-Research-AI") != "propose-feature-labels-only":
                 self._send(403, {"state": "DENIED", "message": "fixed AI proposal header missing"})
                 return
             if content_length == 0 or self.headers.get_content_type() != "application/json":
@@ -721,7 +722,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
                 return
             self._send(200, {"state": "COMPLETED", **proposals})
             return
-        if self.headers.get("X-V312-Review") != "review-v8-components-only":
+        if self.headers.get("X-Research-Review") != "review-components-only":
             self._send(403, {"state": "DENIED", "message": "fixed review header missing"})
             return
         if self.path == "/api/candidates/freeze":
@@ -758,7 +759,7 @@ class DiscoveryRequestHandler(BaseHTTPRequestHandler):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="v312-discovery-api")
+    parser = argparse.ArgumentParser(prog="research-discovery-api")
     parser.add_argument("--config", type=Path, default=default_config_path())
     args = parser.parse_args(argv)
     config = load_discovery_config(args.config)
