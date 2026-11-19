@@ -173,7 +173,9 @@ relative to the repository and verifies its hash. To inspect your own authorized
 copy of the locked historical archive, set the individual archive, research-file,
 workbook, and database locations listed in `.env.example` and
 `health_check/health_check_config.json`. `PGSCHEMA` selects the existing schema;
-the read-only checker does not rename or migrate it. Use local PostgreSQL authentication.
+the read-only checker does not rename or migrate it. The `ARCHIVE_*` metadata
+settings specify the user's own source identity and dashboard title separately
+from the descriptive public validation profile. Use local PostgreSQL authentication.
 Do not put passwords in source files or command-line arguments.
 
 `database/import_locked_run.py` is an explicit administrative importer for a
@@ -184,6 +186,8 @@ The importer accepts `--source-file`, `--test-file`, and `--backup-file` relativ
 to `--project-root`, plus `--comparison-file` relative to `--source-root` (absolute
 paths also work). Set these to your existing authorized files; do not rename or
 edit a frozen archive to match the descriptive example defaults.
+Its required `--research-spec-id` is checked against the input CSV and stored
+unchanged; the importer never substitutes a public display label for a source ID.
 
 `tableau/research_dashboard_template.twb` is a sanitized derivative of the historical
 workbook. Set your own PostgreSQL connection and authentication in Tableau. It
@@ -199,8 +203,8 @@ specified by `DISCOVERY_ENGINE_ROOT`, matching the frozen hashes in
 is needed, and `ENABLE_LOCAL_DISCOVERY_API=1` only after configuring that integration.
 The frozen private runner was not found in the inspected platform folders. When
 connecting an existing authorized copy, configure its actual relative paths and
-unchanged hash manifest. The compatibility adapter recognizes the original
-artifact-directory labels without rewriting frozen files. This integration stays
+unchanged hash manifest. Optional `DISCOVERY_*` settings in `.env.example` map
+external metadata fields and directory names without rewriting source files. This integration stays
 blocked until the external files and hashes are valid.
 
 ## Repository map
@@ -219,9 +223,9 @@ See [`docs/file_inventory.md`](docs/file_inventory.md) for every published file 
 [`docs/source_manifest.json`](docs/source_manifest.json) for source-to-release
 categories and hashes. Files and package directories are named for their purpose,
 not a release number. Statistics, candidate formulas, portfolio evidence, charts,
-exports, and historical asset checks are separate modules. Historical research
-IDs and explicitly isolated compatibility fields retain their original
-identities for auditability; they are not publication filenames or branding. See
+exports, and historical asset checks are separate modules. Public identifiers also
+use descriptive names, with no project-release labels embedded in source. Optional
+external metadata is configured locally, not hard-coded into the repository. See
 [`docs/compatibility.md`](docs/compatibility.md). Dependency
 lockfiles, Tableau XML, and the generated browser-worker bundle are machine
 artifacts rather than large hand-maintained source modules.

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 import unittest
 from synthetic_discovery import make_discovery_fixture
@@ -22,6 +23,18 @@ from research_platform.discovery_api import (
 
 
 class DiscoveryApiTests(unittest.TestCase):
+    def test_explicit_source_spec_does_not_relabel_the_external_result(self):
+        config = load_discovery_config(self.fixture_path)
+        payload = json.loads(config.result_path.read_text(encoding='utf-8'))
+        payload['research_spec_id'] = 'synthetic_external_spec'
+        config.result_path.write_text(json.dumps(payload), encoding='utf-8')
+        with self.assertRaises(DiscoveryResultError):
+            summarize_result(config)
+        with patch.dict(os.environ, {'DISCOVERY_SOURCE_SPEC_ID': 'synthetic_external_spec'}):
+            configured = load_discovery_config(self.fixture_path)
+            self.assertTrue(summarize_result(configured)['calibration_passed'])
+        self.assertEqual(json.loads(config.result_path.read_text())['research_spec_id'], 'synthetic_external_spec')
+
     def setUp(self):
         self.fixture_path = make_discovery_fixture(self)
         patcher = patch(__name__ + '.default_config_path', return_value=self.fixture_path)

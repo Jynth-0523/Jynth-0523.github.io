@@ -17,9 +17,6 @@ from psycopg import sql
 from psycopg.types.json import Jsonb
 
 
-FINAL_RESEARCH_SPEC_ID = (
-    "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3"
-)
 EXPECTED_WINDOWS = 23
 EXPECTED_RESULT_COLUMNS = 72
 MIN_CROSS_SECTION = 50
@@ -243,6 +240,7 @@ def insert_run(
     source_path: Path,
     test_path: Path,
     backup_path: Path,
+    research_spec_id: str,
 ) -> None:
     cursor.execute(
         "SELECT 1 FROM research.research_runs WHERE run_id = %s",
@@ -251,7 +249,7 @@ def insert_run(
     if cursor.fetchone() is not None:
         raise ValueError(f"Immutable run_id already exists: {run_id}")
     spec_ids = set(windows["research_spec_id"].dropna().astype(str))
-    if spec_ids != {FINAL_RESEARCH_SPEC_ID}:
+    if spec_ids != {research_spec_id}:
         raise ValueError(f"Unexpected research_spec_id values: {sorted(spec_ids)}")
     if windows.shape != (EXPECTED_WINDOWS, EXPECTED_RESULT_COLUMNS):
         raise ValueError(
@@ -271,7 +269,7 @@ def insert_run(
         """,
         (
             run_id,
-            FINAL_RESEARCH_SPEC_ID,
+            research_spec_id,
             str(source_root),
             EXPECTED_WINDOWS,
             len(windows),
@@ -488,6 +486,8 @@ def main() -> None:
     parser.add_argument("--comparison-file", type=Path, default=Path("results/model_comparison.csv"),
                         help="Comparison CSV path, absolute or relative to --source-root. Configure the existing file; do not rename a locked archive.")
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--research-spec-id", required=True,
+                        help="Exact specification ID from the authorized source archive; verified and stored without relabeling.")
     parser.add_argument(
         "--dsn",
         default="",
@@ -516,6 +516,7 @@ def main() -> None:
                 source_path=source_paths["source_file"],
                 test_path=source_paths["test_file"],
                 backup_path=source_paths["backup_file"],
+                research_spec_id=args.research_spec_id,
             )
             for relative_path, table_name in CSV_TABLES.items():
                 frame = load_csv(comparison_path if table_name == "model_comparison" else source_root / relative_path)

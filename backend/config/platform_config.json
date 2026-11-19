@@ -7,8 +7,8 @@
     "health_status_path": "../health_check/latest_health_status.json"
   },
   "identity": {
-    "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
-    "run_id": "v312_final_walkforward_v3_yCFdQy",
+    "research_spec_id": "two_stage_validation_hac_holm_missing_aware",
+    "run_id": "locked_walk_forward_archive",
     "canonical_rows": 23,
     "canonical_columns": 72,
     "windows": [
@@ -64,6 +64,9 @@
     "TMPDIR",
     "PLATFORM_PYTHON",
     "RESEARCH_ASSETS_ROOT",
+    "ARCHIVE_RESEARCH_SPEC_ID",
+    "ARCHIVE_RUN_ID",
+    "ARCHIVE_DASHBOARD_NAME",
     "RESEARCH_ARCHIVE_DIR",
     "LOCKED_RESEARCH_SOURCE",
     "LOCKED_RESEARCH_TESTS",

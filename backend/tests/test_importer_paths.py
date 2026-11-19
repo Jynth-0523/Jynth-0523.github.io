@@ -38,7 +38,7 @@ class ImporterPathsTests(unittest.TestCase):
             for path in files:
                 path.touch()
             argv = ['import_locked_run.py', '--source-root', str(root), '--project-root', str(root),
-                    '--run-id', 'synthetic', '--source-file', files[0].name,
+                    '--run-id', 'synthetic', '--research-spec-id', 'synthetic_source_spec', '--source-file', files[0].name,
                     '--test-file', str(files[1]), '--backup-file', files[2].name,
                     '--comparison-file', files[3].name]
             with patch.object(sys, 'argv', argv), contextlib.redirect_stdout(io.StringIO()):
@@ -48,13 +48,14 @@ class ImporterPathsTests(unittest.TestCase):
             self.assertEqual(call['source_path'], files[0].resolve())
             self.assertEqual(call['test_path'], files[1].resolve())
             self.assertEqual(call['backup_path'], files[2].resolve())
+            self.assertEqual(call['research_spec_id'], 'synthetic_source_spec')
             namespace['load_csv'].assert_any_call(files[3].resolve())
 
     def test_missing_files_block_before_database_connection(self):
         namespace = isolated_main()
         with tempfile.TemporaryDirectory() as directory:
             argv = ['import_locked_run.py', '--source-root', directory,
-                    '--project-root', directory, '--run-id', 'synthetic']
+                    '--project-root', directory, '--run-id', 'synthetic', '--research-spec-id', 'synthetic_source_spec']
             with patch.object(sys, 'argv', argv), contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
                 namespace['main']()
             self.assertEqual(error.exception.code, 2)

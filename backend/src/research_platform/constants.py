@@ -5,9 +5,9 @@ ONLY_COMMAND_ID = "locked_research_health_check"
 ALLOWED_HEALTH_STATUSES = frozenset({"PASS", "FAIL", "BLOCKED"})
 
 LOCKED_RESEARCH_SPEC_ID = (
-    "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3"
+    "two_stage_validation_hac_holm_missing_aware"
 )
-LOCKED_RUN_ID = "v312_final_walkforward_v3_yCFdQy"
+LOCKED_RUN_ID = "locked_walk_forward_archive"
 
 FORBIDDEN_AI_FIELD_TOKENS = frozenset(
     {

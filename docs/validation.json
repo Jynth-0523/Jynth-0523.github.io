@@ -38,7 +38,7 @@
     },
     "python_unittest": {
       "status": "PASS",
-      "tests": 69,
+      "tests": 71,
       "failures": 0,
       "skipped": 0
     },
@@ -103,6 +103,11 @@
         "e781a06490b099e899fe602b07e887a824d8f083b8fd2025e2093ec3a0297891",
         "892cde6913457fd53143897ff48f43dade403521969288b2c9b58600f9061d65"
       ]
+    },
+    "public_project_version_labels": {
+      "status": "PASS",
+      "matches": 0,
+      "scope": "Current published filenames, source, configuration, fixtures, documentation, and workbook labels; third-party API routes and XML syntax are not project names."
     }
   },
   "not_executed": [

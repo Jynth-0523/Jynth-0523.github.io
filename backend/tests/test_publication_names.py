@@ -21,5 +21,8 @@ class PublicationNamesTests(unittest.TestCase):
             text = path.read_text(encoding='utf-8')
             self.assertNotRegex(text, r'/(?:Users|home)/[^/\s]+/', str(path.relative_to(ROOT)))
             self.assertNotRegex(text, r'[\u3400-\u9fff]', str(path.relative_to(ROOT)))
+            # These two strings are external format/API syntax, not project names.
+            naming_text = text.replace('type-v2=', 'type=').replace('https://api.openai.com/v1/responses', '')
+            self.assertNotRegex(naming_text, r'(?i)(?:^|[^a-z0-9])v[0-9]+(?:[._][0-9]+)*(?:[^a-z0-9]|$)', str(path.relative_to(ROOT)))
             checked += 1
         self.assertGreater(checked, 80)

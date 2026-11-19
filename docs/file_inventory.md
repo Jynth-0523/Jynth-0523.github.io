@@ -1,6 +1,6 @@
 # Published file inventory
 
-File names describe responsibilities. Original source hashes are retained in the provenance manifest. Exact historical identities and narrowly scoped read-only compatibility labels are documented in [compatibility.md](compatibility.md).
+File names and public identifiers describe responsibilities. Original source hashes are retained in the provenance manifest. Optional external metadata configuration is documented in [compatibility.md](compatibility.md).
 
 | File | Purpose |
 | --- | --- |

@@ -99,7 +99,7 @@ def validate_tableau(recorder: Recorder, config: dict[str, Any], report_manifest
         recorder.blocked("tableau.validation_semantics", "valid validation_report JSON", type(exc).__name__, {"path": str(validation_path)}, f"Cannot parse validation_report: {exc}", "tableau")
         return summary
 
-    identity = config["identity"]
+    identity = {**config["identity"], **config["archive_identity"]}
     expected_tables = [view.split(".", 1)[1] for view in config["database"]["views"]]
     expected_counts = {
         "walk_forward_rows": 23,

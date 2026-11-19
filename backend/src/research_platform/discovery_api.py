@@ -138,7 +138,7 @@ def load_discovery_config(path: Path, *, verify_hashes: bool = True) -> Discover
     _require(30 <= timeout_seconds <= 900, "development discovery timeout out of range")
 
     _require(
-        identity.get("research_spec_id") == "v4_automatic_factor_discovery_v8_development_only_v1",
+        identity.get("research_spec_id") == "automatic_factor_discovery_development_only",
         "wrong development discovery research spec",
     )
     _require(
@@ -173,7 +173,7 @@ def load_discovery_config(path: Path, *, verify_hashes: bool = True) -> Discover
         port=port,
         allowed_origins=tuple(origins),
         run_header=run_header,
-        research_spec_id=str(identity["research_spec_id"]),
+        research_spec_id=os.environ.get("DISCOVERY_SOURCE_SPEC_ID", str(identity["research_spec_id"])),
         feature_snapshot_identity=str(snapshot_identity),
         implementation_sha256=normalized_hashes,
     )

@@ -6,19 +6,26 @@ or the script itself, not from the author's home directory. External assets are
 configured explicitly. Downloading the public repository does not download paid
 research data, a private research engine, or a PostgreSQL archive.
 
-## Deliberate exceptions
+## Public names and external metadata
 
-- Frozen research-specification and run identifiers are exact historical facts.
-  They remain unchanged in validators, configuration, and synthetic fixtures.
-  Renaming them would falsely label an existing result as a different research run.
-- The historical workbook's expected dashboard title remains in the read-only
-  audit configuration because it belongs to the hash-locked original. The public
-  workbook template uses descriptive names instead.
-- `backend/src/research_platform/historical_contract.py` recognizes the original
-  modification flag and artifact-directory labels. Conflicting old/new flags fail
-  closed. It never modifies the source artifacts.
-- Dependency versions, API-standard versions, and Tableau XML attribute names
-  remain intact because they define compatibility, not project branding.
+Public specification labels, validation-profile IDs, fixtures, and workbook labels
+use descriptive names. No project-release labels are hard-coded in published files.
+These public names identify software profiles, not a newly executed historical run.
+
+Optional archive checks use `ARCHIVE_RESEARCH_SPEC_ID`, `ARCHIVE_RUN_ID`, and
+`ARCHIVE_DASHBOARD_NAME` supplied locally. They compare the exact source metadata;
+hash and Formal/Shadow checks remain in force. A health report includes the source
+metadata separately as `source_archive_identity`. Missing settings block the check.
+
+The optional discovery adapter accepts `DISCOVERY_SOURCE_SPEC_ID`,
+`DISCOVERY_MODIFICATION_FIELD`, `DISCOVERY_IMPLEMENTATION_DIRECTORY`, and
+`DISCOVERY_RESULT_DIRECTORY` for an explicitly configured external source.
+Paths must remain within the reviewed layout and implementation hashes still
+must match. Conflicting modification flags fail closed. No source file is renamed
+or rewritten by this adapter. The browser workspace needs none of these settings.
+
+Dependency constraints, external API routes, and Tableau XML syntax remain intact;
+they are required third-party compatibility information, not project names.
 
 The public SQL importer creates objects in `research` in a separately authorized
 database. It is never invoked by normal startup or tests. The historical checker
@@ -27,7 +34,7 @@ was renamed, migrated, or written during this cleanup.
 
 ## Existing local state
 
-Public health-field and review-schema labels changed in this cleanup. Keep an
+Public profile, health-field, and review-schema labels changed in this cleanup. Keep an
 existing runtime directory as an archive and use a fresh runtime directory with
 the new public package. Do not rewrite old hash-linked run envelopes or frozen
 review records to match the new labels. Old research outputs remain unchanged;

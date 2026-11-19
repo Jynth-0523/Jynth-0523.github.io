@@ -2,9 +2,8 @@
   "config_version": "1.0",
   "health_check_directory": ".",
   "identity": {
-    "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
-    "run_id": "v312_final_walkforward_v3_yCFdQy",
-    "dashboard_names": ["V3.1.2 Final Walk-Forward Dashboard"],
+    "research_spec_id": "two_stage_validation_hac_holm_missing_aware",
+    "run_id": "locked_walk_forward_archive",
     "canonical_rows": 23,
     "canonical_columns": 72,
     "windows": [
@@ -42,6 +41,11 @@
     "formal_shadow_overlap": 0,
     "neither_oos_non_null": 0,
     "information_set_diagnostic_columns": 33
+  },
+  "archive_identity": {
+    "research_spec_id": "${ARCHIVE_RESEARCH_SPEC_ID}",
+    "run_id": "${ARCHIVE_RUN_ID}",
+    "dashboard_names": ["${ARCHIVE_DASHBOARD_NAME}"]
   },
   "paths": {
     "handoff": "${RESEARCH_ASSETS_ROOT}/handoff.md",

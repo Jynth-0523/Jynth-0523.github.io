@@ -23,7 +23,7 @@ from typing import Any, Iterable
 from audit_common import Recorder, add_locked_file_check, is_null_text, json_load, parse_sha256sums, relative_path_is_safe
 
 def validate_canonical_csv(recorder: Recorder, config: dict[str, Any], archive_dir: Path) -> None:
-    identity = config["identity"]
+    identity = {**config["identity"], **config["archive_identity"]}
     path = archive_dir / "results" / "walk_forward_all_results.csv"
     try:
         with path.open("r", encoding="utf-8", newline="") as handle:
@@ -127,7 +127,7 @@ def validate_archive(recorder: Recorder, config: dict[str, Any]) -> dict[str, An
         recorder.blocked("archive.inventory", "valid JSON archive manifest", type(exc).__name__, {"path": str(manifest_path)}, f"Cannot parse archive manifest: {exc}", "files")
         return None
 
-    identity = config["identity"]
+    identity = {**config["identity"], **config["archive_identity"]}
     manifest_identity_actual = {
         "research_spec_id": manifest.get("research_spec_id"),
         "run_id": manifest.get("run_id"),

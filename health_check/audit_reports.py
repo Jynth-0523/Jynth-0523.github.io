@@ -43,7 +43,7 @@ def validate_report_package(recorder: Recorder, config: dict[str, Any]) -> dict[
         recorder.blocked("report.outputs", "valid report manifest JSON", type(exc).__name__, {"path": str(manifest_path)}, f"Cannot parse report manifest: {exc}", "files")
         return None
 
-    identity = config["identity"]
+    identity = {**config["identity"], **config["archive_identity"]}
     research = manifest.get("research_identity", {})
     actual_identity = {
         "research_spec_id": research.get("research_spec_id"),

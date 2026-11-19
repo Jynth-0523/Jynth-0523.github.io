@@ -58,7 +58,7 @@ def decimal_or_none(value: str) -> Decimal | None:
 
 def run_database_checks(recorder: Recorder, config: dict[str, Any]) -> dict[str, Any]:
     database = config["database"]
-    identity = config["identity"]
+    identity = {**config["identity"], **config["archive_identity"]}
     schema = database["schema"]
     if not isinstance(schema, str) or not re.fullmatch(r"[a-z_][a-z0-9_]*", schema):
         recorder.blocked("database.schema", "safe configured PostgreSQL schema", None, {}, "Unsafe schema; no database query was executed.", "database")

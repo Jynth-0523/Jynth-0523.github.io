@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "checked_at": "2026-08-07T21:05:14+08:00",
   "overall_status": "PASS",
-  "research_spec_id": "v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3",
-  "run_id": "v312_final_walkforward_v3_yCFdQy",
+  "research_spec_id": "two_stage_validation_hac_holm_missing_aware",
+  "run_id": "locked_walk_forward_archive",
   "checks": [{"check_id": "fixture.null_coercion", "status": "PASS", "category": "semantic", "message": "unsafe", "expected": true, "actual": false, "evidence": {}}],
   "canonical_result_identity": {
     "rows": 23,

@@ -175,6 +175,8 @@ def run_health_check() -> int:
         "duration_seconds": round(duration, 6),
         "research_spec_id": config["identity"]["research_spec_id"],
         "run_id": config["identity"]["run_id"],
+        "identity_scope": "public_validation_profile",
+        "source_archive_identity": config["archive_identity"],
         "canonical_result_identity": {
             "rows": config["identity"]["canonical_rows"],
             "columns": config["identity"]["canonical_columns"],

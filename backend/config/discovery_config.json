@@ -17,7 +17,7 @@
     "timeout_seconds": 300
   },
   "identity": {
-    "research_spec_id": "v4_automatic_factor_discovery_v8_development_only_v1",
+    "research_spec_id": "automatic_factor_discovery_development_only",
     "feature_snapshot_identity": "f53ccb542c9f9ccd7d15eb4b31ec9b68f56ba14d2f628bed40cdcbc36a9d5ef9",
     "allowed_roles": [
       "train_discovery",

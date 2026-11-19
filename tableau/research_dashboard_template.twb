@@ -3249,7 +3249,7 @@ Adjusted Confidence: &lt;[federated.research_validation_candidates].[avg:validat
           <zone h="5500" id="2" type-v2="title" w="100000" x="0" y="0" />
           <zone h="6500" id="3" type-v2="text" w="100000" x="0" y="5500">
             <formatted-text>
-              <run fontname="Tableau Regular" fontsize="10">Research Spec: v312_two_stage_validation_hac_holm_full_grid_missing_aware_v3
+              <run fontname="Tableau Regular" fontsize="10">Research Spec: two_stage_validation_hac_holm_missing_aware
 23 complete walk-forward windows. Formal OOS is report-only. Shadow OOS is post-hoc diagnostic only. Neither may be used for further model tuning.</run>
             </formatted-text>
           </zone>
